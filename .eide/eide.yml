@@ -1,0 +1,194 @@
+version: "4.1"
+name: Lora
+type: ARM
+deviceName: STM32F103C8
+packDir: .pack/Keil/STM32F1xx_DFP.2.2.0
+srcDirs:
+  - user
+  - Driver
+  - Components
+  - Middleware
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: startup
+      files:
+        - path: startup/startup_stm32f10x_md.s
+      folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: 113430a8c000083ac72f7325ae701a99
+targets:
+  default:
+    cppPreprocessAttrs:
+      defineList:
+        - STM32F10X_MD
+      incList:
+        - .
+        - user/inc
+        - .cmsis/include
+        - RTE/_default
+        - Driver/BSP/delay
+        - Driver/BSP/hi2c
+        - Driver/BSP/led
+        - Driver/BSP/si2c
+        - Driver/BSP/spi
+        - Driver/BSP/sys
+        - Driver/BSP/uart
+        - Driver/std_periph_driver/inc
+        - Components/bh1750
+        - Components/buzzer
+        - Components/key
+        - Components/oled
+        - Components/sht30
+        - Middleware/lora
+        - Middleware/nbiot
+      libList: []
+    excludeList:
+      - <virtual_root>/my_lib/atk_mw1278d_usart.c
+      - <virtual_root>/my_lib/lora.c
+      - <virtual_root>/my_lib/lora_usart.c
+      - <virtual_root>/user/demo.c
+      - <virtual_root>/lib/delay.c
+      - <virtual_root>/lib/i2c.c
+      - <virtual_root>/lib/key.c
+      - <virtual_root>/lib/led.c
+      - <virtual_root>/lib/oled.c
+      - <virtual_root>/lib/si2c.c
+      - <virtual_root>/lib/sys.c
+      - <virtual_root>/lib/usart.c
+      - Driver/CMSIS/startup
+      - <virtual_root>/std_periph_driver
+    settings:
+      debugger: cortex-debug
+    toolchain: AC5
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M3
+        floatingPointHardware: none
+        options:
+          version: 4
+          afterBuildTasks: []
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --no-multibyte-chars
+            C_FLAGS: --no-multibyte-chars
+            c99-mode: true
+            gnu-extensions: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: all-warnings
+          global:
+            output-debug-info: enable
+            use-microLIB: true
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            output-format: elf
+            ro-base: "0x08000000"
+            rw-base: "0x20000000"
+        scatterFilePath: ""
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x5000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x10000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: false
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: "null"
+          vendor: "null"
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: stlink
+        target: stm32f1x
+      STLink:
+        address: "0x8000000"
+        bin: ""
+        elFile: None
+        optionBytes: .eide/default.st.option.bytes.ini
+        otherCmds: ""
+        proType: SWD
+        resetMode: default
+        runAfterProgram: true
+        speed: 4000
+    uploader: OpenOCD

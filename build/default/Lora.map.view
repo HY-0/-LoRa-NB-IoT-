@@ -1,0 +1,6 @@
+tool: AC5
+fileName: 'Lora.map'
+elfName: 'Lora.axf'
+compilerName: 'ARM Compiler'
+compilerFullName: 'Component: ARM Compiler 5.06 update 5 (build 528)'
+compilerPath: 'F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe'

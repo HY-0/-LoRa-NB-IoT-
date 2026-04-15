@@ -1,0 +1,4 @@
+arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\HY\AppData\Local\Temp\Lora_TVFr9zcH.bin"  "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\build\default/Lora.axf" "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\build\default/Lora.elf"
+
+arm-none-eabi-objcopy: e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\build\default/Lora.elf: warning: allocated section `RW_IRAM1' not in segment
+
