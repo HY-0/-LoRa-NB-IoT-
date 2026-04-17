@@ -4,18 +4,14 @@ type: ARM
 deviceName: STM32F103C8
 packDir: .pack/Keil/STM32F1xx_DFP.2.2.0
 srcDirs:
-  - user
   - Driver
   - Components
   - Middleware
+  - Application
 virtualFolder:
   name: <virtual_root>
   files: []
-  folders:
-    - name: startup
-      files:
-        - path: startup/startup_stm32f10x_md.s
-      folders: []
+  folders: []
 dependenceList: []
 outDir: build
 miscInfo:
@@ -27,12 +23,11 @@ targets:
         - STM32F10X_MD
       incList:
         - .
-        - user/inc
+        - Application/inc
         - .cmsis/include
         - RTE/_default
         - Driver/BSP/delay
         - Driver/BSP/hi2c
-        - Driver/BSP/led
         - Driver/BSP/si2c
         - Driver/BSP/spi
         - Driver/BSP/sys
@@ -45,6 +40,8 @@ targets:
         - Components/sht30
         - Middleware/lora
         - Middleware/nbiot
+        - Components/led
+        - Driver/CMSIS
       libList: []
     excludeList:
       - <virtual_root>/my_lib/atk_mw1278d_usart.c
@@ -61,6 +58,10 @@ targets:
       - <virtual_root>/lib/usart.c
       - Driver/CMSIS/startup
       - <virtual_root>/std_periph_driver
+      - <virtual_root>/startup
+      - Application/src/data_acquisition_transmission.c
+      - Application/src/nbiot_demo.c
+      - Middleware/nbiot
     settings:
       debugger: cortex-debug
     toolchain: AC5

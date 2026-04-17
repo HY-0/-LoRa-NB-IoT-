@@ -3,15 +3,13 @@
 
 OLED_TypeDef oled;
 
-//
-// @简介：OLED初始化
-//
-// @参数：oled - OLED显示器的句柄
-//
-// @返回值：0 - 成功，
-//         -1 - 数据发送失败
-//         -2 - 缓冲区分配失败
-//
+/**
+ * @brief       OLED初始化
+ * @param       oled - OLED显示器的句柄
+ * @retval      0 - 成功
+ *              -1 - 数据发送失败
+ *              -2 - 缓冲区分配失败
+ */
 int oled_hw_init(OLED_TypeDef *oled, OLED_InitTypeDef *oled_init_struct)
 {
     oled->i2c_write_cb = oled_init_struct->i2c_write_cb;
@@ -104,14 +102,14 @@ void oled_show(OLED_TypeDef *oled, int16_t x, int16_t y, uint32_t xms, const cha
     delay_ms(xms);
 }
 
-//
-// @简介：设置剪切区域
-// @参数：oled - OLED显示器的句柄
-// @参数：x - 剪切区域左上角的横坐标
-// @参数：y - 剪切区域左上角的纵坐标
-// @参数：width - 剪切区域宽度
-// @参数：height - 剪切区域高度
-//
+/**
+ * @brief       设置剪切区域
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 剪切区域左上角的横坐标
+ * @param       y - 剪切区域左上角的纵坐标
+ * @param       width - 剪切区域宽度
+ * @param       height - 剪切区域高度
+ */
 void oled_start_clip_region(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t width, uint16_t height)
 {
     oled->ClipRegionX = x;
@@ -120,10 +118,10 @@ void oled_start_clip_region(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t w
     oled->ClipRegionHeight = height;
 }
 
-//
-// @简介：关闭剪切区域
-// @参数：oled - OLED显示器的句柄
-//
+/**
+ * @brief       关闭剪切区域
+ * @param       oled - OLED显示器的句柄
+ */
 void oled_stop_clip_region(OLED_TypeDef *oled)
 {
     oled->ClipRegionX = 0;
@@ -132,162 +130,164 @@ void oled_stop_clip_region(OLED_TypeDef *oled)
     oled->ClipRegionHeight = 0;
 }
 
-//
-// @简介：获取屏幕的宽度
-// @返回值：屏幕宽度，单位：像素
-//
+/**
+ * @brief       获取屏幕的宽度
+ * @param       oled - OLED显示器的句柄
+ * @retval      屏幕宽度，单位：像素
+ */
 uint16_t oled_get_screen_width(OLED_TypeDef *oled)
 {
     return OLED_SCREEN_COLS;
 }
 
-//
-// @简介：获取屏幕高度
-// @返回值：屏幕高度，单位：像素
-//
+/**
+ * @brief       获取屏幕高度
+ * @param       oled - OLED显示器的句柄
+ * @retval      屏幕高度，单位：像素
+ */
 uint16_t oled_get_screen_height(OLED_TypeDef *oled)
 {
     return OLED_SCREEN_ROWS;
 }
 
-//
-// @简介：清空缓冲区内容
-// @参数：oled - 显示器的句柄
-//
+/**
+ * @brief       清空缓冲区内容
+ * @param       oled - OLED显示器的句柄
+ */
 void oled_clear(OLED_TypeDef *oled)
 {
     memset(oled->pBuffer, 0, OLED_SCREEN_COLS * OLED_SCREEN_PAGES);
 }
 
-//
-// @简介：设置字体
-// @参数：oled - 显示器的句柄
-// @参数：font - 字体，如果要使用默认字体，可填写&default_font
-//
+/**
+ * @brief       设置字体
+ * @param       oled - OLED显示器的句柄
+ * @param       font - 字体，如果要使用默认字体，可填写&default_font
+ */
 void oled_set_font(OLED_TypeDef *oled, const Font_TypeDef *font)
 {
     oled->Font = font;
 }
 
-//
-// @简介：设置画笔的颜色和宽度
-// @参数：oled - 显示器的句柄
-// @参数：pen_color - 画笔颜色
-//             PEN_COLOR_TRANSPARENT - 透明
-//             PEN_COLOR_WHITE - 白色
-//             PEN_COLOR_BLACK - 黑色
-// @参数：width - 画笔宽度
-//
+/**
+ * @brief       设置画笔的颜色和宽度
+ * @param       oled - OLED显示器的句柄
+ * @param       pen_color - 画笔颜色
+ *                 PEN_COLOR_TRANSPARENT - 透明
+ *                 PEN_COLOR_WHITE - 白色
+ *                 PEN_COLOR_BLACK - 黑色
+ * @param       width - 画笔宽度
+ */
 void oled_set_pen(OLED_TypeDef *oled, uint8_t pen_color, uint8_t width)
 {
     oled->PenColor = pen_color;
     oled->PenWidth = width;
 }
 
-//
-// @简介：设置画刷
-// @参数：oled - 显示器的句柄
-// @参数：brush_color - 画刷颜色
-//             BRUSH_TRANSPARENT - 透明
-//             BRUSH_WHITE - 白色
-//             BRUSH_BLACK - 黑色
-//
+/**
+ * @brief       设置画刷
+ * @param       oled - OLED显示器的句柄
+ * @param       brush_color - 画刷颜色
+ *                 BRUSH_TRANSPARENT - 透明
+ *                 BRUSH_WHITE - 白色
+ *                 BRUSH_BLACK - 黑色
+ */
 void oled_set_brush(OLED_TypeDef *oled, uint8_t brush_color)
 {
     oled->Brush = brush_color;
 }
 
-//
-// @简介：将光标设置到坐标点（x，y）处
-// @参数：oled - 显示器的句柄
-// @参数：x - 光标横坐标
-// @参数：y - 光标纵坐标
-//
+/**
+ * @brief       将光标设置到坐标点（x，y）处
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 光标横坐标
+ * @param       y - 光标纵坐标
+ */
 void oled_set_cursor(OLED_TypeDef *oled, int16_t x, int16_t y)
 {
     oled->CursorX = x;
     oled->CursorY = y;
 }
 
-//
-// @简介：将光标的横坐标设置到x处
-// @参数：oled - 显示器的句柄
-// @参数：x - 光标横坐标
-//
+/**
+ * @brief       将光标的横坐标设置到x处
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 光标横坐标
+ */
 void oled_set_cursor_x(OLED_TypeDef *oled, int16_t x)
 {
     oled->CursorX = x;
 }
 
-//
-// @简介：将光标的纵坐标设置到y处
-// @参数：oled - 显示器的句柄
-// @参数：y - 光标纵坐标
-//
+/**
+ * @brief       将光标的纵坐标设置到y处
+ * @param       oled - OLED显示器的句柄
+ * @param       y - 光标纵坐标
+ */
 void oled_set_cursor_y(OLED_TypeDef *oled, int16_t y)
 {
     oled->CursorY = y;
 }
 
-//
-// @简介：移动光标
-// @参数：oled - 显示器的句柄
-// @参数：dx - 横向移动的距离
-// @参数：dy - 纵向移动的距离
-//
+/**
+ * @brief       移动光标
+ * @param       oled - OLED显示器的句柄
+ * @param       dx - 横向移动的距离
+ * @param       dy - 纵向移动的距离
+ */
 void oled_move_cursor(OLED_TypeDef *oled, int16_t dx, int16_t dy)
 {
     oled->CursorX += dx;
     oled->CursorY += dy;
 }
 
-//
-// @简介：横向移动光标
-// @参数：oled - 显示器的句柄
-// @参数：dx - 横向移动的距离
-//
+/**
+ * @brief       横向移动光标
+ * @param       oled - OLED显示器的句柄
+ * @param       dx - 横向移动的距离
+ */
 void oled_move_cursor_x(OLED_TypeDef *oled, int16_t dx)
 {
     oled->CursorX += dx;
 }
 
-//
-// @简介：纵向移动光标
-// @参数：oled - 显示器的句柄
-// @参数：dy - 纵向移动的距离
-//
+/**
+ * @brief       纵向移动光标
+ * @param       oled - OLED显示器的句柄
+ * @param       dy - 纵向移动的距离
+ */
 void oled_move_cursor_y(OLED_TypeDef *oled, int16_t dy)
 {
     oled->CursorY += dy;
 }
 
-//
-// 简介：获取光标的当前位置
-// @参数：oled - 显示器的句柄
-// @参数：p_x_out - 输出参数，用于接收光标的横坐标
-// @参数：p_y_out - 输出参数，用于接收光标的纵坐标
-//
+/**
+ * @brief       获取光标的当前位置
+ * @param       oled - OLED显示器的句柄
+ * @param       p_x_out - 输出参数，用于接收光标的横坐标
+ * @param       p_y_out - 输出参数，用于接收光标的纵坐标
+ */
 void oled_get_cursor(OLED_TypeDef *oled, int16_t *p_x_out, int16_t *p_y_out)
 {
     *p_x_out = oled->CursorX;
     *p_y_out = oled->CursorY;
 }
 
-//
-// 简介：获取光标的横坐标
-// @参数：oled - 显示器的句柄
-// @返回值：光标的横坐标值
-//
+/**
+ * @brief       获取光标的横坐标
+ * @param       oled - OLED显示器的句柄
+ * @retval      光标的横坐标值
+ */
 int16_t oled_get_cursor_x(OLED_TypeDef *oled)
 {
     return oled->CursorX;
 }
 
-//
-// 简介：获取光标的纵坐标
-// @参数：oled - 显示器的句柄
-// @返回值：光标的纵坐标值
-//
+/**
+ * @brief       获取光标的纵坐标
+ * @param       oled - OLED显示器的句柄
+ * @retval      光标的纵坐标值
+ */
 int16_t oled_get_cursor_y(OLED_TypeDef *oled)
 {
     return oled->CursorY;
@@ -410,11 +410,11 @@ static void draw_charator(OLED_TypeDef *oled, uint32_t unicode)
     }
 }
 
-//
-// 简介：从光标处开始绘制字符串
-// @参数：oled - 显示器的句柄
-// @参数：str - 要绘制的字符串
-//
+/**
+ * @brief       从光标处开始绘制字符串
+ * @param       oled - OLED显示器的句柄
+ * @param       str - 要绘制的字符串
+ */
 void oled_draw_string(OLED_TypeDef *oled, const char *str)
 {
     // 注意这里使用的是UTF-8编码，因此先将其解析成Unicode
@@ -478,14 +478,14 @@ void oled_draw_string(OLED_TypeDef *oled, const char *str)
     }
 }
 
-//
-// @简介：设置文本框区域，同时将光标移动到文本框的第一个字符处
-// @参数：oled - 显示器的句柄
-// @参数：x - 文本框左上角的横坐标
-// @参数：y - 文本框左上角的纵坐标
-// @参数：width - 文本框的宽度
-// @参数：height - 文本框的高度
-//
+/**
+ * @brief       设置文本框区域，同时将光标移动到文本框的第一个字符处
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 文本框左上角的横坐标
+ * @param       y - 文本框左上角的纵坐标
+ * @param       width - 文本框的宽度
+ * @param       height - 文本框的高度
+ */
 void oled_start_text_region(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t width, uint16_t height)
 {
     oled->TextRegionX = x;
@@ -497,10 +497,10 @@ void oled_start_text_region(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t w
     oled->CursorY = y + oled_get_font_height(oled);
 }
 
-//
-// @简介：取消文本框
-// @参数：oled - 显示器的句柄
-//
+/**
+ * @brief       取消文本框
+ * @param       oled - OLED显示器的句柄
+ */
 void oled_stop_text_region(OLED_TypeDef *oled)
 {
     oled->TextRegionX = 0;
@@ -509,12 +509,12 @@ void oled_stop_text_region(OLED_TypeDef *oled)
     oled->TextRegionHeight = 0;
 }
 
-//
-// 简介：绘制格式化字符串（最大64字节）
-// @参数：oled - 显示器的句柄
-// @参数：format - 格式
-// @参数：... - 可变参数
-//
+/**
+ * @brief       绘制格式化字符串（最大64字节）
+ * @param       oled - OLED显示器的句柄
+ * @param       format - 格式
+ * @param       ... - 可变参数
+ */
 void oled_printf(OLED_TypeDef *oled, const char *format, ...)
 {
     char format_buffer[64];
@@ -526,12 +526,12 @@ void oled_printf(OLED_TypeDef *oled, const char *format, ...)
     oled_draw_string(oled, format_buffer);
 }
 
-//
-// @简介：获取当前字体下字符串所占的宽度
-// @参数：oled - 显示器的句柄
-// @参数：str - 字符串
-// @返回值：宽度，单位：像素
-//
+/**
+ * @brief       获取当前字体下字符串所占的宽度
+ * @param       oled - OLED显示器的句柄
+ * @param       str - 字符串
+ * @retval      宽度，单位：像素
+ */
 uint16_t oled_get_str_width(OLED_TypeDef *oled, const char *str)
 {
     // 注意这里使用的是UTF-8编码，因此先将其解析成Unicode
@@ -598,11 +598,11 @@ uint16_t oled_get_str_width(OLED_TypeDef *oled, const char *str)
     return ret;
 }
 
-//
-// @简介：获取当前字体的最大高度
-// @参数：oled - 显示器的句柄
-// @返回值：字体最大高度
-//
+/**
+ * @brief       获取当前字体的最大高度
+ * @param       oled - OLED显示器的句柄
+ * @retval      字体最大高度
+ */
 uint16_t oled_get_font_height(OLED_TypeDef *oled)
 {
     return oled->Font->FontSize;
@@ -610,23 +610,23 @@ uint16_t oled_get_font_height(OLED_TypeDef *oled)
 
 #define swap(x, y) do { (x) = (x) + (y); (y) = (x) - (y); (x) = (x) - (y); } while (0)
 
-//
-// @简介：画点
-// @参数：oled - OLED显示器的句柄
-// @参数：x - 横坐标
-// @参数：y - 纵坐标
-//
+/**
+ * @brief       画点
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 横坐标
+ * @param       y - 纵坐标
+ */
 void oled_draw_dot(OLED_TypeDef *oled)
 {
     pen_dot(oled, oled->CursorX, oled->CursorY);
 }
 
-//
-// @简介：以当前光标位置为起点绘制直线
-// @参数：oled - OLED显示器的句柄
-// @参数：x - 终止点横坐标
-// @参数：y - 终止点纵坐标
-//
+/**
+ * @brief       以当前光标位置为起点绘制直线
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 终止点横坐标
+ * @param       y - 终止点纵坐标
+ */
 void oled_draw_line(OLED_TypeDef *oled, int16_t x, int16_t y)
 {
     int16_t x0, y0;
@@ -665,12 +665,12 @@ void oled_draw_line(OLED_TypeDef *oled, int16_t x, int16_t y)
     }
 }
 
-//
-// @简介：以当前光标位置为起点绘制直线，绘制完成后光标移动到线段的终点
-// @参数：oled - OLED显示器的句柄
-// @参数：x - 终止点横坐标
-// @参数：y - 终止点纵坐标
-//
+/**
+ * @brief       以当前光标位置为起点绘制直线，绘制完成后光标移动到线段的终点
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 终止点横坐标
+ * @param       y - 终止点纵坐标
+ */
 void oled_line_to(OLED_TypeDef *oled, int16_t x, int16_t y)
 {
     oled_draw_line(oled, x, y);
@@ -745,11 +745,11 @@ static void fill_circle(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t radiu
     }
 }
 
-//
-// @简介：以光标为圆心绘制圆形
-// @参数：oled - OLED显示器的句柄
-// @参数：radius - 圆的半径
-//
+/**
+ * @brief       以光标为圆心绘制圆形
+ * @param       oled - OLED显示器的句柄
+ * @param       radius - 圆的半径
+ */
 void oled_draw_circle(OLED_TypeDef *oled, uint16_t radius)
 {
     int16_t x = oled->CursorX, y = oled->CursorY;
@@ -815,12 +815,12 @@ static void fill_rect(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t width, 
     }
 }
 
-//
-// @简介：以光标位置为左上角绘制矩形
-// @参数：oled - OLED显示器的句柄
-// @参数：width - 矩形宽度
-// @参数：height - 矩形高度
-//
+/**
+ * @brief       以光标位置为左上角绘制矩形
+ * @param       oled - OLED显示器的句柄
+ * @param       width - 矩形宽度
+ * @param       height - 矩形高度
+ */
 void oled_draw_rect(OLED_TypeDef *oled, uint16_t width, uint16_t height)
 {
     if (oled->PenColor != PEN_COLOR_TRANSPARENT) {
@@ -831,11 +831,11 @@ void oled_draw_rect(OLED_TypeDef *oled, uint16_t width, uint16_t height)
     }
 }
 
-//
-// @简介：开始分段发送缓冲区内容到屏幕（每个8*8的区域为一个单元进行发送）
-// @参数：oled - OLED显示器的句柄
-// @返回值：0 - 启动成功
-//
+/**
+ * @brief       开始分段发送缓冲区内容到屏幕（每个8*8的区域为一个单元进行发送）
+ * @param       oled - OLED显示器的句柄
+ * @retval      0 - 启动成功
+ */
 int oled_start_send_buffer(OLED_TypeDef *oled)
 {
     uint8_t arg[2];
@@ -859,14 +859,14 @@ int oled_start_send_buffer(OLED_TypeDef *oled)
     return 0;
 }
 
-//
-// @简介：分段发送缓冲区内容到屏幕（每个8*8的区域为一个单元进行发送）
-// @参数：oled - OLED显示器的句柄
-// @参数：p_more_out - 输出参数，用于接收是否有后续数据需要发送
-//                   0    - 当前分段为最后一个分段，至此所有分段均已发送结束
-//                   非零 - 当前分段不是最后一个分段
-// @返回值：0 - 成功
-//
+/**
+ * @brief       分段发送缓冲区内容到屏幕（每个8*8的区域为一个单元进行发送）
+ * @param       oled - OLED显示器的句柄
+ * @param       p_more_out - 输出参数，用于接收是否有后续数据需要发送
+ *                   0    - 当前分段为最后一个分段，至此所有分段均已发送结束
+ *                   非零 - 当前分段不是最后一个分段
+ * @retval      0 - 成功
+ */
 int oled_end_send_buffer(OLED_TypeDef *oled, uint8_t *p_more_out)
 {
     if (oled->RefreshProgress >= 127) {
@@ -887,11 +887,11 @@ int oled_end_send_buffer(OLED_TypeDef *oled, uint8_t *p_more_out)
     return 0;
 }
 
-//
-// @简介：将缓冲区数据一次性发送到屏幕
-// @参数：oled - OLED显示器的句柄
-// @返回值：0 - 成功
-//
+/**
+ * @brief       将缓冲区数据一次性发送到屏幕
+ * @param       oled - OLED显示器的句柄
+ * @retval      0 - 成功
+ */
 int oled_send_buffer(OLED_TypeDef *oled)
 {
     uint8_t arg[2];
@@ -953,15 +953,15 @@ static int oled_send_data(OLED_TypeDef *oled, uint8_t *p_data, uint16_t size)
     return ret;
 }
 
-//
-// @简介：绘制位图
-// @参数：oled - OLED显示器的句柄
-// @参数：x - 位图左上角的横坐标
-// @参数：y - 位图左上角的纵坐标
-// @参数：width - 位图宽度
-// @参数：height - 位图高度
-// @参数：p_bitmap - 位图数据
-//
+/**
+ * @brief       绘制位图
+ * @param       oled - OLED显示器的句柄
+ * @param       x - 位图左上角的横坐标
+ * @param       y - 位图左上角的纵坐标
+ * @param       width - 位图宽度
+ * @param       height - 位图高度
+ * @param       p_bitmap - 位图数据
+ */
 static void draw_bitmap_ex(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t width, uint16_t height, const uint8_t *p_bitmap)
 {
     int16_t x0, y0;
@@ -988,25 +988,24 @@ static void draw_bitmap_ex(OLED_TypeDef *oled, int16_t x, int16_t y, uint16_t wi
     oled->PenWidth = pen_width_cpy;
 }
 
-//
-// @简介：以光标位置为左上角绘制位图
-// @参数：x - 位图左上角横坐标
-// @参数：y - 位图左上角纵坐标
-// @参数：width - 位图宽度
-// @参数：height - 位图高度
-// @参数：p_bitmap - 位图数据，格式：每个字节表示横向的8个像素点，行末尾不足8个像素的用0补齐
-//
+/**
+ * @brief       以光标位置为左上角绘制位图
+ * @param       oled - OLED显示器的句柄
+ * @param       width - 位图宽度
+ * @param       height - 位图高度
+ * @param       p_bitmap - 位图数据，格式：每个字节表示横向的8个像素点，行末尾不足8个像素的用0补齐
+ */
 void oled_draw_bitmap(OLED_TypeDef *oled, uint16_t width, uint16_t height, const uint8_t *p_bitmap)
 {
     draw_bitmap_ex(oled, oled->CursorX, oled->CursorY, width, height, p_bitmap);
 }
 
-//
-// @简介：根据字符的unicode码获取字形序号
-// @参数：oled - OLED显示器句柄
-// @参数：unicode - 字符的Unicode编码
-// @返回值：如果查找成功则返回字符序号，否则返回-1
-//
+/**
+ * @brief       根据字符的unicode码获取字形序号
+ * @param       oled - OLED显示器句柄
+ * @param       unicode - 字符的Unicode编码
+ * @retval      如果查找成功则返回字符序号，否则返回-1
+ */
 static int16_t unicode_to_glyph_idx(OLED_TypeDef *oled, uint32_t unicode)
 {
     int16_t ret = -1;

@@ -4,8 +4,8 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
-#include "usart.h"          // 你的标准库串口驱动
-#include "delay.h"          // 你的延时函数（用于获取 tick）
+#include "usart.h"          /* 标准库串口驱动 */
+#include "delay.h"          /* 延时函数（用于获取 tick） */
 #include "sys.h"
 
 /* 引脚定义 */
@@ -27,7 +27,7 @@
 #define LORA_TIM_IRQn                    TIM2_IRQn
 #define LORA_TIM_IRQHandler              TIM2_IRQHandler
 #define LORA_TIM_CLK_ENABLE()            do{ RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); }while(0)
-#define LORA_TIM_PRESCALER               7200   // 可根据时钟频率重新计算
+#define LORA_TIM_PRESCALER               7200   /* 可根据时钟频率重新计算 */
 
 /* UART收发缓冲大小 */
 #define LORA_UART_RX_BUF_SIZE            128

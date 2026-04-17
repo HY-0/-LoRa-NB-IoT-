@@ -12,12 +12,12 @@ void bh1750_i2c_init(uint32_t clock_speed)
     GPIO_InitTypeDef gpio;
     I2C_InitTypeDef i2c;
 
-    // 1. 使能 GPIO 和 I2C 时钟
+    /* 1. 使能 GPIO 和 I2C 时钟 */
     BH1750_I2C_SCL_GPIO_CLK_ENABLE();
     BH1750_I2C_SDA_GPIO_CLK_ENABLE();
     BH1750_I2C_CLK_ENABLE();
 
-    // 2. 配置 SCL、SDA 为复用开漏输出
+    /* 2. 配置 SCL、SDA 为复用开漏输出 */
     gpio.GPIO_Pin   = BH1750_I2C_SCL_GPIO_PIN;
     gpio.GPIO_Mode  = GPIO_Mode_AF_OD;
     gpio.GPIO_Speed = GPIO_Speed_50MHz;
@@ -26,7 +26,7 @@ void bh1750_i2c_init(uint32_t clock_speed)
     gpio.GPIO_Pin   = BH1750_I2C_SDA_GPIO_PIN;
     GPIO_Init(BH1750_I2C_SDA_GPIO_PORT, &gpio);
 
-    // 3. 配置 I2C 外设
+    /* 3. 配置 I2C 外设 */
     I2C_StructInit(&i2c);
     i2c.I2C_Mode                = I2C_Mode_I2C;
     i2c.I2C_DutyCycle           = I2C_DutyCycle_2;
@@ -36,7 +36,7 @@ void bh1750_i2c_init(uint32_t clock_speed)
     i2c.I2C_ClockSpeed          = clock_speed;
     I2C_Init(g_i2c_handle, &i2c);
 
-    // 4. 使能 I2C
+    /* 4. 使能 I2C */
     I2C_Cmd(g_i2c_handle, ENABLE);
 }
 

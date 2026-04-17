@@ -6,10 +6,10 @@ static uint8_t delay_initialized_flag = 0;
 static float us_per_mini_tick;
 
 
-//
-// @简介：初始化延迟函数
-// @返回值：无
-//
+/**
+ * @brief       初始化延迟函数
+ * @retval      无
+ */
 void systick_init(void)
 {
 	if(!delay_initialized_flag)
@@ -49,12 +49,12 @@ void systick_init(void)
 	}
 }
 
-//
-// @简介：毫秒级延迟
-// @参数：Delay - 延迟时长，以毫秒为单位(千分之一秒)
-// @返回值：无
-// @注意：不允许在中断响应函数中调用此方法
-//
+/**
+ * @brief       毫秒级延迟
+ * @param       Delay: 延迟时长，以毫秒为单位(千分之一秒)
+ * @retval      无
+ * @note        不允许在中断响应函数中调用此方法
+ */
 void delay_ms(uint32_t Delay)
 {
 	systick_init();
@@ -64,11 +64,10 @@ void delay_ms(uint32_t Delay)
 	while(ulTicks <  expiredTime){}
 }
 
-//
-// @简介：获取当前时间，以毫秒（千分之一秒）为单位
-// @参数：无
-// @返回值：当前时间，单位为毫秒（千分之一秒）
-//
+/**
+ * @brief       获取当前时间，以毫秒（千分之一秒）为单位
+ * @retval      当前时间，单位为毫秒（千分之一秒）
+ */
 uint32_t get_ms(void)
 {
 	systick_init();
@@ -76,10 +75,10 @@ uint32_t get_ms(void)
 	return ulTicks;
 }
 
-//
-// @简介：获取当前的微秒级时间
-// @返回值：当前的微秒级时间
-//
+/**
+ * @brief       获取当前的微秒级时间
+ * @retval      当前的微秒级时间
+ */
 uint64_t get_us(void)
 {
 	systick_init();
@@ -107,10 +106,10 @@ uint64_t get_us(void)
 	return tick;
 }
 
-//
-// @简介：微秒级延迟
-// @参数：us - 要延迟的时间，单位是微秒
-//
+/**
+ * @brief       微秒级延迟
+ * @param       us: 要延迟的时间，单位是微秒
+ */
 void delay_us(uint32_t us)
 {
 	systick_init();

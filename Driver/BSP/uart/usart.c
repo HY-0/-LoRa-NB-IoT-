@@ -1,24 +1,22 @@
 #include "usart.h"
 
 
-//
-// @简介：使用串口发送一个字节的数据
-// 
-// @参数 USARTx：串口名称，如USART1, USART2, USART3 ...
-// @参数 Data  : 要发送的数据
-//
+/**
+ * @brief       使用串口发送一个字节的数据
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       Data: 要发送的数据
+ */
 void usart_send_byte(USART_TypeDef *USARTx, const uint8_t Data)
 {
 	usart_send_bytes(USARTx, &Data, 1);
 }
 
-//
-// @简介：使用串口发送多个字节的数据
-// 
-// @参数 USARTx：串口名称，如USART1, USART2, USART3 ...
-// @参数 pData : 要发送的数据（数组）
-// @参数 Size  ：要发送数据的数量，单位是字节
-//
+/**
+ * @brief       使用串口发送多个字节的数据
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       pData: 要发送的数据（数组）
+ * @param       Size: 要发送数据的数量，单位是字节
+ */
 __weak void usart_send_bytes(USART_TypeDef *USARTx, const uint8_t *pData, uint16_t Size)
 {
 	if(Size == 0) return;
@@ -33,35 +31,32 @@ __weak void usart_send_bytes(USART_TypeDef *USARTx, const uint8_t *pData, uint16
 	while(USART_GetFlagStatus(USARTx, USART_FLAG_TC) == RESET);
 }
 
-//
-// @简介：通过串口发送一个字符
-// 
-// @参数 USARTx：串口名称，如USART1, USART2, USART3 ...
-// @参数 C     ：要发送的字符
-//
+/**
+ * @brief       通过串口发送一个字符
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       C: 要发送的字符
+ */
 void usart_send_char(USART_TypeDef *USARTx, const char C)
 {
 	usart_send_bytes(USARTx, (const uint8_t *)&C, 1);
 }
 
-//
-// @简介：通过串口发送字符串
-// 
-// @参数 USARTx：串口名称，如USART1, USART2, USART3 ...
-// @参数 Str   ：要发送的字符串
-//
+/**
+ * @brief       通过串口发送字符串
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       Str: 要发送的字符串
+ */
 void usart_send_string(USART_TypeDef *USARTx, const char *Str)
 {
 	usart_send_bytes(USARTx, (const uint8_t *)Str, strlen(Str));
 }
 
-//
-// @简介：通过串口格式化打印字符串
-// 
-// @参数 USARTx：串口名称，如USART1, USART2, USART3 ...
-// @参数 Format：字符串的格式
-// @参数 ...   ：可变参数
-//
+/**
+ * @brief       通过串口格式化打印字符串
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       Format: 字符串的格式
+ * @param       ...: 可变参数
+ */
 void usart_printf(USART_TypeDef *USARTx, const char *Format, ...)
 {
 	char format_buffer[128];
@@ -77,13 +72,11 @@ void usart_printf(USART_TypeDef *USARTx, const char *Format, ...)
 }
 
 
-//
-// @简介：通过串口读取一字节的数据
-// 
-// @参数 USARTx  ：串口名称，如USART1, USART2, USART3 ...
-// 
-// @返回值：读取到的字节
-//
+/**
+ * @brief       通过串口读取一字节的数据
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @retval      读取到的字节
+ */
 uint8_t usart_receive_byte(USART_TypeDef *USARTx)
 {
 	while(USART_GetFlagStatus(USARTx, USART_FLAG_RXNE) == RESET);
@@ -91,16 +84,14 @@ uint8_t usart_receive_byte(USART_TypeDef *USARTx)
 	return USART_ReceiveData(USARTx);
 }
 
-//
-// @简介：通过串口读取多个字节的数据
-// 
-// @参数 USARTx  ：串口名称，如USART1, USART2, USART3 ...
-// @参数 pDataOut：输出参数，读取到的数据将输出到此数组当中
-// @参数 Size    ：需要读取的字节数量
-// @参数 Timeout ：超时时间，单位是毫秒，负数表示无限长。如果超时时间内没有读取完成则返回。
-// 
-// @返回值：实际读取到的数据数量
-//
+/**
+ * @brief       通过串口读取多个字节的数据
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       pDataOut: 输出参数，读取到的数据将输出到此数组当中
+ * @param       Size: 需要读取的字节数量
+ * @param       Timeout: 超时时间，单位是毫秒，负数表示无限长。如果超时时间内没有读取完成则返回。
+ * @retval      实际读取到的数据数量
+ */
 __weak uint16_t usart_receive_bytes(USART_TypeDef *USARTx, uint8_t *pDataOut, uint16_t Size, int Timeout)
 {
 	uint32_t expireTime;
@@ -129,21 +120,19 @@ __weak uint16_t usart_receive_bytes(USART_TypeDef *USARTx, uint8_t *pDataOut, ui
 }
 
 
-//
-// @简介：通过串口读取一行字符串
-// 
-// @参数 USARTx       ：串口名称，如USART1, USART2, USART3 ...
-// @参数 pStrOut      ：输出参数，读取到的数据将输出到此数组当中
-// @参数 MaxLength    ：字符串的最大长度
-// @参数 LineSeperator：行分隔符 LINE_SEPERATOR_CR   - 回车 \r
-//                               LINE_SEPERATOR_LF   - 换行 \n
-//                               LINE_SEPERATOR_CRLF - 回车+换行 \r\n
-// @参数 Timeout      ：超时时间，单位是毫秒，负数表示无限长。如果超时时间内没有读取完成则返回
-// 
-// @返回值：0 - 成功读到一行字符串
-//         -1 - 超时（Timeout内未读到一行完整的字符串）
-//         -2 - 超过字符串的最大长度（字符串的最大长度用MaxLength参数设置）
-//
+/**
+ * @brief       通过串口读取一行字符串
+ * @param       USARTx: 串口名称，如USART1, USART2, USART3 ...
+ * @param       pStrOut: 输出参数，读取到的数据将输出到此数组当中
+ * @param       MaxLength: 字符串的最大长度
+ * @param       LineSeperator: 行分隔符 LINE_SEPERATOR_CR - 回车 \r
+ *                                         LINE_SEPERATOR_LF - 换行 \n
+ *                                         LINE_SEPERATOR_CRLF - 回车+换行 \r\n
+ * @param       Timeout: 超时时间，单位是毫秒，负数表示无限长。如果超时时间内没有读取完成则返回
+ * @retval      0: 成功读到一行字符串
+ * @retval      -1: 超时（Timeout内未读到一行完整的字符串）
+ * @retval      -2: 超过字符串的最大长度（字符串的最大长度用MaxLength参数设置）
+ */
 int usart_receive_line(USART_TypeDef *USARTx, char *pStrOut, uint16_t MaxLength, uint16_t LineSeperator, int Timeout)
 {
 	// 如果最大长度都不足以装下行分隔符

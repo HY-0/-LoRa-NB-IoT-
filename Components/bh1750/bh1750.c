@@ -71,6 +71,12 @@ static uint8_t bh1750_mode_to_cmd(BH1750_Mode_t mode)
 }
 
 /* ==================== 用户 API ==================== */
+
+/**
+ * @brief       初始化 BH1750 光照传感器
+ * @param       无
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_init(void)
 {
     uint8_t ret;
@@ -96,21 +102,41 @@ uint8_t bh1750_init(void)
     return bh1750_send_cmd(BH1750_CMD_CONT_H_RES);
 }
 
+/**
+ * @brief       打开 BH1750 电源
+ * @param       无
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_power_on(void)
 {
     return bh1750_send_cmd(BH1750_CMD_POWER_ON);
 }
 
+/**
+ * @brief       关闭 BH1750 电源（进入低功耗模式）
+ * @param       无
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_power_down(void)
 {
     return bh1750_send_cmd(BH1750_CMD_POWER_DOWN);
 }
 
+/**
+ * @brief       复位 BH1750 传感器
+ * @param       无
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_reset(void)
 {
     return bh1750_send_cmd(BH1750_CMD_RESET);
 }
 
+/**
+ * @brief       设置 BH1750 测量模式
+ * @param       mode: 测量模式
+ * @retval      BH1750_EOK: 成功，BH1750_EINVAL: 无效模式，BH1750_ERROR: 通信失败
+ */
 uint8_t bh1750_set_mode(BH1750_Mode_t mode)
 {
     uint8_t cmd = bh1750_mode_to_cmd(mode);
@@ -128,6 +154,11 @@ uint8_t bh1750_set_mode(BH1750_Mode_t mode)
     return BH1750_EOK;
 }
 
+/**
+ * @brief       读取光照强度（lux）
+ * @param       lux: 输出光照强度值（lux）
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_read_lux(float *lux)
 {
     uint16_t raw;
@@ -153,6 +184,11 @@ uint8_t bh1750_read_lux(float *lux)
     return BH1750_EOK;
 }
 
+/**
+ * @brief       单次测量光照强度（自动设置为单次高分辨率模式）
+ * @param       lux: 输出光照强度值（lux）
+ * @retval      BH1750_EOK: 成功，其他: 失败
+ */
 uint8_t bh1750_measure(float *lux)
 {
     uint8_t ret = bh1750_set_mode(BH1750_MODE_ONE_H_RES);

@@ -14,18 +14,18 @@ static void lora_hw_init(void)
     LORA_MD0_GPIO_CLK_ENABLE();
     
 	/* AUX 引脚：上拉输入 */
-	gpio_init_struct.GPIO_Pin   = LORA_AUX_GPIO_PIN;    // 应定义为 GPIO_Pin_11
-    gpio_init_struct.GPIO_Mode  = GPIO_Mode_IPU;        // 上拉输入
-	gpio_init_struct.GPIO_Speed = GPIO_Speed_50MHz;     // 速度可设为 50MHz
+	gpio_init_struct.GPIO_Pin   = LORA_AUX_GPIO_PIN;    /* 应定义为 GPIO_Pin_11 */
+    gpio_init_struct.GPIO_Mode  = GPIO_Mode_IPU;        /* 上拉输入 */
+	gpio_init_struct.GPIO_Speed = GPIO_Speed_50MHz;     /* 速度可设为 50MHz */
 	GPIO_Init(LORA_AUX_GPIO_PORT, &gpio_init_struct);
 
 	/* MD0 引脚：推挽输出，初始低电平 */
-	gpio_init_struct.GPIO_Pin   = LORA_MD0_GPIO_PIN;    // 应定义为 GPIO_Pin_12
-    gpio_init_struct.GPIO_Mode  = GPIO_Mode_Out_PP;     // 推挽输出
+	gpio_init_struct.GPIO_Pin   = LORA_MD0_GPIO_PIN;    /* 应定义为 GPIO_Pin_12 */
+    gpio_init_struct.GPIO_Mode  = GPIO_Mode_Out_PP;     /* 推挽输出 */
 	gpio_init_struct.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(LORA_MD0_GPIO_PORT, &gpio_init_struct);
     
-    LORA_MD0(0);     // 默认通信模式
+    LORA_MD0(0);     /* 默认通信模式 */
 }
 
 /**

@@ -2,9 +2,9 @@
 
 void delay(uint32_t us) { for(uint32_t i = 0; i<8*us; i++); }
 
-//
-// @简介：对软件I2C硬件进行初始化
-//
+/**
+ * @brief       对软件I2C硬件进行初始化
+ */
 static void si2c_hw_init(void)
 {
 	GPIO_InitTypeDef gpio;
@@ -32,19 +32,19 @@ static void si2c_hw_init(void)
 	GPIO_Init(SI2C_SDA_GPIO_PORT, &gpio);
 }
 
-//
-// @简介：对软件I2C进行初始化
-//
+/**
+ * @brief       对软件I2C进行初始化
+ */
 void si2c_init(void)
 {
 	si2c_hw_init();
 }
 
-//
-// @简介：发送一个字节
-//
-// @返回值：0-ACK，其它-NAK
-//
+/**
+ * @brief       发送一个字节
+ * @param       Byte: 要发送的字节
+ * @retval      0: ACK，其它: NAK
+ */
 static uint8_t si2c_send_byte(uint8_t Byte)
 {
 	for(int8_t i=7; i>=0; i--)
@@ -69,16 +69,15 @@ static uint8_t si2c_send_byte(uint8_t Byte)
 	return SI2C_SDA_READ();
 }
 
-//
-// @简介：通过软件I2C向从机写入多个字节
-// 
-// @参数 I2Cx：填写要操作的I2C的名称，可以是I2C1或I2C2
-// @参数 Addr：填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
-// @参数 pData：要发送的数据（数组）
-// @参数 Size：要发送的数据的数量，以字节为单位
-//
-// @返回值：0 - 发送成功， -1 - 寻址失败， -2 - 数据被拒收
-//
+/**
+ * @brief       通过软件I2C向从机写入多个字节
+ * @param       Addr: 填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
+ * @param       pData: 要发送的数据（数组）
+ * @param       Size: 要发送的数据的数量，以字节为单位
+ * @retval      0: 发送成功
+ * @retval      -1: 寻址失败
+ * @retval      -2: 数据被拒收
+ */
 __weak int si2c_send_bytes(uint8_t Addr, const uint8_t *pData, uint16_t Size)
 {
 	SI2C_SDA_WRITE(1);
@@ -111,11 +110,11 @@ __weak int si2c_send_bytes(uint8_t Addr, const uint8_t *pData, uint16_t Size)
 	return 0;
 }
 
-//
-// @简介：从从机读取一个字节的数据
-// @参数 Ack：0 - 回NAK，1 - 回ACK
-// @返回值：读取到的数据
-//
+/**
+ * @brief       从从机读取一个字节的数据
+ * @param       Ack: 0 - 回NAK，1 - 回ACK
+ * @retval      读取到的数据
+ */
 static uint8_t si2c_receive_byte(uint8_t Ack)
 {
 	uint8_t ret = 0;
@@ -156,16 +155,14 @@ static uint8_t si2c_receive_byte(uint8_t Ack)
 	return ret;
 }
 
-//
-// @简介：通过软件I2C从从机读多个字节
-// 
-// @参数 I2Cx：填写要操作的I2C的名称，可以是I2C1或I2C2
-// @参数 Addr：填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
-// @参数 pBuffer：接收缓冲区（数组）
-// @参数 Size：要读取的数据的数量，以字节为单位
-//
-// @返回值：0 - 发送成功， -1 - 寻址失败
-//
+/**
+ * @brief       通过软件I2C从从机读多个字节
+ * @param       Addr: 填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
+ * @param       pBuffer: 接收缓冲区（数组）
+ * @param       Size: 要读取的数据的数量，以字节为单位
+ * @retval      0: 发送成功
+ * @retval      -1: 寻址失败
+ */
 __weak int si2c_receive_bytes(uint8_t Addr, uint8_t *pBuffer, uint16_t Size)
 {
 	SI2C_SDA_WRITE(1);
@@ -208,9 +205,9 @@ int si2c_write_bytes(uint8_t addr, const uint8_t *pdata, uint16_t size)
 	return si2c_send_bytes(addr, pdata, size);
 }
 
-//
-// @简介：发送停止位
-//
+/**
+ * @brief       发送停止位
+ */
 static void si2c_send_stop(void)
 {
 	SI2C_SCL_WRITE(0); 	// scl拉低

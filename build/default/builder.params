@@ -14,12 +14,11 @@
     "rom": 65536,
     "incDirs": [
         ".",
-        "user/inc",
+        "Application/inc",
         ".cmsis/include",
         "RTE/_default",
         "Driver/BSP/delay",
         "Driver/BSP/hi2c",
-        "Driver/BSP/led",
         "Driver/BSP/si2c",
         "Driver/BSP/spi",
         "Driver/BSP/sys",
@@ -31,33 +30,36 @@
         "Components/oled",
         "Components/sht30",
         "Middleware/lora",
-        "Middleware/nbiot"
+        "Middleware/nbiot",
+        "Components/led",
+        "Driver/CMSIS"
     ],
     "libDirs": [],
     "defines": [
         "STM32F10X_MD"
     ],
     "sourceList": [
-<<<<<<< HEAD
-=======
+        "Application/src/acquisition.c",
+        "Application/src/display.c",
+        "Application/src/main.c",
+        "Application/src/stm32f10x_it.c",
+        "Application/src/transmission.c",
         "Components/bh1750/bh1750.c",
         "Components/bh1750/bh1750_i2c.c",
->>>>>>> dev
         "Components/buzzer/buzzer.c",
         "Components/key/key.c",
+        "Components/led/led.c",
         "Components/oled/oled.c",
         "Components/sht30/sht30.c",
         "Components/sht30/sht30_i2c.c",
-<<<<<<< HEAD
-=======
         "Driver/BSP/delay/delay.c",
->>>>>>> dev
         "Driver/BSP/hi2c/i2c.c",
-        "Driver/BSP/led/led.c",
         "Driver/BSP/si2c/si2c.c",
         "Driver/BSP/spi/spi.c",
         "Driver/BSP/sys/sys.c",
         "Driver/BSP/uart/usart.c",
+        "Driver/CMSIS/startup_stm32f10x_md.s",
+        "Driver/CMSIS/system_stm32f10x.c",
         "Driver/std_periph_driver/src/misc.c",
         "Driver/std_periph_driver/src/stm32f10x_adc.c",
         "Driver/std_periph_driver/src/stm32f10x_bkp.c",
@@ -81,21 +83,8 @@
         "Driver/std_periph_driver/src/stm32f10x_tim.c",
         "Driver/std_periph_driver/src/stm32f10x_usart.c",
         "Driver/std_periph_driver/src/stm32f10x_wwdg.c",
-<<<<<<< HEAD
-=======
         "Middleware/lora/lora.c",
-        "Middleware/lora/lora_usart.c",
->>>>>>> dev
-        "Middleware/nbiot/nbiot.c",
-        "Middleware/nbiot/nbiot_usart.c",
-        "startup/startup_stm32f10x_md.s",
-        "user/src/bh1750_demo.c",
-        "user/src/lora_demo.c",
-        "user/src/main.c",
-        "user/src/nbiot_demo.c",
-        "user/src/sht30_demo.c",
-        "user/src/stm32f10x_it.c",
-        "user/src/system_stm32f10x.c"
+        "Middleware/lora/lora_usart.c"
     ],
     "alwaysInBuildSources": [],
     "sourceParams": {},
@@ -136,11 +125,8 @@
         }
     },
     "env": {
-<<<<<<< HEAD
-=======
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "template",
->>>>>>> dev
         "workspaceFolder": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora",
         "workspaceFolderBasename": "Lora",
         "OutDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora\\build\\default",

@@ -5,13 +5,13 @@
 #include <stdio.h>
 #include "nbiot_usart.h"
 #include "stm32f10x.h"
-#include "delay.h"          // 提供毫秒级延时
+#include "delay.h"          /* 提供毫秒级延时 */
 
 
 
 // /* ===================== 硬件引脚定义（示例） ===================== */
 // /* 可根据实际硬件修改，以下为参考 */
-// // DRX、DTX
+// /* DRX、DTX */
 // // #define NBIOT_PWR_GPIO_PORT           GPIOB
 // // #define NBIOT_PWR_GPIO_PIN            GPIO_Pin_12
 // // #define NBIOT_PWR_GPIO_CLK_ENABLE()   do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); }while(0)

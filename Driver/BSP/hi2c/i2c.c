@@ -1,15 +1,15 @@
 #include "i2c.h"
 
-//
-// @简介：通过I2C向从机写入多个字节
-// 
-// @参数 I2Cx：填写要操作的I2C的名称，可以是I2C1或I2C2
-// @参数 Addr：填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
-// @参数 pData：要发送的数据（数组）
-// @参数 Size：要发送的数据的数量，以字节为单位
-//
-// @返回值：0 - 发送成功， -1 - 寻址失败， -2 - 数据被拒收
-//
+/**
+ * @brief       通过I2C向从机写入多个字节
+ * @param       I2Cx: 填写要操作的I2C的名称，可以是I2C1或I2C2
+ * @param       Addr: 填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
+ * @param       pData: 要发送的数据（数组）
+ * @param       Size: 要发送的数据的数量，以字节为单位
+ * @retval      0: 发送成功
+ * @retval      -1: 寻址失败
+ * @retval      -2: 数据被拒收
+ */
 __weak int i2c_send_bytes(I2C_TypeDef *I2Cx, uint8_t Addr, const uint8_t *pData, uint16_t Size)
 {
 	// #1. 等待总线空闲
@@ -81,16 +81,15 @@ __weak int i2c_send_bytes(I2C_TypeDef *I2Cx, uint8_t Addr, const uint8_t *pData,
 }
 
 
-//
-// @简介：通过I2C从从机读多个字节
-// 
-// @参数 I2Cx：填写要操作的I2C的名称，可以是I2C1或I2C2
-// @参数 Addr：填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
-// @参数 pBuffer：接收缓冲区（数组）
-// @参数 Size：要读取的数据的数量，以字节为单位
-//
-// @返回值：0 - 发送成功， -1 - 寻址失败
-//
+/**
+ * @brief       通过I2C从从机读多个字节
+ * @param       I2Cx: 填写要操作的I2C的名称，可以是I2C1或I2C2
+ * @param       Addr: 填写从机的地址，左对齐 - A6 A5 A4 A3 A2 A1 A0 0
+ * @param       pBuffer: 接收缓冲区（数组）
+ * @param       Size: 要读取的数据的数量，以字节为单位
+ * @retval      0: 发送成功
+ * @retval      -1: 寻址失败
+ */
 __weak int i2c_receive_bytes(I2C_TypeDef *I2Cx, uint8_t Addr, uint8_t *pBuffer, uint16_t Size)
 {
 	if(Size == 0) return 0;
