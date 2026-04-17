@@ -1,9 +1,12 @@
-.\build\default\.obj\Application\src\bh1750_demo.o
-.\build\default\.obj\Application\src\lora_demo.o
+.\build\default\.obj\Application\demo\bh1750_demo.o
+.\build\default\.obj\Application\demo\data_acquisition_transmission.o
+.\build\default\.obj\Application\demo\lora_demo.o
+.\build\default\.obj\Application\demo\sht30_demo.o
+.\build\default\.obj\Application\src\acquisition.o
+.\build\default\.obj\Application\src\display.o
 .\build\default\.obj\Application\src\main.o
-.\build\default\.obj\Application\src\nbiot_demo.o
-.\build\default\.obj\Application\src\sht30_demo.o
 .\build\default\.obj\Application\src\stm32f10x_it.o
+.\build\default\.obj\Application\src\transmission.o
 .\build\default\.obj\Components\bh1750\bh1750.o
 .\build\default\.obj\Components\bh1750\bh1750_i2c.o
 .\build\default\.obj\Components\buzzer\buzzer.o
@@ -45,5 +48,3 @@
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_wwdg.o
 .\build\default\.obj\Middleware\lora\lora.o
 .\build\default\.obj\Middleware\lora\lora_usart.o
-.\build\default\.obj\Middleware\nbiot\nbiot.o
-.\build\default\.obj\Middleware\nbiot\nbiot_usart.o

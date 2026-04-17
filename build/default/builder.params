@@ -7,7 +7,7 @@
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora",
+    "rootDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
     "dumpPath": "build\\default",
     "outDir": "build\\default",
     "ram": 20480,
@@ -39,6 +39,10 @@
         "STM32F10X_MD"
     ],
     "sourceList": [
+        "Application/demo/bh1750_demo.c",
+        "Application/demo/data_acquisition_transmission.c",
+        "Application/demo/lora_demo.c",
+        "Application/demo/sht30_demo.c",
         "Application/src/acquisition.c",
         "Application/src/display.c",
         "Application/src/main.c",
@@ -120,22 +124,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "e:/lora-nbiot-agri-system/lora-nbiot-agri-platform/Lora/build/default/Lora.sct"
+                "e:/lora-nbiot-agri-system/lora-nbiot-agri-platform/build/default/Lora.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "template",
-        "workspaceFolder": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora",
-        "workspaceFolderBasename": "Lora",
-        "OutDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora\\build\\default",
+        "workspaceFolder": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
+        "workspaceFolderBasename": "lora-nbiot-agri-platform",
+        "OutDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\build\\default",
         "OutDirRoot": "build",
         "OutDirBase": "build\\default",
         "ProjectName": "Lora",
         "ConfigName": "default",
-        "ProjectRoot": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora",
-        "ExecutableName": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\Lora\\build\\default\\Lora",
+        "ProjectRoot": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
+        "ExecutableName": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\build\\default\\Lora",
         "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.2.0",
         "ChipName": "STM32F103C8",
         "SYS_Platform": "win32",
