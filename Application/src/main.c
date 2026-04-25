@@ -35,13 +35,22 @@ int main(void)
 
     /*  */
     transmission_init();
+    buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提示 */
+
+    /* 接收端 */
+    while (1)
+    {
+        transmission_receive();
+    }
+
+    /*  */
 	acquisition_init();
+    buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提示 */
 	
-	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提示 */
-	
+    /* 发送端 */
 	while(1)
 	{
-		sensor_data_t data;           // 用于存放最新采集数据
+		sensor_data_t tx_data;        // 用于存放最新采集数据
         display_mode_t disp_mode;     // 显示模式
 		uint8_t key = key_scan(0);
         
@@ -49,7 +58,7 @@ int main(void)
         if (acquisition_poll() == ACQ_OK)
         {
             // 2. 读取采集结果
-            acquisition_read(&data);
+            acquisition_read(&tx_data);
             
             // 3. 获取当前传输模式，映射为显示模式
             // if (transport_get_type() == TRANSPORT_LORA)
@@ -58,19 +67,19 @@ int main(void)
             //     disp_mode = DISPLAY_MODE_NBIOT;
             
             // 4. 显示数据
-            display_sensor_data(&data, disp_mode);
+            display_sensor_data(&tx_data, disp_mode);
             
-            // 5. 发送数据（可选）
-            transmission_send(&data);
+            // 5. 发送数据
+            transmission_send(&tx_data);
         }
         else
         {
             // 采集失败，显示错误信息
             display_error("get err");
         }
+    
         
-        transmission_receive();
-
+        /* 接收端不灵敏的原因：将接收和发送隔离 */
         delay_ms(5000);  // 5秒采集间隔
 	}
 }

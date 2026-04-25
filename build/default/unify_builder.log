@@ -1,1049 +1,857 @@
-[2026-04-17 00:00:21]	[info] incremental build: 7 source files changed
+[2026-04-19 18:08:42]	[info] incremental build: 53 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\data_acquisition_transmission.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\sht30_demo.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Components\oled\oled.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\bh1750_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\data_acquisition_transmission.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\lora_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\sht30_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\acquisition.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\bh1750_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\display.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\lora_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\sht30_demo.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\stm32f10x_it.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\bh1750\bh1750.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\bh1750\bh1750_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\buzzer\buzzer.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\key\key.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\led\led.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\oled\oled.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\sht30\sht30.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\sht30\sht30_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\delay\delay.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\hi2c\i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\si2c\si2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\spi\spi.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\sys\sys.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\uart\usart.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\startup_stm32f10x_md.s': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\system_stm32f10x.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\misc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_adc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_bkp.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_can.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_cec.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_crc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dac.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dbgmcu.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dma.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_exti.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_flash.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_fsmc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_gpio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_iwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_pwr.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rcc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rtc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_sdio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_spi.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_tim.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_usart.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_wwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': object (.o) file not exist
 
-[2026-04-17 00:00:21]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c", exit code: 1
+[2026-04-19 18:08:45]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
 command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\acquisition.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\acquisition.d .\Application\src\acquisition.c
+  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/display.h", line 14: Error:  #20: identifier "sensor_data_t" is undefined
-  void display_sensor_data(const sensor_data_t *data, display_mode_t mode);
-                                 ^
-.\Application\src\acquisition.c: 0 warnings, 1 error
-
-[2026-04-17 00:12:43]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\data_acquisition_transmission.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\sht30_demo.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Components\oled\oled.c': source file has been changed.
-
-[2026-04-17 00:12:43]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c", exit code: 1
-command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\acquisition.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\acquisition.d .\Application\src\acquisition.c
-   at unify_builder.Program.Main(String[] args_)
----
-"Application/inc/display.h", line 14: Error:  #20: identifier "sensor_data_t" is undefined
-  void display_sensor_data(const sensor_data_t *data, display_mode_t mode);
-                                 ^
-".\Application\src\acquisition.c", line 66: Error:  #147-D: declaration is incompatible with "uint8_t acquisition_read(sensor_data_t *)"  (declared at line 31 of "Application/inc/acquisition.h")
-  uint8_t acquisition_read(void)
-          ^
-".\Application\src\acquisition.c", line 68: Warning:  #223-D: function "bh1750_read" declared implicitly
-      uint8_t light_ret = bh1750_read(&g_sensor_data.light_intensity);
-                          ^
-".\Application\src\acquisition.c", line 69: Warning:  #223-D: function "sht30_read" declared implicitly
-      uint8_t humi_ret = sht30_read(&g_sensor_data.temperature, &g_sensor_data.humidity);
-                         ^
-".\Application\src\acquisition.c", line 82: Error:  #20: identifier "DATA_ACQ_ERROR" is undefined
-          return DATA_ACQ_ERROR;
-                 ^
-".\Application\src\acquisition.c", line 85: Error:  #20: identifier "DATA_ACQ_EOK" is undefined
-      return DATA_ACQ_EOK;
+".\Application\src\main.c", line 8: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Driver/std_periph_driver/inc/stm32f10x.h", line 480: Warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
              ^
-".\Application\src\acquisition.c", line 88: Error:  #247: function "acquisition_read"  has already been defined
-  uint8_t acquisition_read(sensor_data_t *data)
-          ^
-.\Application\src\acquisition.c: 2 warnings, 5 errors
-
-[2026-04-17 00:13:14]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\data_acquisition_transmission.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\sht30_demo.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Components\oled\oled.c': source file has been changed.
-
-[2026-04-17 00:13:14]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c", exit code: 1
-command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\acquisition.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\acquisition.d .\Application\src\acquisition.c
-   at unify_builder.Program.Main(String[] args_)
----
-"Application/inc/display.h", line 14: Error:  #20: identifier "sensor_data_t" is undefined
-  void display_sensor_data(const sensor_data_t *data, display_mode_t mode);
-                                 ^
-.\Application\src\acquisition.c: 0 warnings, 1 error
-
-[2026-04-17 00:15:09]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\data_acquisition_transmission.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\sht30_demo.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Components\oled\oled.c': source file has been changed.
-
-[2026-04-17 00:15:12]	[done]
-	build successfully !
-
-[2026-04-17 00:15:50]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol data_acquisition_transmission_task (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 00:16:30]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': check dependence failed, msg: no such file 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\data_acquisition_transmission.h'
-
-[2026-04-17 00:16:30]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c", exit code: 1
-command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Application\src\main.c", line 9: Error:  #5: cannot open source input file "data_acquisition_transmission.h": No such file or directory
-  #include "data_acquisition_transmission.h"
+"Driver/std_periph_driver/inc/core_cm3.h", line 1508: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+                                        ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1527: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+                                               ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1546: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+                                         ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1565: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+                                                ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1584: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
                                             ^
-.\Application\src\main.c: 0 warnings, 1 error
+"Driver/std_periph_driver/inc/core_cm3.h", line 1599: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+                                              ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1616: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
+                                            ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1638: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+                                          ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1660: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+                                              ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1735: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+                                        ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1751: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+                                            ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1844: Error:  #20: identifier "SysTick_IRQn" is undefined
+    
+VIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
+                      ^
+".\Application\src\main.c", line 14: Error:  #169: expected a declaration
+  =======
+  ^
+"Components/buzzer/buzzer.h", line 30: Warning:  #12-D: parsing restarts here after previous syntax error
+  } BuzzerScene_t;
+                 ^
+"Components/buzzer/buzzer.h", line 57: Error:  #20: identifier "BuzzerScene_t" is undefined
+     void buzzer_beep_scene(BuzzerScene_t scene, BuzzerMode_t mode, BuzzerRhythm_t rhythm, uint16_t duration_ms);
+                            ^
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+"Application/inc/transmission.h", line 34: Warning:  #12-D: parsing restarts here after previous syntax error
+  } transmission_mode_t;
+                       ^
+".\Application\src\main.c", line 19: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+".\Application\src\main.c", line 61: Warning:  #12-D: parsing restarts here after previous syntax error
+      transmission_init();
+                         ^
+".\Application\src\main.c", line 62: Warning:  #1295-D: Deprecated declaration acquisition_init - give arg types
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 62: Warning:  #77-D: this declaration has no storage class or type specifier
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 62: Error:  #147: declaration is incompatible with "void acquisition_init(void)"  (declared at line 28 of "Application/inc/acquisition.h")
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 64: Error:  #40: expected an identifier
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	                                                                                 ^
+".\Application\src\main.c", line 64: Warning:  #77-D: this declaration has no storage class or type specifier
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 64: Warning:  #92-D: identifier-list parameters may only be used in a function definition
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 64: Error:  #147: declaration is incompatible with "void buzzer_beep_scene(<error-type>, BuzzerMode_t, BuzzerRhythm_t, uint16_t)"  (declared at line 57 of "Components/buzzer/buzzer.h")
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 66: Error:  #169: expected a declaration
+  	while(1)
+  	^
+".\Application\src\main.c", line 88: Warning:  #12-D: parsing restarts here after previous syntax error
+              transmission_send(&data);
+                                      ^
+".\Application\src\main.c", line 89: Error:  #169: expected a declaration
+          }
+          ^
+".\Application\src\main.c", line 96: Warning:  #12-D: parsing restarts here after previous syntax error
+          transmission_receive();
+                                ^
+".\Application\src\main.c", line 98: Error:  #79: expected a type specifier
+          delay_ms(5000);  // 5秒采集间�?
+                   ^
+".\Application\src\main.c", line 98: Warning:  #77-D: this declaration has no storage class or type specifier
+          delay_ms(5000);  // 5秒采集间�?
+          ^
+".\Application\src\main.c", line 98: Error:  #147: declaration is incompatible with "void delay_ms(uint32_t)"  (declared at line 7 of "Driver/BSP/delay/delay.h")
+          delay_ms(5000);  // 5秒采集间�?
+          ^
+".\Application\src\main.c", line 99: Error:  #169: expected a declaration
+  	}
+  	^
+".\Application\src\main.c", line 101: Warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+.\Application\src\main.c: 13 warnings, 26 errors
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+"Middleware/lora/lora_usart.h", line 44: Warning:  #12-D: parsing restarts here after previous syntax error
+  void lora_uart_printf(char *fmt, ...);       /* ATK-MW1278D UART printf */
+                                       ^
+".\Application\src\transmission.c", line 111: Warning:  #223-D: function "lora_uart_printf" declared implicitly
+          lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解�?
+          ^
+.\Application\src\transmission.c: 3 warnings, 2 errors
 
-[2026-04-17 00:17:49]	[info] incremental build: 1 source files changed
+[2026-04-19 18:09:07]	[info] incremental build: 29 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\startup_stm32f10x_md.s': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\system_stm32f10x.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\misc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_adc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_bkp.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_can.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_cec.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_crc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dac.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dbgmcu.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dma.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_exti.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_flash.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_fsmc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_gpio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_iwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_pwr.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rcc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rtc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_sdio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_spi.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_tim.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_usart.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_wwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': object (.o) file not exist
 
-[2026-04-17 00:17:50]	[done]
-	build successfully !
-
-[2026-04-17 00:17:54]	[done]
-	build successfully !
-
-[2026-04-17 00:18:25]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 00:18:25]	[done]
-	build successfully !
-
-[2026-04-17 00:18:36]	[done]
-	build successfully !
-
-[2026-04-17 00:19:51]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:19:52]	[done]
-	build successfully !
-
-[2026-04-17 00:20:09]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:20:10]	[done]
-	build successfully !
-
-[2026-04-17 00:20:40]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:20:41]	[done]
-	build successfully !
-
-[2026-04-17 00:21:27]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:21:28]	[done]
-	build successfully !
-
-[2026-04-17 00:21:56]	[done]
-	build successfully !
-
-[2026-04-17 00:22:22]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:22:23]	[done]
-	build successfully !
-
-[2026-04-17 00:22:34]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:22:34]	[done]
-	build successfully !
-
-[2026-04-17 00:22:47]	[done]
-	build successfully !
-
-[2026-04-17 00:26:25]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 00:26:26]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c", exit code: 1
+[2026-04-19 18:09:08]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c", exit code: 1
 command: 
   "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
    at unify_builder.Program.Main(String[] args_)
 ---
-".\Application\src\main.c", line 53: Warning:  #223-D: function "transport_get_type" declared implicitly
-              if (transport_get_type() == TRANSPORT_LORA)
-                  ^
-".\Application\src\main.c", line 53: Error:  #20: identifier "TRANSPORT_LORA" is undefined
-              if (transport_get_type() == TRANSPORT_LORA)
-                                          ^
-.\Application\src\main.c: 1 warning, 1 error
-
-[2026-04-17 00:26:36]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 00:26:37]	[done]
-	build successfully !
-
-[2026-04-17 00:30:52]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 00:30:53]	[done]
-	build successfully !
-
-[2026-04-17 00:31:24]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:31:25]	[done]
-	build successfully !
-
-[2026-04-17 00:31:44]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:31:45]	[done]
-	build successfully !
-
-[2026-04-17 00:32:03]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:32:04]	[done]
-	build successfully !
-
-[2026-04-17 00:32:31]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:32:32]	[done]
-	build successfully !
-
-[2026-04-17 00:34:48]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:34:49]	[done]
-	build successfully !
-
-[2026-04-17 00:35:05]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:35:06]	[done]
-	build successfully !
-
-[2026-04-17 00:35:31]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-
-[2026-04-17 00:35:32]	[done]
-	build successfully !
-
-[2026-04-17 00:36:46]	[done]
-	build successfully !
-
-[2026-04-17 00:39:39]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:39:39]	[done]
-	build successfully !
-
-[2026-04-17 00:40:02]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:40:03]	[done]
-	build successfully !
-
-[2026-04-17 00:40:23]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:40:24]	[done]
-	build successfully !
-
-[2026-04-17 00:40:39]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:40:39]	[done]
-	build successfully !
-
-[2026-04-17 00:40:55]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:40:55]	[done]
-	build successfully !
-
-[2026-04-17 00:41:22]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:41:22]	[done]
-	build successfully !
-
-[2026-04-17 00:41:39]	[done]
-	build successfully !
-
-[2026-04-17 00:41:54]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-
-[2026-04-17 00:41:55]	[done]
-	build successfully !
-
-[2026-04-17 13:28:19]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\bh1750_demo.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\data_acquisition_transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\sht30_demo.c': object (.o) file not exist
-
-[2026-04-17 13:28:20]	[done]
-	build successfully !
-
-[2026-04-17 13:37:19]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot_usart.c': source file has been changed.
-
-[2026-04-17 13:37:19]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot.c", exit code: 1
-command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\nbiot\nbiot.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\nbiot\nbiot.d .\Middleware\nbiot\nbiot.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Middleware\nbiot\nbiot.c", line 10: Error:  #147: declaration is incompatible with "uint8_t nbiot_init(uint32_t)"  (declared at line 48 of ".\Middleware\nbiot\nbiot.h")
-  int nbiot_init(uint32_t baudrate)
-      ^
-".\Middleware\nbiot\nbiot.c", line 15: Warning:  #223-D: function "nbiot_usart_init" declared implicitly
-      nbiot_usart_init(115200);
-      ^
-".\Middleware\nbiot\nbiot.c", line 16: Warning:  #223-D: function "network_init" declared implicitly
-      ret = network_init();
-            ^
-".\Middleware\nbiot\nbiot.c", line 23: Warning:  #940-D: missing return statement at end of non-void function "nbiot_init" 
-  }
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
   ^
-".\Middleware\nbiot\nbiot.c", line 30: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command("AT+CSQ", "+CSQ:", 1, 500);
-            ^
-".\Middleware\nbiot\nbiot.c", line 34: Error:  #20: identifier "AT_SIGNAL_WEAK" is undefined
-          return AT_SIGNAL_WEAK;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 42: Error:  #20: identifier "AT_REGISTER_FAIL" is undefined
-          return AT_REGISTER_FAIL;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 45: Warning:  #223-D: function "find_str_from_uart2_buf" declared implicitly
-      if (!find_str_from_uart2_buf("+CREG: 0,1", NULL) &&
-           ^
-".\Middleware\nbiot\nbiot.c", line 50: Error:  #20: identifier "AT_REGISTER_FAIL" is undefined
-          return AT_REGISTER_FAIL;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 59: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          if (ret == 0) return AT_NETWORK_NOT_ATTACHED;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 62: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          if (ret == 0) return AT_NETWORK_NOT_ATTACHED;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 88: Error:  #20: identifier "AT_APN_CONFIG_ERROR" is undefined
-              if (ret == 0) return AT_APN_CONFIG_ERROR;
-                                   ^
-".\Middleware\nbiot\nbiot.c", line 93: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          if (ret == 0) return AT_NO_IP_ADDRESS;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 96: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          if (ret == 0) return AT_NO_IP_ADDRESS;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 104: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          return AT_NETWORK_NOT_ATTACHED;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 110: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          return AT_NO_IP_ADDRESS;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 118: Error:  #20: identifier "AT_DATA_LINK_ERROR" is undefined
-          return AT_DATA_LINK_ERROR;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 130: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command("AT+ECMTCFG=\"keepalive\",0,120", "OK", 1, 200);
-            ^
-".\Middleware\nbiot\nbiot.c", line 131: Error:  #20: identifier "AT_MQTT_CONFIG_ERROR" is undefined
-      if (ret == 0) return AT_MQTT_CONFIG_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 137: Error:  #20: identifier "AT_CREATE_INSTANCE_ERROR" is undefined
-      if (ret == 0) return AT_CREATE_INSTANCE_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 142: Error:  #20: identifier "AT_REGISTER_SERVER_ERROR" is undefined
-      if (ret == 0) return AT_REGISTER_SERVER_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 147: Error:  #20: identifier "AT_MQTT_SUB_ERROR" is undefined
-      if (ret == 0) return AT_MQTT_SUB_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 185: Error:  #20: identifier "AT_CMD_MAX_LEN" is undefined
-      char at_ecmtpub[AT_CMD_MAX_LEN] = {'\0'};
-                      ^
-".\Middleware\nbiot\nbiot.c", line 197: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command(at_ecmtpub, "+ECMTPUB: 0,2,0", 1, 100);
-            ^
-".\Middleware\nbiot\nbiot.c", line 199: Error:  #20: identifier "AT_MQTT_PUB_ERROR" is undefined
-          return AT_MQTT_PUB_ERROR;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 209: Warning:  #223-D: function "UART2_Send_AT_Command_Ext" declared implicitly
-      ret = UART2_Send_AT_Command_Ext("AT+ECMTDISC=0","OK", "ERROR:",1,150);
-            ^
-.\Middleware\nbiot\nbiot.c: 8 warnings, 18 errors
-
-[2026-04-17 15:55:45]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot_usart.c': source file has been changed.
-
-[2026-04-17 15:55:46]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Middleware\nbiot\nbiot.c", exit code: 1
-command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\nbiot\nbiot.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\nbiot\nbiot.d .\Middleware\nbiot\nbiot.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Middleware\nbiot\nbiot.c", line 10: Error:  #147: declaration is incompatible with "uint8_t nbiot_init(uint32_t)"  (declared at line 48 of ".\Middleware\nbiot\nbiot.h")
-  int nbiot_init(uint32_t baudrate)
-      ^
-".\Middleware\nbiot\nbiot.c", line 15: Warning:  #223-D: function "nbiot_usart_init" declared implicitly
-      nbiot_usart_init(115200);
-      ^
-".\Middleware\nbiot\nbiot.c", line 16: Warning:  #223-D: function "network_init" declared implicitly
-      ret = network_init();
-            ^
-".\Middleware\nbiot\nbiot.c", line 23: Warning:  #940-D: missing return statement at end of non-void function "nbiot_init" 
-  }
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
   ^
-".\Middleware\nbiot\nbiot.c", line 30: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command("AT+CSQ", "+CSQ:", 1, 500);
-            ^
-".\Middleware\nbiot\nbiot.c", line 34: Error:  #20: identifier "AT_SIGNAL_WEAK" is undefined
-          return AT_SIGNAL_WEAK;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 42: Error:  #20: identifier "AT_REGISTER_FAIL" is undefined
-          return AT_REGISTER_FAIL;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 45: Warning:  #223-D: function "find_str_from_uart2_buf" declared implicitly
-      if (!find_str_from_uart2_buf("+CREG: 0,1", NULL) &&
-           ^
-".\Middleware\nbiot\nbiot.c", line 50: Error:  #20: identifier "AT_REGISTER_FAIL" is undefined
-          return AT_REGISTER_FAIL;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 59: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          if (ret == 0) return AT_NETWORK_NOT_ATTACHED;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 62: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          if (ret == 0) return AT_NETWORK_NOT_ATTACHED;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 88: Error:  #20: identifier "AT_APN_CONFIG_ERROR" is undefined
-              if (ret == 0) return AT_APN_CONFIG_ERROR;
-                                   ^
-".\Middleware\nbiot\nbiot.c", line 93: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          if (ret == 0) return AT_NO_IP_ADDRESS;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 96: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          if (ret == 0) return AT_NO_IP_ADDRESS;
-                               ^
-".\Middleware\nbiot\nbiot.c", line 104: Error:  #20: identifier "AT_NETWORK_NOT_ATTACHED" is undefined
-          return AT_NETWORK_NOT_ATTACHED;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 110: Error:  #20: identifier "AT_NO_IP_ADDRESS" is undefined
-          return AT_NO_IP_ADDRESS;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 118: Error:  #20: identifier "AT_DATA_LINK_ERROR" is undefined
-          return AT_DATA_LINK_ERROR;
-                 ^
-".\Middleware\nbiot\nbiot.c", line 130: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command("AT+ECMTCFG=\"keepalive\",0,120", "OK", 1, 200);
-            ^
-".\Middleware\nbiot\nbiot.c", line 131: Error:  #20: identifier "AT_MQTT_CONFIG_ERROR" is undefined
-      if (ret == 0) return AT_MQTT_CONFIG_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 137: Error:  #20: identifier "AT_CREATE_INSTANCE_ERROR" is undefined
-      if (ret == 0) return AT_CREATE_INSTANCE_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 142: Error:  #20: identifier "AT_REGISTER_SERVER_ERROR" is undefined
-      if (ret == 0) return AT_REGISTER_SERVER_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 147: Error:  #20: identifier "AT_MQTT_SUB_ERROR" is undefined
-      if (ret == 0) return AT_MQTT_SUB_ERROR;
-                           ^
-".\Middleware\nbiot\nbiot.c", line 185: Error:  #20: identifier "AT_CMD_MAX_LEN" is undefined
-      char at_ecmtpub[AT_CMD_MAX_LEN] = {'\0'};
+"Middleware/lora/lora_usart.h", line 44: Warning:  #12-D: parsing restarts here after previous syntax error
+  void lora_uart_printf(char *fmt, ...);       /* ATK-MW1278D UART printf */
+                                       ^
+".\Application\src\transmission.c", line 111: Warning:  #223-D: function "lora_uart_printf" declared implicitly
+          lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解�?
+          ^
+.\Application\src\transmission.c: 3 warnings, 2 errors
+".\Application\src\main.c", line 8: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Driver/std_periph_driver/inc/stm32f10x.h", line 480: Warning:  #12-D: parsing restarts here after previous syntax error
+  } IRQn_Type;
+             ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1508: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+                                        ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1527: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+                                               ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1546: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+                                         ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1565: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+                                                ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1584: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+                                            ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1599: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+                                              ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1616: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
+                                            ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1638: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+                                          ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1660: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+                                              ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1735: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
+                                        ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1751: Error:  #20: identifier "IRQn_Type" is undefined
+  
+_STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
+                                            ^
+"Driver/std_periph_driver/inc/core_cm3.h", line 1844: Error:  #20: identifier "SysTick_IRQn" is undefined
+    
+VIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
                       ^
-".\Middleware\nbiot\nbiot.c", line 197: Warning:  #223-D: function "UART2_Send_AT_Command" declared implicitly
-      ret = UART2_Send_AT_Command(at_ecmtpub, "+ECMTPUB: 0,2,0", 1, 100);
-            ^
-".\Middleware\nbiot\nbiot.c", line 199: Error:  #20: identifier "AT_MQTT_PUB_ERROR" is undefined
-          return AT_MQTT_PUB_ERROR;
+".\Application\src\main.c", line 14: Error:  #169: expected a declaration
+  =======
+  ^
+"Components/buzzer/buzzer.h", line 30: Warning:  #12-D: parsing restarts here after previous syntax error
+  } BuzzerScene_t;
                  ^
-".\Middleware\nbiot\nbiot.c", line 209: Warning:  #223-D: function "UART2_Send_AT_Command_Ext" declared implicitly
-      ret = UART2_Send_AT_Command_Ext("AT+ECMTDISC=0","OK", "ERROR:",1,150);
-            ^
-.\Middleware\nbiot\nbiot.c: 8 warnings, 18 errors
+"Components/buzzer/buzzer.h", line 57: Error:  #20: identifier "BuzzerScene_t" is undefined
+     void buzzer_beep_scene(BuzzerScene_t scene, BuzzerMode_t mode, BuzzerRhythm_t rhythm, uint16_t duration_ms);
+                            ^
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+"Application/inc/transmission.h", line 34: Warning:  #12-D: parsing restarts here after previous syntax error
+  } transmission_mode_t;
+                       ^
+".\Application\src\main.c", line 19: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+".\Application\src\main.c", line 61: Warning:  #12-D: parsing restarts here after previous syntax error
+      transmission_init();
+                         ^
+".\Application\src\main.c", line 62: Warning:  #1295-D: Deprecated declaration acquisition_init - give arg types
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 62: Warning:  #77-D: this declaration has no storage class or type specifier
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 62: Error:  #147: declaration is incompatible with "void acquisition_init(void)"  (declared at line 28 of "Application/inc/acquisition.h")
+  	acquisition_init();
+  	^
+".\Application\src\main.c", line 64: Error:  #40: expected an identifier
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	                                                                                 ^
+".\Application\src\main.c", line 64: Warning:  #77-D: this declaration has no storage class or type specifier
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 64: Warning:  #92-D: identifier-list parameters may only be used in a function definition
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 64: Error:  #147: declaration is incompatible with "void buzzer_beep_scene(<error-type>, BuzzerMode_t, BuzzerRhythm_t, uint16_t)"  (declared at line 57 of "Components/buzzer/buzzer.h")
+  	buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_SLOW, 1000); /* 系统初始化成功提�? */
+  	^
+".\Application\src\main.c", line 66: Error:  #169: expected a declaration
+  	while(1)
+  	^
+".\Application\src\main.c", line 88: Warning:  #12-D: parsing restarts here after previous syntax error
+              transmission_send(&data);
+                                      ^
+".\Application\src\main.c", line 89: Error:  #169: expected a declaration
+          }
+          ^
+".\Application\src\main.c", line 96: Warning:  #12-D: parsing restarts here after previous syntax error
+          transmission_receive();
+                                ^
+".\Application\src\main.c", line 98: Error:  #79: expected a type specifier
+          delay_ms(5000);  // 5秒采集间�?
+                   ^
+".\Application\src\main.c", line 98: Warning:  #77-D: this declaration has no storage class or type specifier
+          delay_ms(5000);  // 5秒采集间�?
+          ^
+".\Application\src\main.c", line 98: Error:  #147: declaration is incompatible with "void delay_ms(uint32_t)"  (declared at line 7 of "Driver/BSP/delay/delay.h")
+          delay_ms(5000);  // 5秒采集间�?
+          ^
+".\Application\src\main.c", line 99: Error:  #169: expected a declaration
+  	}
+  	^
+".\Application\src\main.c", line 101: Warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+.\Application\src\main.c: 13 warnings, 26 errors
 
-[2026-04-17 15:56:13]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 15:56:27]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 15:57:17]	[info] incremental build: 1 source files changed
+[2026-04-19 18:09:32]	[info] incremental build: 22 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_crc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dac.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dbgmcu.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dma.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_exti.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_flash.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_fsmc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_gpio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_iwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_pwr.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rcc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rtc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_sdio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_spi.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_tim.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_usart.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_wwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': object (.o) file not exist
 
-[2026-04-17 15:57:21]	link failed !, exit code: 1
+[2026-04-19 18:09:33]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
+command: 
+  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
    at unify_builder.Program.Main(String[] args_)
 ---
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+"Middleware/lora/lora_usart.h", line 44: Warning:  #12-D: parsing restarts here after previous syntax error
+  void lora_uart_printf(char *fmt, ...);       /* ATK-MW1278D UART printf */
+                                       ^
+.\Application\src\main.c: 2 warnings, 2 errors
+"Middleware/nbiot/nbiot.h", line 12: Error:  #169: expected a declaration
+  <<<<<<< HEAD
+  ^
+"Middleware/nbiot/nbiot.h", line 98: Warning:  #12-D: parsing restarts here after previous syntax error
+  } nbiot_reg_state_t;
+                     ^
+"Middleware/nbiot/nbiot.h", line 118: Error:  #169: expected a declaration
+  >>>>>>> dev_v3
+  ^
+"Middleware/lora/lora_usart.h", line 44: Warning:  #12-D: parsing restarts here after previous syntax error
+  void lora_uart_printf(char *fmt, ...);       /* ATK-MW1278D UART printf */
+                                       ^
+".\Application\src\transmission.c", line 111: Warning:  #223-D: function "lora_uart_printf" declared implicitly
+          lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解�?
+          ^
+.\Application\src\transmission.c: 3 warnings, 2 errors
 
-
-[2026-04-17 15:57:46]	[info] incremental build: 1 source files changed
+[2026-04-19 18:10:08]	[info] incremental build: 16 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_fsmc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_gpio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_i2c.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_iwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_pwr.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rcc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rtc.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_sdio.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_spi.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_tim.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_usart.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_wwdg.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': object (.o) file not exist
 
-[2026-04-17 15:57:46]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
+[2026-04-19 18:10:10]	[done]
+	build successfully !
 
-
-[2026-04-17 15:58:02]	[info] incremental build: 1 source files changed
+[2026-04-19 18:14:25]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
 
-[2026-04-17 15:58:02]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 15:58:14]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 15:58:15]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:00:24]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:00:24]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c", exit code: 1
+[2026-04-19 18:14:25]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
 command: 
   "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
    at unify_builder.Program.Main(String[] args_)
 ---
-".\Application\src\transmission.c", line 32: Warning:  #167-D: argument of type "uint8_t" is incompatible with parameter of type "uint8_t (*)(uint32_t)"
-      transmission_startup_common("LoRa", lora_init(115200));
-                                          ^
-".\Application\src\transmission.c", line 37: Error: At end of source:  #40: expected an identifier
-".\Application\src\transmission.c", line 37: Error: At end of source:  #65: expected a ";"
-.\Application\src\transmission.c: 1 warning, 2 errors
+".\Application\src\transmission.c", line 118: Error:  #513: a value of type "void" cannot be assigned to an entity of type "uint8_t"
+          ret = lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解�?
+              ^
+".\Application\src\transmission.c", line 123: Error:  #20: identifier "LORA_PRINTF_OK" is undefined
+              case LORA_PRINTF_OK:
+                   ^
+".\Application\src\transmission.c", line 127: Error:  #20: identifier "LORA_PRINTF_ERR_FORMAT" is undefined
+              case LORA_PRINTF_ERR_FORMAT:
+                   ^
+".\Application\src\transmission.c", line 131: Error:  #20: identifier "LORA_PRINTF_ERR_TRUNCATED" is undefined
+              case LORA_PRINTF_ERR_TRUNCATED:
+                   ^
+".\Application\src\transmission.c", line 134: Error:  #20: identifier "TRANS_TRUNCATED" is undefined
+                  return TRANS_TRUNCATED;
+                         ^
+".\Application\src\transmission.c", line 172: Warning:  #1-D: last line of file ends without a newline
+  }
+   ^
+.\Application\src\transmission.c: 1 warning, 5 errors
 
-[2026-04-17 16:00:36]	[info] incremental build: 1 source files changed
+[2026-04-19 18:16:37]	[info] incremental build: 5 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\lora_demo.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 16:00:36]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:00:45]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:00:45]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c", exit code: 1
+[2026-04-19 18:16:38]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
 command: 
   "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
    at unify_builder.Program.Main(String[] args_)
 ---
-".\Application\src\transmission.c", line 32: Error:  #165: too few arguments in function call
-      transmission_startup_common("LoRa", lora_init());
-                                                    ^
-".\Application\src\transmission.c", line 32: Warning:  #167-D: argument of type "uint8_t" is incompatible with parameter of type "uint8_t (*)(uint32_t)"
-      transmission_startup_common("LoRa", lora_init());
-                                          ^
-.\Application\src\transmission.c: 1 warning, 1 error
+"Middleware/lora/lora_usart.h", line 57: Warning:  #1-D: last line of file ends without a newline
+  #endif
+        ^
+".\Application\src\transmission.c", line 134: Error:  #20: identifier "TRANS_TRUNCATED" is undefined
+                  return TRANS_TRUNCATED;
+                         ^
+".\Application\src\transmission.c", line 172: Warning:  #1-D: last line of file ends without a newline
+  }
+   ^
+.\Application\src\transmission.c: 2 warnings, 1 error
 
-[2026-04-17 16:00:50]	[info] incremental build: 1 source files changed
+[2026-04-19 18:16:45]	[info] incremental build: 5 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\lora_demo.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 16:00:51]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:04:37]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6200E: Symbol acquisition_init multiply defined (by transmission.o and acquisition.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:06:15]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:06:15]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c", exit code: 1
+[2026-04-19 18:16:45]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
 command: 
   "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
    at unify_builder.Program.Main(String[] args_)
 ---
-".\Application\src\transmission.c", line 13: Error:  #20: identifier "baudrate" is undefined
-      uint8_t ret = init_func(baudrate);
-                              ^
+".\Application\src\transmission.c", line 134: Error:  #20: identifier "TRANS_TRUNCATED" is undefined
+                  return TRANS_TRUNCATED;
+                         ^
 .\Application\src\transmission.c: 0 warnings, 1 error
 
-[2026-04-17 16:06:39]	[info] incremental build: 1 source files changed
+[2026-04-19 18:17:29]	[info] incremental build: 4 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\inc\transmission.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 16:06:43]	[done]
+[2026-04-19 18:17:30]	[done]
 	build successfully !
 
-[2026-04-17 16:08:49]	[info] incremental build: 2 source files changed
+[2026-04-19 18:31:08]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\inc\transmission.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\inc\transmission.h' has been changed.
 
-[2026-04-17 16:08:52]	[done]
+[2026-04-19 18:31:09]	[done]
 	build successfully !
 
-[2026-04-17 16:11:52]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:11:54]	[done]
+[2026-04-19 18:32:16]	[done]
 	build successfully !
 
-[2026-04-17 16:13:15]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
-
-[2026-04-17 16:13:17]	[done]
+[2026-04-19 18:32:28]	[done]
 	build successfully !
 
-[2026-04-17 16:13:30]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 16:13:31]	[done]
+[2026-04-19 18:38:00]	[done]
 	build successfully !
 
-[2026-04-17 16:23:19]	[info] incremental build: 1 source files changed
+[2026-04-19 20:21:55]	[done]
+	build successfully !
+
+[2026-04-19 20:22:40]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 16:23:19]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c", exit code: 1
+[2026-04-19 20:22:41]	[done]
+	build successfully !
+
+[2026-04-19 20:27:29]	[done]
+	build successfully !
+
+[2026-04-19 20:28:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 20:28:16]	[done]
+	build successfully !
+
+[2026-04-19 20:30:28]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 20:30:29]	[done]
+	build successfully !
+
+[2026-04-19 20:31:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 20:31:48]	[done]
+	build successfully !
+
+[2026-04-19 20:36:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 20:36:14]	[done]
+	build successfully !
+
+[2026-04-19 22:17:26]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': source file has been changed.
+
+[2026-04-19 22:17:27]	[done]
+	build successfully !
+
+[2026-04-19 22:18:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 22:18:05]	[done]
+	build successfully !
+
+[2026-04-19 23:27:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 23:27:06]	[done]
+	build successfully !
+
+[2026-04-19 23:27:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-19 23:27:32]	[done]
+	build successfully !
+
+[2026-04-24 19:50:05]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
+
+[2026-04-24 19:50:10]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c", exit code: 1
+command: 
+  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\lora\lora_usart.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\lora\lora_usart.d .\Middleware\lora\lora_usart.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Middleware\lora\lora_usart.c", line 24: Error:  #147: declaration is incompatible with "uint8_t lora_uart_printf(char *, ...)"  (declared at line 51 of ".\Middleware\lora\lora_usart.h")
+  void lora_uart_printf(char *fmt, ...)
+       ^
+".\Middleware\lora\lora_usart.c", line 226: Error:  #20: identifier "USART_FLAG_RxNE" is undefined
+      if (USART_GetITStatus(g_uart_handle, USART_FLAG_RxNE) != RESET) 
+                                           ^
+.\Middleware\lora\lora_usart.c: 0 warnings, 2 errors
+
+[2026-04-24 19:50:50]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
+
+[2026-04-24 19:50:51]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c", exit code: 1
 command: 
   "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
    at unify_builder.Program.Main(String[] args_)
 ---
-".\Application\src\transmission.c", line 16: Error:  #101: "ret" has already been declared in the current scope
-  	uint8_t ret;
-  	        ^
-".\Application\src\transmission.c", line 53: Warning:  #940-D: missing return statement at end of non-void function "lora_startup" 
-  }
-  ^
-".\Application\src\transmission.c", line 7: Warning:  #177-D: variable "ret"  was declared but never referenced
-      uint8_t ret;
+".\Application\src\transmission.c", line 118: Error:  #513: a value of type "void" cannot be assigned to an entity of type "uint8_t"
+          ret = lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解�?
               ^
-".\Application\src\transmission.c", line 17: Warning:  #177-D: variable "key"  was declared but never referenced
-      uint8_t key;
-              ^
-".\Application\src\transmission.c", line 18: Warning:  #177-D: variable "buf"  was declared but never referenced
-      uint8_t *buf;
-               ^
-".\Application\src\transmission.c", line 58: Warning:  #223-D: function "transmission_startup_common" declared implicitly
-      transmission_startup_common("LoRa", lora_init);
-      ^
-.\Application\src\transmission.c: 5 warnings, 1 error
+.\Application\src\transmission.c: 0 warnings, 1 error
 
-[2026-04-17 16:23:32]	[info] incremental build: 1 source files changed
+[2026-04-24 19:52:02]	[info] incremental build: 4 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.h' has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 16:23:33]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol transmission_startup_common (referred from transmission.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:23:57]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:23:58]	[done]
-	build successfully !
-
-[2026-04-17 16:24:30]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:24:31]	[done]
-	build successfully !
-
-[2026-04-17 16:24:38]	[done]
-	build successfully !
-
-[2026-04-17 16:25:00]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 16:25:02]	[done]
-	build successfully !
-
-[2026-04-17 16:25:43]	[done]
-	build successfully !
-
-[2026-04-17 16:35:46]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:35:48]	[done]
-	build successfully !
-
-[2026-04-17 16:37:44]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:37:45]	[done]
-	build successfully !
-
-[2026-04-17 16:38:02]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:38:02]	[done]
-	build successfully !
-
-[2026-04-17 16:38:57]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:38:58]	[done]
-	build successfully !
-
-[2026-04-17 16:42:04]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
-
-[2026-04-17 16:42:06]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol display_error (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-
-
-[2026-04-17 16:42:41]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-
-[2026-04-17 16:42:42]	[done]
-	build successfully !
-
-[2026-04-17 16:43:42]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\display.h' has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\display.h' has been changed.
-
-[2026-04-17 16:43:46]	[done]
-	build successfully !
-
-[2026-04-17 16:59:48]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
-
-[2026-04-17 16:59:48]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c", exit code: 1
+[2026-04-24 19:52:04]	compilation failed at : "e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c", exit code: 1
 command: 
-  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+  "F:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\lora\lora_usart.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\lora\lora_usart.d .\Middleware\lora\lora_usart.c
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/transmission.h", line 32: Error:  #101: "DISPLAY_MODE_LORA" has already been declared in the current scope
-      DISPLAY_MODE_LORA = 0,
-      ^
-"Application/inc/transmission.h", line 33: Error:  #101: "DISPLAY_MODE_NBIOT" has already been declared in the current scope
-      DISPLAY_MODE_NBIOT
-      ^
-"Application/inc/transmission.h", line 34: Error:  #256: invalid redeclaration of type name "display_mode_t"  (declared at line 11 of "Application/inc/display.h")
-  } display_mode_t;
-    ^
-".\Application\src\main.c", line 61: Warning:  #188-D: enumerated type mixed with another type
-              display_sensor_data(&data, disp_mode);
-                                         ^
-".\Application\src\main.c", line 64: Warning:  #223-D: function "transmission_send" declared implicitly
-              transmission_send(&data);
-              ^
-.\Application\src\main.c: 2 warnings, 3 errors
+".\Middleware\lora\lora_usart.c", line 226: Error:  #20: identifier "USART_IT_RxNE" is undefined
+      if (USART_GetITStatus(g_uart_handle, USART_IT_RxNE) != RESET) 
+                                           ^
+.\Middleware\lora\lora_usart.c: 0 warnings, 1 error
 
-[2026-04-17 17:00:35]	[info] incremental build: 2 source files changed
+[2026-04-24 19:52:26]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 17:00:38]	[done]
+[2026-04-24 19:52:30]	[done]
 	build successfully !
 
-[2026-04-17 17:02:05]	[info] incremental build: 2 source files changed
+[2026-04-24 19:53:02]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': dependence 'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\inc\transmission.h' has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 17:02:07]	[done]
+[2026-04-24 19:53:03]	[done]
 	build successfully !
 
-[2026-04-17 17:04:49]	[info] incremental build: 1 source files changed
+[2026-04-24 19:53:13]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 17:04:50]	[done]
+[2026-04-24 19:53:14]	[done]
 	build successfully !
 
-[2026-04-17 17:06:41]	[done]
-	build successfully !
-
-[2026-04-17 17:07:58]	[info] incremental build: 1 source files changed
+[2026-04-24 19:58:14]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 17:07:59]	[done]
+[2026-04-24 19:58:15]	[done]
 	build successfully !
 
-[2026-04-17 17:09:06]	[done]
-	build successfully !
-
-[2026-04-17 17:10:37]	[done]
-	build successfully !
-
-[2026-04-17 17:11:08]	[info] incremental build: 1 source files changed
+[2026-04-24 20:00:11]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 17:11:09]	[done]
+[2026-04-24 20:00:13]	[done]
 	build successfully !
 
-[2026-04-17 17:12:03]	[info] incremental build: 2 source files changed
+[2026-04-24 20:00:54]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': source file has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
 
-[2026-04-17 17:12:05]	[done]
+[2026-04-24 20:00:56]	[done]
 	build successfully !
 
-[2026-04-17 21:05:54]	[info] incremental build: 12 source files changed
+[2026-04-24 20:01:43]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\demo\bh1750_demo.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\demo\data_acquisition_transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\demo\lora_demo.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\demo\sht30_demo.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\acquisition.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\display.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\main.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\stm32f10x_it.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Application\src\transmission.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Components\led\led.c': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Driver\CMSIS\startup_stm32f10x_md.s': object (.o) file not exist
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Lora\Driver\CMSIS\system_stm32f10x.c': object (.o) file not exist
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 21:05:56]	[done]
+[2026-04-24 20:01:45]	[done]
 	build successfully !
 
-[2026-04-17 21:07:27]	[info] incremental build: 50 source files changed
+[2026-04-24 20:01:50]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\bh1750_demo.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\data_acquisition_transmission.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\lora_demo.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\demo\sht30_demo.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\acquisition.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\display.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\stm32f10x_it.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\bh1750\bh1750.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\bh1750\bh1750_i2c.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\buzzer\buzzer.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\key\key.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\led\led.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\oled\oled.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\sht30\sht30.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Components\sht30\sht30_i2c.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\delay\delay.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\hi2c\i2c.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\si2c\si2c.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\spi\spi.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\sys\sys.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\BSP\uart\usart.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\startup_stm32f10x_md.s': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\CMSIS\system_stm32f10x.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\misc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_adc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_bkp.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_can.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_cec.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_crc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dac.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dbgmcu.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_dma.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_exti.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_flash.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_fsmc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_gpio.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_i2c.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_iwdg.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_pwr.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rcc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_rtc.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_sdio.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_spi.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_tim.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_usart.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Driver\std_periph_driver\src\stm32f10x_wwdg.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora.c': compiler options has been changed.
-'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': compiler options has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
 
-[2026-04-17 21:07:31]	[done]
+[2026-04-24 20:01:51]	[done]
+	build successfully !
+
+[2026-04-25 10:46:36]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+
+[2026-04-25 10:46:37]	[done]
+	build successfully !
+
+[2026-04-25 10:49:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 10:49:34]	[done]
+	build successfully !
+
+[2026-04-25 10:50:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 10:50:35]	[done]
+	build successfully !
+
+[2026-04-25 10:52:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 10:52:35]	[done]
+	build successfully !
+
+[2026-04-25 11:18:45]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Middleware\lora\lora_usart.c': source file has been changed.
+
+[2026-04-25 11:18:49]	[done]
+	build successfully !
+
+[2026-04-25 11:43:07]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\transmission.c': source file has been changed.
+
+[2026-04-25 11:43:08]	[done]
+	build successfully !
+
+[2026-04-25 16:28:19]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 16:28:19]	[done]
+	build successfully !
+
+[2026-04-25 16:29:26]	[done]
+	build successfully !
+
+[2026-04-25 16:39:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 16:39:42]	[done]
+	build successfully !
+
+[2026-04-25 16:41:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'e:\lora-nbiot-agri-system\lora-nbiot-agri-platform\Application\src\main.c': source file has been changed.
+
+[2026-04-25 16:41:57]	[done]
 	build successfully !
 

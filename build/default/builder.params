@@ -39,10 +39,6 @@
         "STM32F10X_MD"
     ],
     "sourceList": [
-        "Application/demo/bh1750_demo.c",
-        "Application/demo/data_acquisition_transmission.c",
-        "Application/demo/lora_demo.c",
-        "Application/demo/sht30_demo.c",
         "Application/src/acquisition.c",
         "Application/src/display.c",
         "Application/src/main.c",

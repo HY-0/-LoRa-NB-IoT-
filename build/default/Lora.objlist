@@ -1,7 +1,3 @@
-.\build\default\.obj\Application\demo\bh1750_demo.o
-.\build\default\.obj\Application\demo\data_acquisition_transmission.o
-.\build\default\.obj\Application\demo\lora_demo.o
-.\build\default\.obj\Application\demo\sht30_demo.o
 .\build\default\.obj\Application\src\acquisition.o
 .\build\default\.obj\Application\src\display.o
 .\build\default\.obj\Application\src\main.o

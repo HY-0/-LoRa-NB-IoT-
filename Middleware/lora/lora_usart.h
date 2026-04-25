@@ -33,18 +33,27 @@
 #define LORA_UART_RX_BUF_SIZE            128
 #define LORA_UART_TX_BUF_SIZE            128
 
-/* 错误代码 */
-#define LORA_EOK             0       /* 没有错误 */
-#define LORA_ERROR           1       /* 通用错误 */
-#define LORA_ETIMEOUT        2       /* 超时错误 */
-#define LORA_EINVAL          3       /* 参数错误 */
-#define LORA_EBUSY           4       /* 忙错误 */
+/* 通用错误码 */
+#define LORA_EOK                     0       /* 没有错误 */
+#define LORA_ERROR                   1       /* 通用错误 */
+#define LORA_ETIMEOUT                2       /* 超时错误 */
+#define LORA_EINVAL                  3       /* 参数错误 */
+#define LORA_EBUSY                   4       /* 忙错误 */
+
+/* 发送错误码 */
+#define LORA_PRINTF_OK               0       /* 成功 */
+#define LORA_PRINTF_ERR_FORMAT       1       /* 格式化错误（参数非法） */
+#define LORA_PRINTF_ERR_TRUNCATED    2       /* 输出被截断（缓冲区不足，仍发送截断内容） */
+
+
 
 /* 操作函数 */
-void lora_uart_printf(char *fmt, ...);       /* ATK-MW1278D UART printf */
-void lora_uart_rx_restart(void);             /* ATK-MW1278D UART重新开始接收数据 */
-uint8_t *lora_uart_rx_get_frame(void);       /* 获取lora UART接收到的一帧数据 */
-uint16_t lora_uart_rx_get_frame_len(void);   /* 获取lora UART接收到的一帧数据的长度 */
-void lora_uart_init(uint32_t baudrate);      /* ATK-MW1278D UART初始化 */
+uint8_t lora_uart_printf(char *fmt, ...);       /* LoRa UART printf */
+
+// void lora_uart_printf(char *fmt, ...);       /* LoRa UART printf */
+void lora_uart_rx_restart(void);                /* LoRa UART重新开始接收数据 */
+uint8_t *lora_uart_rx_get_frame(void);          /* 获取lora UART接收到的一帧数据 */
+uint16_t lora_uart_rx_get_frame_len(void);      /* 获取lora UART接收到的一帧数据的长度 */
+void lora_uart_init(uint32_t baudrate);         /* LoRa UART初始化 */
 
 #endif

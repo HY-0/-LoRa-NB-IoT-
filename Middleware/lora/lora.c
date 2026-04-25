@@ -511,7 +511,7 @@ uint8_t lora_wltime_config(LORA_wltime_t wltime)
  *                        LORA_UARTRATE_38400BPS : 38400bps
  *                        LORA_UARTRATE_57600BPS : 57600bps
  *                        LORA_UARTRATE_115200BPS: 115200bps（默认）
- *              parity  : LORA_UARTPARI_NONE: 无校验（默认）
+ * @param       parity  : LORA_UARTPARI_NONE: 无校验（默认）
  *                        LORA_UARTPARI_EVEN: 偶校验
  *                        LORA_UARTPARI_ODD : 奇校验
  * @retval      LORA_EOK   : 串口配置成功

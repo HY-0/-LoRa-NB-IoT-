@@ -26,6 +26,7 @@
 #define TRANS_ERROR       1
 #define TRANS_NO_DATA     2
 #define TRANS_BUSY        3
+#define TRANS_TRUNCATED   4
 
 /* 传输模式定义 */
 typedef enum {

@@ -62,6 +62,7 @@ targets:
       - Application/src/data_acquisition_transmission.c
       - Application/src/nbiot_demo.c
       - Middleware/nbiot
+      - Application/demo
     settings:
       debugger: cortex-debug
     toolchain: AC5
