@@ -54,7 +54,6 @@
         "Components/sht30/sht30_i2c.c",
         "Driver/BSP/delay/delay.c",
         "Driver/BSP/hi2c/i2c.c",
-        "Driver/BSP/led/led.c",
         "Driver/BSP/si2c/si2c.c",
         "Driver/BSP/spi/spi.c",
         "Driver/BSP/sys/sys.c",
