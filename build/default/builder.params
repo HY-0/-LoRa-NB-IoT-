@@ -2,12 +2,12 @@
     "name": "Lora",
     "target": "default",
     "toolchain": "AC5",
-    "toolchainLocation": "F:\\Software\\Keil_v5\\C51_STM32\\ARM\\ARMCC",
-    "toolchainCfgFile": "c:\\Users\\HY\\.vscode\\extensions\\cl.eide-3.26.7\\res\\data\\models/arm.v5.model.json",
+    "toolchainLocation": "D:\\Software\\Keil_v5\\C51_STM32\\ARM\\ARMCC",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.7\\res\\data\\models/arm.v5.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
+    "rootDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
     "dumpPath": "build\\default",
     "outDir": "build\\default",
     "ram": 20480,
@@ -54,6 +54,7 @@
         "Components/sht30/sht30_i2c.c",
         "Driver/BSP/delay/delay.c",
         "Driver/BSP/hi2c/i2c.c",
+        "Driver/BSP/led/led.c",
         "Driver/BSP/si2c/si2c.c",
         "Driver/BSP/spi/spi.c",
         "Driver/BSP/sys/sys.c",
@@ -120,22 +121,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "e:/lora-nbiot-agri-system/lora-nbiot-agri-platform/build/default/Lora.sct"
+                "d:/lora-nbiot-agri-platform/-LoRa-NB-IoT-/build/default/Lora.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "template",
-        "workspaceFolder": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
-        "workspaceFolderBasename": "lora-nbiot-agri-platform",
-        "OutDir": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\build\\default",
+        "workspaceFolder": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
+        "workspaceFolderBasename": "-LoRa-NB-IoT-",
+        "OutDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default",
         "OutDirRoot": "build",
         "OutDirBase": "build\\default",
         "ProjectName": "Lora",
         "ConfigName": "default",
-        "ProjectRoot": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform",
-        "ExecutableName": "e:\\lora-nbiot-agri-system\\lora-nbiot-agri-platform\\build\\default\\Lora",
+        "ProjectRoot": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
+        "ExecutableName": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default\\Lora",
         "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.2.0",
         "ChipName": "STM32F103C8",
         "SYS_Platform": "win32",
@@ -144,11 +145,11 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\HY\\.vscode\\extensions\\cl.eide-3.26.7\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.7\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
-        "EIDE_MSYS": "C:\\Users\\HY\\.eide\\bin\\builder\\msys\\bin",
-        "EIDE_PY3_CMD": "C:\\Users\\HY\\.eide\\bin\\python36\\python3.exe",
-        "ToolchainRoot": "F:\\Software\\Keil_v5\\C51_STM32\\ARM\\ARMCC"
+        "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "D:\\Software\\Keil_v5\\C51_STM32\\ARM\\ARMCC"
     },
     "sysPaths": []
 }
