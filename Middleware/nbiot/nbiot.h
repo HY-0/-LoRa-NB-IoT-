@@ -33,6 +33,19 @@
 #define NBIOT_EINVAL        3       /* 参数错误 */
 #define NBIOT_EBUSY         4       /* 忙错误 */
 
+#define AT_SIGNAL_WEAK            -1
+#define AT_REGISTER_FAIL          -2
+#define AT_NETWORK_NOT_ATTACHED   -3
+#define AT_APN_CONFIG_ERROR       -4
+#define AT_NO_IP_ADDRESS          -5
+#define AT_DATA_LINK_ERROR        -6
+#define AT_MQTT_CONFIG_ERROR      -7
+#define AT_CREATE_INSTANCE_ERROR  -8
+#define AT_REGISTER_SERVER_ERROR  -9
+#define AT_MQTT_SUB_ERROR         -10
+#define AT_MQTT_PUB_ERROR         -11
+
+#define AT_CMD_MAX_LEN            64
 /* ===================== 网络注册状态（可选） ===================== */
 typedef enum {
     NBIOT_REG_NOT_REGISTERED = 0,

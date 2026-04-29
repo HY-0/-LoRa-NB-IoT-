@@ -44,3 +44,5 @@
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_wwdg.o
 .\build\default\.obj\Middleware\lora\lora.o
 .\build\default\.obj\Middleware\lora\lora_usart.o
+.\build\default\.obj\Middleware\nbiot\nbiot.o
+.\build\default\.obj\Middleware\nbiot\nbiot_usart.o

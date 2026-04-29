@@ -61,8 +61,8 @@ targets:
       - <virtual_root>/startup
       - Application/src/data_acquisition_transmission.c
       - Application/src/nbiot_demo.c
-      - Middleware/nbiot
       - Application/demo
+      - Driver/BSP/led
     settings:
       debugger: cortex-debug
     toolchain: AC5

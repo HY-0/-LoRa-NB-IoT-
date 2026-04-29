@@ -2554,32 +2554,32 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         0          0          0          0          0     255628   acquisition.o
-       458         34          0          4          0       5211   buzzer.o
-       438         38          0         12          0       3417   delay.o
-       356        132          0          0          0       2413   display.o
-       132          6          0          0          0        907   key.o
-       100         12          0          0          0        893   led.o
-      1006        192          0          0          0      10441   lora.o
-       766         54          0          8        258       5140   lora_usart.o
-        60          0          0          0          0       1459   main.o
-       132         22          0          0          0       1703   misc.o
-      2436         18       5941          0         40      20624   oled.o
-       550         18          0          0          0       4229   si2c.o
-        36          8        236          0       8192        796   startup_stm32f10x_md.o
-        52         12          0          0          0       1097   stm32f10x_flash.o
-       306          0          0          0          0       3344   stm32f10x_gpio.o
-        48          4          0          0          0       3890   stm32f10x_it.o
-       564         80          0         20          0       9589   stm32f10x_rcc.o
-       268         42          0          0          0       4804   stm32f10x_tim.o
-       514          6          0          0          0       8060   stm32f10x_usart.o
-       140          6         60          0          0        647   sys.o
-       328         28          0          0          0       2033   system_stm32f10x.o
-       530        136          0          1          0       2974   transmission.o
-        68          0          0          0          0       1143   usart.o
+         0          0          0          0          0     255448   acquisition.o
+       458         34          0          4          0       5031   buzzer.o
+       438         38          0         12          0       3257   delay.o
+       356        132          0          0          0       2309   display.o
+       132          6          0          0          0        859   key.o
+       100         12          0          0          0        849   led.o
+      1006        192          0          0          0      10097   lora.o
+       766         54          0          8        258       4900   lora_usart.o
+        60          0          0          0          0       1411   main.o
+       132         22          0          0          0       1635   misc.o
+      2436         18       5941          0         40      20112   oled.o
+       550         18          0          0          0       4041   si2c.o
+        36          8        236          0       8192        776   startup_stm32f10x_md.o
+        52         12          0          0          0       1049   stm32f10x_flash.o
+       306          0          0          0          0       3252   stm32f10x_gpio.o
+        48          4          0          0          0       3686   stm32f10x_it.o
+       564         80          0         20          0       9265   stm32f10x_rcc.o
+       268         42          0          0          0       4620   stm32f10x_tim.o
+       514          6          0          0          0       7808   stm32f10x_usart.o
+       140          6         60          0          0        627   sys.o
+       328         28          0          0          0       1949   system_stm32f10x.o
+       530        136          0          1          0       2834   transmission.o
+        68          0          0          0          0       1095   usart.o
 
     ----------------------------------------------------------------------
-      9318        848       6272         48       8496     350442   Object Totals
+      9318        848       6272         48       8496     346910   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         30          0          3          3          6          0   (incl. Padding)
 
@@ -2657,8 +2657,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     16244       1030       6336         56       8496     346242   Grand Totals
-     16244       1030       6336         56       8496     346242   ELF Image Totals
+     16244       1030       6336         56       8496     342710   Grand Totals
+     16244       1030       6336         56       8496     342710   ELF Image Totals
      16244       1030       6336         56          0          0   ROM Totals
 
 ==============================================================================

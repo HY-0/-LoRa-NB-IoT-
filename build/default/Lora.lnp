@@ -1,4 +1,4 @@
---cpu Cortex-M3 --library_type=microlib --scatter e:/lora-nbiot-agri-system/lora-nbiot-agri-platform/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--cpu Cortex-M3 --library_type=microlib --scatter f:/Code/STM32/-LoRa-NB-IoT-/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
 --list .\build\default\Lora.map
 .\build\default\.obj\Application\src\acquisition.o
 .\build\default\.obj\Application\src\display.o
@@ -45,4 +45,6 @@
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_usart.o
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_wwdg.o
 .\build\default\.obj\Middleware\lora\lora.o
-.\build\default\.obj\Middleware\lora\lora_usart.o -o .\build\default\Lora.axf
+.\build\default\.obj\Middleware\lora\lora_usart.o
+.\build\default\.obj\Middleware\nbiot\nbiot.o
+.\build\default\.obj\Middleware\nbiot\nbiot_usart.o -o .\build\default\Lora.axf

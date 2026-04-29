@@ -1,15 +1,79 @@
-# dot files
-/.vscode/launch.json
+# ==============================================================================
+# OS Generated Files
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==============================================================================
+# C/C++ IDEs & Toolchains (VS Code, eide, clangd)
+# ==============================================================================
+# VS Code
+.vscode/c_cpp_properties.json
+.vscode/*.log
+.vscode/*.lock
 /.settings
+
+# clangd
+.clangd/
+.cache/
+
+# eide plugin
 /.eide/log
 /.eide.usr.ctx.json
-
-# project out
-/build
-/bin
-/obj
-/out
-
-# eide template
 *.ept
 *.eide-template
+
+# ==============================================================================
+# Keil MDK-ARM Generated Files
+# ==============================================================================
+*.bak
+*.dep
+*.map
+*.lst
+*.obj
+*.o
+*.crf
+*.d
+*.axf
+*.hex
+*.bin
+*.sct
+*.lnp
+*.uvguix.*
+*.scvd
+*.Administrator
+JLinkLog.txt
+*.htm
+*.objlist
+
+# ==============================================================================
+# Output & Build Directories
+# ==============================================================================
+/build/
+/bin/
+/obj/
+/out/
+/Debug/
+/Release/
+/Listings/
+/Objects/
+
+# ==============================================================================
+# General C/C++ Compilation outputs
+# ==============================================================================
+*.i
+*.lib
+*.a
+*.pdb
+*.ilk
+*.suo
+*.sdf
+*.opensdf
+*.sqlite
+*.VC.db
