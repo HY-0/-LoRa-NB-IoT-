@@ -23,7 +23,7 @@
 #define NBIOT_UART_IRQHandler             USART2_IRQHandler
 #define NBIOT_UART_CLK_ENABLE()           do{ RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE); }while(0)
 
-/* 可选：硬件定时器（用于串口空闲超时） */
+/* 硬件定时器 */
 #define NBIOT_TIM_INTERFACE               TIM3
 #define NBIOT_TIM_IRQn                    TIM3_IRQn
 #define NBIOT_TIM_IRQHandler              TIM3_IRQHandler
@@ -77,5 +77,17 @@ int nbiot_uart_rx_buf_end_with_crcn(void);            /* 原uart2_buf_find_crcn 
 
 /* 其它辅助函数 */
 int nbiot_find_str(char *a);                          /* 原find_str（可能在调试缓冲中查找） */
+
+/* 遗留接口适配 */
+u8 UART2_Send_AT_Command(char *b, char *a, u8 wait_time, u32 interval_time);
+u8 UART2_Send_AT_Command_Ext(char *b, char *a, char *aa, u8 wait_time, u32 interval_time);
+void UART2_Send_Command_END(char *s);
+u8 UART2_Send_AT_Command_End(char *b, char *a, u8 wait_time, u32 interval_time);
+void clear_uart2_buf(void);
+void UART2_Send_Command(char *s);
+void UART2_SendString(char *s);
+int find_str_from_uart2_buf(char *str, char *str2);
+int try_read_line(char *buf, int len);
+int find_str(char *a);
 
 #endif /* __NBIOT_USART_H */

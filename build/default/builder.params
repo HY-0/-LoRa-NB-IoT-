@@ -3,11 +3,11 @@
     "target": "default",
     "toolchain": "AC5",
     "toolchainLocation": "D:\\Software\\Keil_v5\\C51_STM32\\ARM\\ARMCC",
-    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.8\\res\\data\\models/arm.v5.model.json",
+    "toolchainCfgFile": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.9\\res\\data\\models/arm.v5.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
+    "rootDir": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
     "dumpPath": "build\\default",
     "outDir": "build\\default",
     "ram": 20480,
@@ -32,7 +32,8 @@
         "Middleware/lora",
         "Middleware/nbiot",
         "Components/led",
-        "Driver/CMSIS"
+        "Driver/CMSIS",
+        "Components/sh393"
     ],
     "libDirs": [],
     "defines": [
@@ -42,6 +43,7 @@
         "Application/src/acquisition.c",
         "Application/src/display.c",
         "Application/src/main.c",
+        "Application/src/nbiot_demo.c",
         "Application/src/stm32f10x_it.c",
         "Application/src/transmission.c",
         "Components/bh1750/bh1750.c",
@@ -50,8 +52,11 @@
         "Components/key/key.c",
         "Components/led/led.c",
         "Components/oled/oled.c",
+        "Components/sh393/sh393.c",
+        "Components/sh393/sh393_adc.c",
         "Components/sht30/sht30.c",
         "Components/sht30/sht30_i2c.c",
+        "Driver/BSP/adc/adc.c",
         "Driver/BSP/delay/delay.c",
         "Driver/BSP/hi2c/i2c.c",
         "Driver/BSP/si2c/si2c.c",
@@ -84,7 +89,9 @@
         "Driver/std_periph_driver/src/stm32f10x_usart.c",
         "Driver/std_periph_driver/src/stm32f10x_wwdg.c",
         "Middleware/lora/lora.c",
-        "Middleware/lora/lora_usart.c"
+        "Middleware/lora/lora_usart.c",
+        "Middleware/nbiot/nbiot.c",
+        "Middleware/nbiot/nbiot_usart.c"
     ],
     "alwaysInBuildSources": [],
     "sourceParams": {},
@@ -120,22 +127,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "d:/lora-nbiot-agri-platform/-LoRa-NB-IoT-/build/default/Lora.sct"
+                "d:/lora-nbiot-agri-platform/lora-nbiot-agri-platform/build/default/Lora.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "template",
-        "workspaceFolder": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
-        "workspaceFolderBasename": "-LoRa-NB-IoT-",
-        "OutDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default",
+        "workspaceFolder": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
+        "workspaceFolderBasename": "lora-nbiot-agri-platform",
+        "OutDir": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform\\build\\default",
         "OutDirRoot": "build",
         "OutDirBase": "build\\default",
         "ProjectName": "Lora",
         "ConfigName": "default",
-        "ProjectRoot": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
-        "ExecutableName": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default\\Lora",
+        "ProjectRoot": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
+        "ExecutableName": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform\\build\\default\\Lora",
         "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.2.0",
         "ChipName": "STM32F103C8",
         "SYS_Platform": "win32",
@@ -144,7 +151,7 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.8\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-3.26.9\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\Administrator\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\Administrator\\.eide\\bin\\python36\\python3.exe",

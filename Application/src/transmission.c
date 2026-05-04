@@ -1,8 +1,5 @@
 #include "transmission.h"
 
-/* ========== 模块内部状态 ========== */
-static transmission_mode_t g_current_mode = TRANSMISSION_MODE_LORA;
-
 /* ---------- 内部辅助函数 ---------- */
 uint8_t lora_startup(uint32_t baudrate)
 {
@@ -55,7 +52,7 @@ uint8_t lora_startup(uint32_t baudrate)
         oled_show(&oled, 30, 40, 500, "LoRa ok!");
     }
     
-    return ret;
+    return LORA_EOK;
 }
 
 uint8_t nbiot_startup(uint32_t baudrate)
@@ -64,9 +61,14 @@ uint8_t nbiot_startup(uint32_t baudrate)
 }
 
 /* ---------- 对外接口实现 ---------- */
-void transmission_init(void)
+void transmission_lora_init(void)
 {
     lora_startup(115200);
+    oled_clear(&oled);   // 如果不需要在初始化时清屏，可删除
+}
+
+void transmission_nbiot_init(void)
+{
     nbiot_startup(115200);
     oled_clear(&oled);
 }
@@ -80,98 +82,100 @@ static uint16_t pack_json(const sensor_data_t *data, char *buf, uint16_t size)
     }
 
     return snprintf(buf, size,
-        "{\"temp\":%.1f,\"humi\":%.1f,\"light\":%.1f,\"time\":%lu}",
+        "{\"temp\":%.1f,\"air_humi\":%.1f,\"soil_humi\":%.1f,"
+        "\"light\":%.1f,\"ph\":%.2f,\"co2\":%.0f,\"time\":%lu}",
         data->temperature,
-        data->humidity,
+        data->air_humidity,
+        data->soil_humidity,
         data->light_intensity,
+        data->ph,
+        data->co2,
         data->timestamp);
 }
 
 /* ========== 数据发送 ========== */
 uint8_t transmission_send(const sensor_data_t *data)
 {   
-    uint8_t ret;
-    char tx_buf[128];
+    char tx_buf[256];
     uint16_t len;
+    uint8_t ret_lora, ret_nbiot;
 
-    if (!data->data_valid) 
-    {
-        return TRANS_NO_DATA;
-    }
+    if (!data->data_valid) return TRANS_NO_DATA;
 
     len = pack_json(data, tx_buf, sizeof(tx_buf));
-    if (len == 0) 
+    
+    if (len == 0) return TRANS_ERROR;
+
+    /* LoRa 发送 */
+    if (lora_free() == LORA_EBUSY) 
     {
-        return TRANS_ERROR;
-    }
-
-    /* 根据当前模式发送 */
-    if (g_current_mode == TRANSMISSION_MODE_LORA) 
-    {
-        /* 检查 LoRa 模块是否空闲 */
-        if (lora_free() == LORA_EBUSY) 
-        {
-            return TRANS_BUSY;
-        }
-        
-        /* 发送 JSON 数据 */
-        ret = lora_uart_printf("%s\r\n", tx_buf);   // 添加换行便于接收端解析
-
-        /* 根据发送结果进行处理 */
-        switch (ret) 
-        {
-            case LORA_PRINTF_OK:
-                buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_FAST, 200);
-                return TRANS_OK;
-
-            case LORA_PRINTF_ERR_FORMAT:
-                /* 格式化错误（理论上不应发生，但可记录日志） */
-                return TRANS_ERROR;
-
-            case LORA_PRINTF_ERR_TRUNCATED:
-                /* 数据被截断但仍发送，可根据业务需求决定是否视为成功 */
-                buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_ALARM, 200);
-                return TRANS_TRUNCATED;
-
-            default:
-                return TRANS_ERROR;
-        }
+        ret_lora = TRANS_BUSY;
     } 
     else 
     {
-        // NB-IoT 发送（待实现）
-        return TRANS_ERROR;
+        uint8_t lora_ret = lora_uart_printf("%s\r\n", tx_buf);
+        switch (lora_ret) 
+        {
+            case LORA_PRINTF_OK:          ret_lora = TRANS_OK;          break;
+            case LORA_PRINTF_ERR_TRUNCATED: ret_lora = TRANS_TRUNCATED; break;
+            default:                      ret_lora = TRANS_ERROR;       break;
+        }
     }
+    /* NB‑IoT 发送（预留） */
+    ret_nbiot = TRANS_ERROR;
+
+    if (ret_lora == TRANS_OK || ret_nbiot == TRANS_OK) return TRANS_OK;
+    else if (ret_lora == TRANS_BUSY && ret_nbiot == TRANS_BUSY) return TRANS_BUSY;
+    else return TRANS_ERROR;
 }
 
 /* ========== 接收处理（主循环中调用） ========== */
-void transmission_receive(void)
+uint8_t transmission_receive(sensor_data_t *out_data)        
 {
-    uint8_t *rx_frame;
-    if (g_current_mode != TRANSMISSION_MODE_LORA) return;
+    uint8_t *frame;
+    sensor_data_t rx_data;
+    int fields;
 
-    rx_frame = lora_uart_rx_get_frame();
-    if (rx_frame != NULL)
+    /* LoRa 接收 */
+    frame = lora_uart_rx_get_frame();
+    if (frame != NULL) 
     {
-        sensor_data_t rx_data = {0};
-        /* 解析 JSON */
-        if (sscanf((char*)rx_frame, "{\"temp\":%f,\"humi\":%f,\"light\":%f,\"time\":%lu}",
-                   &rx_data.temperature,
-                   &rx_data.humidity,
-                   &rx_data.light_intensity,
-                   &rx_data.timestamp) == 4)
-        {
+        memset(&rx_data, 0, sizeof(rx_data));
+        fields = sscanf((char*)frame,
+            "{\"temp\":%f,\"air_humi\":%f,\"soil_humi\":%f,"
+            "\"light\":%f,\"ph\":%f,\"co2\":%f,\"time\":%lu}",
+            &rx_data.temperature,
+            &rx_data.air_humidity,
+            &rx_data.soil_humidity,
+            &rx_data.light_intensity,
+            &rx_data.ph,
+            &rx_data.co2,
+            &rx_data.timestamp);
+        
+        if (fields == 5) 
+        {   
             rx_data.data_valid = 1;
-            display_sensor_data(&rx_data, DISPLAY_MODE_LORA);
-            buzzer_beep_scene(BUZZER_SCENE_OK, BUZZER_MODE_INTERMITTENT, BUZZER_RHYTHM_FAST, 200);
-        }
-        else
+            *out_data = rx_data;
+            return TRANS_RECV_OK;
+        } 
+        else 
         {
-            display_error("Parse Error");
+            return TRANS_RECV_PARSE_ERROR;
         }
-
-        lora_uart_rx_restart();
-        delay_ms(4000);
     }
+
+    /* NB‑IoT 接收处理（预留） */
+    // 可在此处获取 MQTT 消息，但注意应返回统一 sensor_data_t
+    // 若需要单独的 NB‑IoT 消息处理，可另写函数
+
+    return TRANS_RECV_NO_DATA;
 }
 
+/* ========== 模块内部状态 ========== */
+comm_status_t get_comm_status(void)
+{
+    comm_status_t status;
+    status.lora_ready      = (lora_free() == LORA_EOK) ? 1 : 0;
+    status.nbiot_connected = 0;   /* 待实现：读取 NB-IoT 连接状态标志 */
+    return status;
+}

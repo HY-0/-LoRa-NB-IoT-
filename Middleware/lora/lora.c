@@ -1,7 +1,7 @@
 #include "lora.h"
 
 /**
- * @brief       ATK-MW1278D模块硬件初始化 (激活MD0，AUX的功能)
+ * @brief       LoRa模块硬件初始化 (激活MD0，AUX的功能)
  * @param       无
  * @retval      无
  */
@@ -30,9 +30,9 @@ static void lora_hw_init(void)
 
 /**
  * @brief       LoRa模块初始化
- * @param       baudrate: ATK-MW1278D模块UART通讯波特率
- * @retval      LORA_EOK  : ATK-MW1278D模块初始化成功，函数执行成功
- *              LORA_ERROR: ATK-MW1278D模块初始化失败，函数执行失败
+ * @param       baudrate: LoRa模块UART通讯波特率
+ * @retval      LORA_EOK  : LoRa模块初始化成功，函数执行成功
+ *              LORA_ERROR: LoRa模块初始化失败，函数执行失败
  */
 uint8_t lora_init(uint32_t baudrate)
 {
@@ -53,7 +53,7 @@ uint8_t lora_init(uint32_t baudrate)
 }
 
 /**
- * @brief       ATK-MW1278D模块进入配置模式
+ * @brief       LoRa模块进入配置模式
  * @param       无
  * @retval      无
  */
@@ -63,7 +63,7 @@ void lora_enter_config(void)
 }
 
 /**
- * @brief       ATK-MW1278D模块退出配置模式
+ * @brief       LoRa模块退出配置模式
  * @param       无
  * @retval      无
  */
@@ -73,11 +73,11 @@ void lora_exit_config(void)
 }
 
 /**
- * @brief       判断ATK-MW1278D模块是否空闲
- * @note        仅当ATK-MW1278D模块空闲的时候，才能发送数据
+ * @brief       判断LoRa模块是否空闲
+ * @note        仅当LoRa模块空闲的时候，才能发送数据
  * @param       无
- * @retval      LORA_EOK  : ATK-MW1278D模块空闲
- *              LORA_EBUSY: ATK-MW1278D模块忙
+ * @retval      LORA_EOK  : LoRa模块空闲
+ *              LORA_EBUSY: LoRa模块忙
  */
 uint8_t lora_free(void)
 {
@@ -90,7 +90,7 @@ uint8_t lora_free(void)
 }
 
 /**
- * @brief       向ATK-MW1278D模块发送AT指令
+ * @brief       向LoRa模块发送AT指令
  * @param       cmd    : 待发送的AT指令
  *              ack    : 等待的响应
  *              timeout: 等待超时时间
@@ -133,7 +133,7 @@ uint8_t lora_send_at_cmd(char *cmd, char *ack, uint32_t timeout)
 }
 
 /**
- * @brief       ATK-MW1278D模块AT指令测试
+ * @brief       LoRa模块AT指令测试
  * @param       无
  * @retval      LORA_EOK  : AT指令测试成功
  *              LORA_ERROR: AT指令测试失败
@@ -155,126 +155,126 @@ uint8_t lora_at_test(void)
     return LORA_ERROR;
 }
 
-// /**
-//  * @brief       ATK-MW1278D模块指令回显配置
-//  * @param       enable: LORA_DISABLE: 关闭指令回显
-//  *                      LORA_ENABLE : 开启指令回显
-//  * @retval      LORA_EOK   : 指令回显配置成功
-//  *              LORA_ERROR : 指令回显配置失败
-//  *              LORA_EINVAL: 输入参数有误
-//  */
-// uint8_t lora_echo_config(LORA_enable_t enable)
-// {
-//     uint8_t ret;
-//     char cmd[5] = {0};
+/**
+ * @brief       LoRa模块指令回显配置
+ * @param       enable: LORA_DISABLE: 关闭指令回显
+ *                      LORA_ENABLE : 开启指令回显
+ * @retval      LORA_EOK   : 指令回显配置成功
+ *              LORA_ERROR : 指令回显配置失败
+ *              LORA_EINVAL: 输入参数有误
+ */
+uint8_t lora_echo_config(lora_enable_t enable)
+{
+    uint8_t ret;
+    char cmd[5] = {0};
     
-//     switch (enable)
-//     {
-//         case LORA_ENABLE:
-//         {
-//             sprintf(cmd, "ATE1");
-//             break;
-//         }
-//         case LORA_DISABLE:
-//         {
-//             sprintf(cmd, "ATE0");
-//             break;
-//         }
-//         default:
-//         {
-//             return LORA_EINVAL;
-//         }
-//     }
+    switch (enable)
+    {
+        case LORA_ENABLE:
+        {
+            sprintf(cmd, "ATE1");
+            break;
+        }
+        case LORA_DISABLE:
+        {
+            sprintf(cmd, "ATE0");
+            break;
+        }
+        default:
+        {
+            return LORA_EINVAL;
+        }
+    }
     
-//     ret = lora_send_at_cmd(cmd, "OK", LORA_AT_TIMEOUT);
-//     if (ret != LORA_EOK)
-//     {
-//         return LORA_ERROR;
-//     }
+    ret = lora_send_at_cmd(cmd, "OK", LORA_AT_TIMEOUT);
+    if (ret != LORA_EOK)
+    {
+        return LORA_ERROR;
+    }
     
-//     return LORA_EOK;
-// }
-
-// /**
-//  * @brief       ATK-MW1278D模块软件复位
-//  * @param       无
-//  * @retval      LORA_EOK  : 软件复位成功
-//  *              LORA_ERROR: 软件复位失败
-//  */
-// uint8_t lora_sw_reset(void)
-// {
-//     uint8_t ret;
-    
-//     ret = lora_send_at_cmd("AT+RESET", "OK", LORA_AT_TIMEOUT);
-//     if (ret != LORA_EOK)
-//     {
-//         return LORA_ERROR;
-//     }
-    
-//     return LORA_EOK;
-// }
-
-// /**
-//  * @brief       ATK-MW1278D模块参数保存配置
-//  * @param       enable: LORA_DISABLE: 不保存参数
-//  *                      LORA_ENABLE : 保存参数
-//  * @retval      LORA_EOK   : 参数保存配置成功
-//  *              LORA_ERROR : 参数保存配置失败
-//  *              LORA_EINVAL: 输入参数有误
-//  */
-// uint8_t LORA_flash_config(LORA_enable_t enable)
-// {
-//     uint8_t ret;
-//     char cmd[11] = {0};
-    
-//     switch (enable)
-//     {
-//         case LORA_DISABLE:
-//         {
-//             sprintf(cmd, "AT+FLASH=0");
-//             break;
-//         }
-//         case LORA_ENABLE:
-//         {
-//             sprintf(cmd, "AT+FLASH=1");
-//             break;
-//         }
-//         default:
-//         {
-//             return LORA_EINVAL;
-//         }
-//     }
-    
-//     ret = LORA_send_at_cmd(cmd, "OK", LORA_AT_TIMEOUT);
-//     if (ret != LORA_EOK)
-//     {
-//         return LORA_ERROR;
-//     }
-    
-//     return LORA_EOK;
-// }
-
-// /**
-//  * @brief       ATK-MW1278D模块恢复出厂配置
-//  * @param       无
-//  * @retval      LORA_EOK   : 恢复出厂配置成功
-//  *              LORA_ERROR : 恢复出厂配置失败
-//  */
-// uint8_t LORA_default(void)
-// {
-//     uint8_t ret;
-    
-//     ret = LORA_send_at_cmd("AT+DEFAULT", "OK", LORA_AT_TIMEOUT);
-//     if (ret != LORA_EOK)
-//     {
-//         return LORA_ERROR;
-//     }
-    
-//     return LORA_EOK;
-// }
+    return LORA_EOK;
+}
 
 /**
- * @brief       ATK-MW1278D模块设备地址配置
+ * @brief       LoRa模块软件复位
+ * @param       无
+ * @retval      LORA_EOK  : 软件复位成功
+ *              LORA_ERROR: 软件复位失败
+ */
+uint8_t lora_sw_reset(void)
+{
+    uint8_t ret;
+    
+    ret = lora_send_at_cmd("AT+RESET", "OK", LORA_AT_TIMEOUT);
+    if (ret != LORA_EOK)
+    {
+        return LORA_ERROR;
+    }
+    
+    return LORA_EOK;
+}
+
+/**
+ * @brief       LoRa模块参数保存配置
+ * @param       enable: LORA_DISABLE: 不保存参数
+ *                      LORA_ENABLE : 保存参数
+ * @retval      LORA_EOK   : 参数保存配置成功
+ *              LORA_ERROR : 参数保存配置失败
+ *              LORA_EINVAL: 输入参数有误
+ */
+uint8_t lora_flash_config(lora_enable_t enable)
+{
+    uint8_t ret;
+    char cmd[11] = {0};
+    
+    switch (enable)
+    {
+        case LORA_DISABLE:
+        {
+            sprintf(cmd, "AT+FLASH=0");
+            break;
+        }
+        case LORA_ENABLE:
+        {
+            sprintf(cmd, "AT+FLASH=1");
+            break;
+        }
+        default:
+        {
+            return LORA_EINVAL;
+        }
+    }
+    
+    ret = lora_send_at_cmd(cmd, "OK", LORA_AT_TIMEOUT);
+    if (ret != LORA_EOK)
+    {
+        return LORA_ERROR;
+    }
+    
+    return LORA_EOK;
+}
+
+/**
+ * @brief       LoRa模块恢复出厂配置
+ * @param       无
+ * @retval      LORA_EOK   : 恢复出厂配置成功
+ *              LORA_ERROR : 恢复出厂配置失败
+ */
+uint8_t lora_default(void)
+{
+    uint8_t ret;
+    
+    ret = lora_send_at_cmd("AT+DEFAULT", "OK", LORA_AT_TIMEOUT);
+    if (ret != LORA_EOK)
+    {
+        return LORA_ERROR;
+    }
+    
+    return LORA_EOK;
+}
+
+/**
+ * @brief       LoRa模块设备地址配置
  * @param       addr: 设备地址
  * @retval      LORA_EOK   : 设备地址配置成功
  *              LORA_ERROR : 设备地址配置失败
@@ -296,7 +296,7 @@ uint8_t lora_addr_config(uint16_t addr)
 }
 
 /**
- * @brief       ATK-MW1278D模块发射功率配置
+ * @brief       LoRa模块发射功率配置
  * @param       tpower: LORA_TPOWER_11DBM: 11dBm
  *                      LORA_TPOWER_14DBM: 14dBm
  *                      LORA_TPOWER_17DBM: 17dBm
@@ -305,7 +305,7 @@ uint8_t lora_addr_config(uint16_t addr)
  *              LORA_ERROR : 发射功率配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_tpower_config(LORA_tpower_t tpower)
+uint8_t lora_tpower_config(lora_tpower_t tpower)
 {
     uint8_t ret;
     char cmd[12] = {0};
@@ -337,7 +337,7 @@ uint8_t lora_tpower_config(LORA_tpower_t tpower)
 }
 
 /**
- * @brief       ATK-MW1278D模块工作模式配置
+ * @brief       LoRa模块工作模式配置
  * @param       workmode: LORA_WORKMODE_NORMAL  : 一般模式（默认）
  *                        LORA_WORKMODE_WAKEUP  : 唤醒模式
  *                        LORA_WORKMODE_LOWPOWER: 省电模式
@@ -346,7 +346,7 @@ uint8_t lora_tpower_config(LORA_tpower_t tpower)
  *              LORA_ERROR : 工作模式配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_workmode_config(LORA_workmode_t workmode)
+uint8_t lora_workmode_config(lora_workmode_t workmode)
 {
     uint8_t ret;
     char cmd[12] = {0};
@@ -378,14 +378,14 @@ uint8_t lora_workmode_config(LORA_workmode_t workmode)
 }
 
 /**
- * @brief       ATK-MW1278D模块发送模式配置
+ * @brief       LoRa模块发送模式配置
  * @param       tmode: LORA_TMODE_TT: 透明传输（默认）
  *                     LORA_TMODE_DT: 定向传输
  * @retval      LORA_EOK   : 发送模式配置成功
  *              LORA_ERROR : 发送模式配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_tmode_config(LORA_tmode_t tmode)
+uint8_t lora_tmode_config(lora_tmode_t tmode)
 {
     uint8_t ret;
     char cmd[11] = {0};
@@ -415,7 +415,7 @@ uint8_t lora_tmode_config(LORA_tmode_t tmode)
 }
 
 /**
- * @brief       ATK-MW1278D模块空中速率和信道配置
+ * @brief       LoRa模块空中速率和信道配置
  * @param       wlrate : LORA_WLRATE_0K3 : 0.3Kbps
  *                       LORA_WLRATE_1K2 : 1.2Kbps
  *                       LORA_WLRATE_2K4 : 2.4Kbps
@@ -427,7 +427,7 @@ uint8_t lora_tmode_config(LORA_tmode_t tmode)
  *              LORA_ERROR : 空中速率和信道配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_wlrate_channel_config(LORA_wlrate_t wlrate, uint8_t channel)
+uint8_t lora_wlrate_channel_config(lora_wlrate_t wlrate, uint8_t channel)
 {
     uint8_t ret;
     char cmd[15] = {0};
@@ -465,14 +465,14 @@ uint8_t lora_wlrate_channel_config(LORA_wlrate_t wlrate, uint8_t channel)
 }
 
 /**
- * @brief       ATK-MW1278D模块休眠时间配置
+ * @brief       LoRa模块休眠时间配置
  * @param       wltime: LORA_WLTIME_1S: 1秒（默认）
  *                      LORA_WLTIME_2S: 2秒
  * @retval      LORA_EOK   : 休眠时间配置成功
  *              LORA_ERROR : 休眠时间配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_wltime_config(LORA_wltime_t wltime)
+uint8_t lora_wltime_config(lora_wltime_t wltime)
 {
     uint8_t ret;
     char cmd[12] = {0};
@@ -502,7 +502,7 @@ uint8_t lora_wltime_config(LORA_wltime_t wltime)
 }
 
 /**
- * @brief       ATK-MW1278D模块串口配置
+ * @brief       LoRa模块串口配置
  * @param       baudrate: LORA_UARTRATE_1200BPS  : 1200bps
  *                        LORA_UARTRATE_2400BPS  : 2400bps
  *                        LORA_UARTRATE_4800BPS  : 4800bps
@@ -518,7 +518,7 @@ uint8_t lora_wltime_config(LORA_wltime_t wltime)
  *              LORA_ERROR : 串口配置失败
  *              LORA_EINVAL: 输入参数有误
  */
-uint8_t lora_uart_config(LORA_uartrate_t baudrate, LORA_uartpari_t parity)
+uint8_t lora_uart_config(lora_uartrate_t baudrate, lora_uartpari_t parity)
 {
     uint8_t ret;
     char cmd[12] = {0};

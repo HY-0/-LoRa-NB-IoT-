@@ -42,6 +42,7 @@ targets:
         - Middleware/nbiot
         - Components/led
         - Driver/CMSIS
+        - Components/sh393
       libList: []
     excludeList:
       - <virtual_root>/my_lib/atk_mw1278d_usart.c
@@ -60,8 +61,6 @@ targets:
       - <virtual_root>/std_periph_driver
       - <virtual_root>/startup
       - Application/src/data_acquisition_transmission.c
-      - Application/src/nbiot_demo.c
-      - Middleware/nbiot
       - Application/demo
       - Driver/BSP/led
     settings:

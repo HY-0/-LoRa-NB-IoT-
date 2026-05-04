@@ -29,8 +29,17 @@
 #define KEY1_PRES    2              /* KEY1按下 */
 #define WKUP_PRES    3              /* KEY_UP按下(即WK_UP) */
 
+/* ── 非阻塞按键状态机 ── */
+typedef enum {
+    KS_IDLE = 0,
+    KS_PRESS_DEBOUNCE,
+    KS_PRESSED,
+    KS_RELEASE_DEBOUNCE
+} key_state_t;
+
 void key_init(void);                /* 按键初始化函数 */
 uint8_t key_scan(uint8_t mode);     /* 按键扫描函数 */
+uint8_t key_scan_noblock(uint32_t now_ms);
 
 #endif
 

@@ -1,8 +1,9 @@
---cpu Cortex-M3 --library_type=microlib --scatter d:/lora-nbiot-agri-platform/-LoRa-NB-IoT-/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--cpu Cortex-M3 --library_type=microlib --scatter d:/test/-LoRa-NB-IoT-/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
 --list .\build\default\Lora.map
 .\build\default\.obj\Application\src\acquisition.o
 .\build\default\.obj\Application\src\display.o
 .\build\default\.obj\Application\src\main.o
+.\build\default\.obj\Application\src\nbiot_demo.o
 .\build\default\.obj\Application\src\stm32f10x_it.o
 .\build\default\.obj\Application\src\transmission.o
 .\build\default\.obj\Components\bh1750\bh1750.o
@@ -11,8 +12,11 @@
 .\build\default\.obj\Components\key\key.o
 .\build\default\.obj\Components\led\led.o
 .\build\default\.obj\Components\oled\oled.o
+.\build\default\.obj\Components\sh393\sh393.o
+.\build\default\.obj\Components\sh393\sh393_adc.o
 .\build\default\.obj\Components\sht30\sht30.o
 .\build\default\.obj\Components\sht30\sht30_i2c.o
+.\build\default\.obj\Driver\BSP\adc\adc.o
 .\build\default\.obj\Driver\BSP\delay\delay.o
 .\build\default\.obj\Driver\BSP\hi2c\i2c.o
 .\build\default\.obj\Driver\BSP\si2c\si2c.o
@@ -45,4 +49,6 @@
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_usart.o
 .\build\default\.obj\Driver\std_periph_driver\src\stm32f10x_wwdg.o
 .\build\default\.obj\Middleware\lora\lora.o
-.\build\default\.obj\Middleware\lora\lora_usart.o -o .\build\default\Lora.axf
+.\build\default\.obj\Middleware\lora\lora_usart.o
+.\build\default\.obj\Middleware\nbiot\nbiot.o
+.\build\default\.obj\Middleware\nbiot\nbiot_usart.o -o .\build\default\Lora.axf
