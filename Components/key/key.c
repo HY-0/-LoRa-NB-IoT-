@@ -1,5 +1,10 @@
 #include "key.h"
 
+static key_state_t ks_state = KS_IDLE;
+static uint32_t ks_tick;
+static uint8_t ks_last_raw;
+static uint8_t ks_pending_val;
+
 /**
  * @brief       按键初始化函数
  * @param       无
@@ -10,7 +15,6 @@ static void key_hw_init(void)
     GPIO_InitTypeDef gpio_init_struct;
     KEY0_GPIO_CLK_ENABLE();                                 /* KEY0时钟使能 */
     KEY1_GPIO_CLK_ENABLE();                                 /* KEY1时钟使能 */
-    WKUP_GPIO_CLK_ENABLE();                                 /* WKUP时钟使能 */
 
     gpio_init_struct.GPIO_Pin = KEY0_GPIO_PIN;              /* KEY0引脚 */
     gpio_init_struct.GPIO_Mode = GPIO_Mode_IPU;             /* 输入上拉 */
@@ -18,18 +22,69 @@ static void key_hw_init(void)
     GPIO_Init(KEY0_GPIO_PORT, &gpio_init_struct);           /* KEY0引脚模式设置,上拉输入 */
 
     gpio_init_struct.GPIO_Pin = KEY1_GPIO_PIN;              /* KEY1引脚 */
-    gpio_init_struct.GPIO_Mode = GPIO_Mode_IPU;             /* 输入上拉 */
+    gpio_init_struct.GPIO_Mode = GPIO_Mode_IPD;             /* 输入下拉 */
     gpio_init_struct.GPIO_Speed = GPIO_Speed_50MHz;         /* 可调高速 */
     GPIO_Init(KEY1_GPIO_PORT, &gpio_init_struct);           /* KEY1引脚模式设置,上拉输入 */
-
-    gpio_init_struct.GPIO_Pin = WKUP_GPIO_PIN;              /* WKUP引脚 */
-    gpio_init_struct.GPIO_Mode = GPIO_Mode_IPD;             /* 输入下拉 */                
-    GPIO_Init(WKUP_GPIO_PORT, &gpio_init_struct);           /* WKUP引脚模式设置,下拉输入 */
 }
 
 void key_init(void)
 {
     key_hw_init();
+}
+
+/**
+ * @brief   非阻塞按键扫描，无任何 delay，需传入系统毫秒时间
+ * @param   now_ms : 当前系统运行毫秒数（如 get_ms() 返回值）
+ * @retval  返回有效键值（按一次返回一次），无按键返回 0
+ */
+uint8_t key_scan_noblock(uint32_t now_ms)
+{
+    uint8_t raw = 0;
+    if (KEY0 == Bit_RESET)      raw = KEY0_PRES;
+    else if (KEY1 == Bit_RESET) raw = KEY1_PRES;
+
+    switch (ks_state) {
+        case KS_IDLE:
+            if (raw) {
+                ks_last_raw = raw;
+                ks_tick = now_ms;
+                ks_state = KS_PRESS_DEBOUNCE;
+            }
+            break;
+
+        case KS_PRESS_DEBOUNCE:
+            if (now_ms - ks_tick >= 20) {   // 20ms 消抖
+                if (raw == ks_last_raw) {
+                    ks_pending_val = ks_last_raw;
+                    ks_state = KS_PRESSED;
+                } else {
+                    ks_state = KS_IDLE;
+                }
+            }
+            break;
+
+        case KS_PRESSED:
+            if (!raw) {
+                ks_tick = now_ms;
+                ks_state = KS_RELEASE_DEBOUNCE;
+            }
+            break;
+
+        case KS_RELEASE_DEBOUNCE:
+            if (now_ms - ks_tick >= 20) {
+                if (!raw) {
+                    // 释放稳定，返回锁存的键值
+                    uint8_t ret = ks_pending_val;
+                    ks_pending_val = 0;
+                    ks_state = KS_IDLE;
+                    return ret;
+                } else {
+                    ks_state = KS_PRESSED;
+                }
+            }
+            break;
+    }
+    return 0;
 }
 
 /**
@@ -51,7 +106,7 @@ uint8_t key_scan(uint8_t mode)
 
     if(mode) key_up = 1;       /* 支持连按 */
 
-    if(key_up && (KEY0 == Bit_RESET || KEY1 == Bit_RESET || WK_UP == Bit_SET))  /* 按键松开标志为1, 且有任意一个按键按下了 */
+    if(key_up && (KEY0 == Bit_RESET || KEY1 == Bit_RESET ))  /* 按键松开标志为1, 且有任意一个按键按下了 */
     {
         delay_ms(10);           /* 去抖动 */
         key_up = 0;
@@ -60,9 +115,8 @@ uint8_t key_scan(uint8_t mode)
 
         if(KEY1 == Bit_RESET)  keyval = KEY1_PRES;
 
-        if(WK_UP == Bit_SET) keyval = WKUP_PRES;
     }
-    else if(KEY0 == Bit_SET && KEY1 == Bit_SET && WK_UP == Bit_RESET) /* 没有任何按键按下, 标记按键松开 */
+    else if(KEY0 == Bit_SET && KEY1 == Bit_SET) /* 没有任何按键按下, 标记按键松开 */
     {
         key_up = 1;
     }

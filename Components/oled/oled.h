@@ -38,6 +38,8 @@ extern const Font_TypeDef default_font;         /* 默认字体 */
 extern OLED_TypeDef oled;                       /* OLED设备实例 */
 
 void oled_init(void);                           /* OLED显示器初始化函数 */
+void oled_display_off(void);
+void oled_display_on(void);
 void oled_show(OLED_TypeDef *oled, int16_t x, int16_t y, uint32_t xms, const char *format, ...); /* 在指定位置显示格式化字符串 */
 
 int oled_hw_init(OLED_TypeDef *oled, OLED_InitTypeDef *oled_init_struct);   /* OLED硬件初始化 */

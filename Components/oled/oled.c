@@ -103,6 +103,23 @@ void oled_show(OLED_TypeDef *oled, int16_t x, int16_t y, uint32_t xms, const cha
 }
 
 /**
+ * @brief   关闭 OLED 显示（发送 0xAE 命令）
+ */
+void oled_display_off(void)
+{
+    oled_send_command(&oled, 0xAE, 0, 0);
+}
+
+/**
+ * @brief   打开 OLED 显示（发送 0xAF 命令）
+ */
+void oled_display_on(void)
+{
+    oled_send_command(&oled, 0xAF, 0, 0);
+}
+
+
+/**
  * @brief       设置剪切区域
  * @param       oled - OLED显示器的句柄
  * @param       x - 剪切区域左上角的横坐标

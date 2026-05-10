@@ -112,7 +112,7 @@ uint8_t sht30_read_humiture_raw(int16_t *temp_raw, uint16_t *humi_raw)
  * @param       humi_percent: 输出相对湿度（%RH）
  * @retval      SHT30_EOK: 成功，其他: 失败
  */
-uint8_t sht30_read_humiture(float *temp_celsius, float *humi_percent)
+uint8_t sht30_measure(float *temp_celsius, float *humi_percent)
 {
     int16_t temp_raw;
     uint16_t humi_raw;

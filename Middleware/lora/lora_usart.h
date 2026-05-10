@@ -21,17 +21,18 @@
 #define LORA_UART_IRQn                   USART1_IRQn
 #define LORA_UART_IRQHandler             USART1_IRQHandler
 #define LORA_UART_CLK_ENABLE()           do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); }while(0)
+#define LORA_UART_DEINIT()              do{ USART_DeInit(LORA_UART_INTERFACE); }while(0)   /* 复位 USART3 至默认状态 */
 
 
-#define LORA_TIM_INTERFACE               TIM2
-#define LORA_TIM_IRQn                    TIM2_IRQn
-#define LORA_TIM_IRQHandler              TIM2_IRQHandler
-#define LORA_TIM_CLK_ENABLE()            do{ RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); }while(0)
+#define LORA_TIM_INTERFACE               TIM1
+#define LORA_TIM_IRQn                    TIM1_UP_IRQn
+#define LORA_TIM_IRQHandler              TIM1_UP_IRQHandler
+#define LORA_TIM_CLK_ENABLE()            do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE); }while(0)
 #define LORA_TIM_PRESCALER               7200   /* 可根据时钟频率重新计算 */
 
 /* UART收发缓冲大小 */
-#define LORA_UART_RX_BUF_SIZE            128
-#define LORA_UART_TX_BUF_SIZE            128
+#define LORA_UART_RX_BUF_SIZE            512
+#define LORA_UART_TX_BUF_SIZE            512
 
 /* 通用错误码 */
 #define LORA_EOK                     0       /* 没有错误 */

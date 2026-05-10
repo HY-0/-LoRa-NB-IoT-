@@ -34,6 +34,11 @@ static uint8_t g_uart_tx_buf[LORA_UART_TX_BUF_SIZE];        /* LoRa UART发送�
 //     usart_send_bytes(g_uart_handle, g_uart_tx_buf, len);
 // }
 
+// /**
+//  * @brief       LoRa UART printf
+//  * @param       fmt: 待打印的数据
+//  * @retval      无
+//  */
 uint8_t lora_uart_printf(char *fmt, ...)
 {
     va_list ap;
@@ -167,6 +172,7 @@ void lora_uart_init(uint32_t baudrate)
     LORA_UART_CLK_ENABLE();
     LORA_UART_TX_GPIO_CLK_ENABLE();
     LORA_UART_RX_GPIO_CLK_ENABLE();
+    LORA_UART_DEINIT();
 
     /* TX 引脚：复用推挽输出 */
     gpio.GPIO_Pin   = LORA_UART_TX_GPIO_PIN;
