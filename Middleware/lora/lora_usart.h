@@ -31,8 +31,8 @@
 #define LORA_TIM_PRESCALER               7200   /* 可根据时钟频率重新计算 */
 
 /* UART收发缓冲大小 */
-#define LORA_UART_RX_BUF_SIZE            128
-#define LORA_UART_TX_BUF_SIZE            128
+#define LORA_UART_RX_BUF_SIZE            512
+#define LORA_UART_TX_BUF_SIZE            512
 
 /* 通用错误码 */
 #define LORA_EOK                     0       /* 没有错误 */

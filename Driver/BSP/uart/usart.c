@@ -59,12 +59,12 @@ void usart_send_string(USART_TypeDef *USARTx, const char *Str)
  */
 void usart_printf(USART_TypeDef *USARTx, const char *Format, ...)
 {
-	char format_buffer[128];
+	char format_buffer[512];
 	va_list argptr;
 	
 	__va_start(argptr, Format);
 	
-	vsprintf(format_buffer, Format, argptr);
+	vsnprintf(format_buffer, sizeof(format_buffer), Format, argptr);
 	
 	__va_end(argptr);
 	
