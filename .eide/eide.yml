@@ -43,6 +43,9 @@ targets:
         - Components/led
         - Driver/CMSIS
         - Components/sh393
+        - Components/jw01
+        - Components/ph4052
+        - Driver/BSP/adc
       libList: []
     excludeList:
       - <virtual_root>/my_lib/atk_mw1278d_usart.c

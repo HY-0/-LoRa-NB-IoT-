@@ -36,13 +36,17 @@
 typedef struct {
     uint8_t lora_ready;       /* LoRa 模块空闲可发送 (1: 就绪, 0: 忙) */
     uint8_t nbiot_connected;  /* NB-IoT 是否已连接服务器 (1: 已连接, 0: 未连接) */
+    int8_t  nbiot_rssi;       /* NB-IoT 信号强度 (dBm)，或直接存储 CSQ 索引值 */
 } comm_status_t;
 
 /* 初始化配置 */
 void transmission_lora_init(void);
 void transmission_nbiot_init(void);     
                      
-uint8_t transmission_send(const sensor_data_t *data);   /* 数据发送 */
+/* 发送函数 */
+uint8_t transmission_lora_send(const sensor_data_t *data);    // 仅 LoRa
+uint8_t transmission_nbiot_send(const sensor_data_t *data);  // 仅 NB-IoT（接收端可能不需要，但保留）
+
 uint8_t transmission_receive(sensor_data_t *out_data);                        /* 接收处理（应在主循环中周期性调用） */
 comm_status_t get_comm_status(void);
 

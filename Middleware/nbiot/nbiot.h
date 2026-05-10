@@ -9,8 +9,8 @@
 #include "sys.h"
 
 /* AT响应等待超时时间（毫秒） */
-#define NBIOT_AT_TIMEOUT        8000     /* 普通命令超时 */
-#define NBIOT_LONG_TIMEOUT      10000    /* 长操作超时（网络注册、连接等） */
+#define NBIOT_AT_TIMEOUT        5000     /* 普通命令超时 */
+#define NBIOT_LONG_TIMEOUT      50000    /* 长操作超时（网络注册、连接等） */
 
 /* ---------- 硬件引脚定义（请根据实际接线修改）---------- */
 #define NBIOT_PWR_GPIO_PORT         GPIOC
@@ -45,6 +45,9 @@
 #define NBIOT_PRINTF_ERR_FORMAT  1       /* 格式化错误 */
 #define NBIOT_PRINTF_ERR_TRUNCATED 2     /* 输出被截断 */
 
+/* ---------- 全局状态变量 ---------- */
+extern volatile uint8_t g_nb_mqtt_connected;   // NB-IoT MQTT 连接状态 (1:已连接, 0:未连接)
+
 /* ---------- 使能/禁用枚举 ---------- */
 typedef enum {
     NBIOT_DISABLE = 0x00,
@@ -64,7 +67,8 @@ typedef enum {
     NBIOT_CREG_SEARCHING            = 2,    /* 搜索中 */
     NBIOT_CREG_DENIED               = 3,    /* 注册被拒绝 */
     NBIOT_CREG_UNKNOWN              = 4,    /* 未知 */
-    NBIOT_CREG_REGISTERED_ROAMING   = 5     /* 已注册，漫游 */
+    NBIOT_CREG_REGISTERED_ROAMING   = 5,    /* 已注册，漫游 */
+    NBIOT_CREG_REGISTERED_HOME_NBIOT= 6     /* 已注册，归属网络（NB-IoT模式） */
 } nbiot_creg_stat_t;
 
 /* ---------- MQTT 接收消息定义 ---------- */
@@ -98,6 +102,11 @@ uint8_t nbiot_mqtt_subscribe(uint8_t socket_id, uint16_t msgid,
 uint8_t nbiot_mqtt_publish(uint8_t socket_id, uint16_t msgid,
                            uint8_t qos, uint8_t retain,
                            const char *topic, const char *payload);
+
+uint8_t nbiot_mqtt_publish_hex(uint8_t socket_id, uint16_t msgid,
+                               uint8_t qos, uint8_t retain,
+                               const char *topic, const char *payload_hex);
+
 uint8_t nbiot_mqtt_close(uint8_t socket_id);
 
 /* 消息接收（轮询） */

@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include "stm32f10x.h"
 #include "delay.h"
+#include "adc.h"
 
 /* ────────── 硬件引脚与 ADC 定义 ────────── */
 #define SH393_ADC_GPIO_PORT           GPIOA
@@ -15,8 +16,8 @@
 #define SH393_ADC_SAMPLE_TIME         ADC_SampleTime_239Cycles5
 #define SH393_ADC_CLK_ENABLE()        do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE); }while(0)
 
-/* 超时保护（ADC 校准或转换最大等待次数，单次循环约 10us） */
-#define SH393_ADC_TIMEOUT             10000
+/* ADC 硬件校准超时，约 100ms（仅用于上电初始化） */
+#define  SH393_ADC_TIMEOUT  10000
 
 /* ────────── 错误码 ────────── */
 #define SH393_ADC_EOK                0

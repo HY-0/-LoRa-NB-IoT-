@@ -1,13 +1,18 @@
 #ifndef __ACQUISITION_H
 #define __ACQUISITION_H
 
+#include "delay.h"
+
 #include "buzzer.h"
+#include "oled.h"
+#include "led.h"
+
+#include "ph4052.h"
 #include "bh1750.h"
 #include "sht30.h"
 #include "sh393.h"
-#include "delay.h"
-#include "oled.h"
-#include "led.h"
+#include "jw01.h"
+
 
 
 /* 错误码定义 */
@@ -18,15 +23,17 @@
 /* 传感器数据结构体 */
 
 typedef struct {
-    float temperature;          /* 温度 (°C) */
-    float air_humidity;         /* 空气湿度 (%RH) */
-    float soil_humidity;        /* 土壤湿度 (0.0 ~ 100.0%) */
-    float light_intensity;      /* 光照强度 (lux) */
-    float ph;                   /* 土壤/水体 pH 值 (0.00 ~ 14.00) */
-    float co2;                  /* 二氧化碳浓度 (ppm) */
+    float    air_temp;         /* 空气温度 (°C) */
+    float    air_humi;         /* 空气湿度 (%RH) */
+    float    soil_humi;        /* 土壤湿度 (0.0 ~ 100.0%) */
+    float    light;            /* 光照强度 (lux) */
+    float    ph;               /* 土壤/水体 pH 值 (0.00 ~ 14.00) */
+    uint16_t co2;              /* 二氧化碳浓度 (ppm) */
     
-    uint32_t timestamp;    /* 时间戳 */
-    uint8_t data_valid;    /* 数据有效性标志 */
+    
+    
+    uint32_t timestamp;     /* 时间戳 */
+    uint8_t  data_valid;     /* 数据有效性标志 */
 } sensor_data_t;
 
 /* 函数声明 */

@@ -5,7 +5,7 @@ static sensor_data_t last_data = {0};
 static comm_status_t last_comm = {0};
 
 static display_page_t last_page = PAGE_ENV;
-static display_page_t current_page = PAGE_ENV;
+static display_page_t current_page = PAGE_COMM;
 
 static uint8_t first_call = 1;
 
@@ -29,7 +29,7 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
                          uint8_t key_value)
 {
     /* ---- 按键切换页面（无论是否刷新都会执行） ---- */
-    if (key_value == WKUP_PRES) 
+    if (key_value == KEY1_PRES) 
     {
         current_page = (display_page_t)((current_page + 1) % 3);
     }
@@ -53,15 +53,15 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
             switch (current_page) 
             {
                 case PAGE_ENV:
-                    if (ABS_DIFF(data->temperature,    last_data.temperature)     >= TEMP_THRESHOLD ||
-                        ABS_DIFF(data->light_intensity, last_data.light_intensity)  >= LIGHT_THRESHOLD ||
-                        ABS_DIFF(data->air_humidity,    last_data.air_humidity)     >= AIR_HUMI_THRESHOLD)
+                    if (ABS_DIFF(data->air_temp,    last_data.air_temp)     >= TEMP_THRESHOLD     ||
+                        ABS_DIFF(data->air_humi,    last_data.air_humi)     >= AIR_HUMI_THRESHOLD ||
+                        ABS_DIFF(data->light, last_data.light)  >= LIGHT_THRESHOLD)
                         need_refresh = 1;
                     break;
                 case PAGE_SOIL:
-                    if (ABS_DIFF(data->ph,              last_data.ph)               >= PH_THRESHOLD ||
+                    if (ABS_DIFF(data->ph,              last_data.ph)               >= PH_THRESHOLD  ||
                         ABS_DIFF(data->co2,             last_data.co2)              >= CO2_THRESHOLD ||
-                        ABS_DIFF(data->soil_humidity,   last_data.soil_humidity)     >= SOIL_HUMI_THRESHOLD)
+                        ABS_DIFF(data->soil_humi,   last_data.soil_humi)     >= SOIL_HUMI_THRESHOLD)
                         need_refresh = 1;
                     break;
                 case PAGE_COMM:
@@ -89,11 +89,8 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
     if (comm) last_comm = *comm;
     last_page = current_page;
 
-    /* ---- 开始绘制：先关闭显示，清屏不可见 ---- */
-    oled_display_off();
-    oled_clear(&oled);
-    oled_set_pen(&oled, PEN_COLOR_WHITE, 1);
-    oled_set_brush(&oled, PEN_COLOR_TRANSPARENT);
+    /* 快速刷新屏幕 */
+    display_init();
 
     switch (current_page) 
     {
@@ -105,11 +102,11 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
             if (data != NULL) 
             {
                 oled_set_cursor(&oled, 0, 32);
-                oled_printf(&oled, "Temp: %.1f C", data->temperature);
+                oled_printf(&oled, "Temp: %.1f C", data->air_temp);
                 oled_set_cursor(&oled, 0, 44);
-                oled_printf(&oled, "Light: %.1f lux", data->light_intensity);
+                oled_printf(&oled, "Light: %.1f lux", data->light);
                 oled_set_cursor(&oled, 0, 58);
-                oled_printf(&oled, "AirHumi: %.1f %%RH", data->air_humidity);
+                oled_printf(&oled, "AirHumi: %.1f %%RH", data->air_humi);
             } 
             else 
             {
@@ -130,11 +127,11 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
             if (data != NULL) 
             {
                 oled_set_cursor(&oled, 0, 32);
-                oled_printf(&oled, "PH: %.2f", data->ph);
+                oled_printf(&oled, "PH: %.1f", data->ph);
                 oled_set_cursor(&oled, 0, 44);
-                oled_printf(&oled, "CO2: %.0f ppm", data->co2);
+                oled_printf(&oled, "CO2: %hu ppm", data->co2);
                 oled_set_cursor(&oled, 0, 58);
-                oled_printf(&oled, "SoilHumi: %.1f %%", data->soil_humidity);
+                oled_printf(&oled, "SoilHumi: %.1f %%", data->soil_humi);
             } 
             else 
             {
@@ -154,10 +151,12 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
             oled_draw_string(&oled, "==================");
             if (comm != NULL) 
             {
-                oled_set_cursor(&oled, 0, 36);
+                oled_set_cursor(&oled, 0, 30);
                 oled_printf(&oled, "LoRa: %s", comm->lora_ready ? "Ready" : "Busy");
-                oled_set_cursor(&oled, 0, 58);
+                oled_set_cursor(&oled, 0, 46);
                 oled_printf(&oled, "NB-IoT: %s", comm->nbiot_connected ? "Connected" : "Disconn");
+                oled_set_cursor(&oled, 0, 62);
+                oled_printf(&oled, "NB CSQ: %d", comm->nbiot_rssi);
             } 
             else 
             {
@@ -172,19 +171,16 @@ void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm,
             break;
     }
 
-    /* 一次性将缓冲区写入屏幕，然后重新打开显示 */
+    /* 清空缓存 */
     oled_send_buffer(&oled);
-    oled_display_on();
 }
 
 void display_error(const char *msg)
 {
-    oled_display_off();
     oled_clear(&oled);
     oled_set_cursor(&oled, 0, 40);
     oled_draw_string(&oled, msg);
     oled_send_buffer(&oled);
-    oled_display_on();
 }
 
 void display_clear(void)

@@ -1,592 +1,1089 @@
-[2026-05-04 00:34:01]	[info] incremental build: 4 source files changed
+[2026-05-10 04:59:40]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
 
-[2026-05-04 00:34:02]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\display.c", exit code: 1
+[2026-05-10 04:59:41]	[done]
+	build successfully !
+
+[2026-05-10 05:00:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 05:00:22]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c", exit code: 1
 command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\display.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\display.d .\Application\src\display.c
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\nbiot_demo.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\nbiot_demo.d .\Application\src\nbiot_demo.c
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/transmission.h", line 38: Error:  #20: identifier "sensor_data_t" is undefined
-  uint8_t transmission_send(const sensor_data_t *data);   /* 数据发�? */
-                                  ^
-.\Application\src\display.c: 0 warnings, 1 error
+".\Application\src\nbiot_demo.c", line 84: Error:  #18: expected a ")"
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", "{"temp":88.5,"air_humi":79.0,"soil_humi":43.2,"light":2500.0,"ph":9.8,"co2":600,"time":3778332255}");
+                                                                     ^
+.\Application\src\nbiot_demo.c: 0 warnings, 1 error
 
-[2026-05-04 00:34:44]	[info] incremental build: 4 source files changed
+[2026-05-10 05:02:14]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
 
-[2026-05-04 00:34:45]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
+[2026-05-10 05:02:15]	[done]
+	build successfully !
+
+[2026-05-10 05:03:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 05:03:45]	[done]
+	build successfully !
+
+[2026-05-10 05:14:10]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 05:14:11]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c", exit code: 1
 command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\nbiot_demo.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\nbiot_demo.d .\Application\src\nbiot_demo.c
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/display.h", line 17: Error:  #20: identifier "comm_status_t" is undefined
-  void display_sensor_data(const sensor_data_t *data, const comm_status_t *comm, uint8_t key_value);
-                                                            ^
-.\Application\src\main.c: 0 warnings, 1 error
+".\Application\src\nbiot_demo.c", line 84: Error:  #18: expected a ")"
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", "{"temp":88.5,\\\"air_humi\\\":79.0,\\\"soil_humi\\\":43.2,\\\"light\\\":2500.0,\\\"ph\\\":9.8,\\\"co2\\\":600,\\\"time\\\":3778332255}");
+                                                                     ^
+.\Application\src\nbiot_demo.c: 0 warnings, 1 error
 
-[2026-05-04 00:35:41]	[info] incremental build: 4 source files changed
+[2026-05-10 05:14:25]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\acquisition.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
 
-[2026-05-04 00:35:42]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\display.c", exit code: 1
+[2026-05-10 05:14:25]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c", exit code: 1
 command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\display.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\display.d .\Application\src\display.c
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/transmission.h", line 38: Error:  #20: identifier "sensor_data_t" is undefined
-  uint8_t transmission_send(const sensor_data_t *data);   /* 数据发�? */
-                                  ^
-.\Application\src\display.c: 0 warnings, 1 error
+".\Application\src\transmission.c", line 137: Error:  #20: identifier "json_buf" is undefined
+      str_to_hex(json_buf, hex_payload);
+                 ^
+.\Application\src\transmission.c: 0 warnings, 1 error
 
-[2026-05-04 00:36:10]	[info] incremental build: 4 source files changed
+[2026-05-10 05:15:18]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
 
-[2026-05-04 00:36:10]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\display.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\display.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\display.d .\Application\src\display.c
+[2026-05-10 05:15:19]	link failed !, exit code: 1
    at unify_builder.Program.Main(String[] args_)
 ---
-"Application/inc/transmission.h", line 37: Error:  #20: identifier "sensor_data_t" is undefined
-  uint8_t transmission_send(const sensor_data_t *data);   /* 数据发�? */
-                                  ^
-.\Application\src\display.c: 0 warnings, 1 error
-
-[2026-05-04 00:36:36]	[info] incremental build: 3 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:36:36]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\display.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\display.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\display.d .\Application\src\display.c
-   at unify_builder.Program.Main(String[] args_)
----
-"Application/inc/transmission.h", line 37: Error:  #20: identifier "sensor_data_t" is undefined
-  uint8_t transmission_send(const sensor_data_t *data);   /* 数据发�? */
-                                  ^
-.\Application\src\display.c: 0 warnings, 1 error
-
-[2026-05-04 00:39:38]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:39:39]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Application\src\main.c", line 56: Error:  #20: identifier "display_mode_t" is undefined
-          display_mode_t disp_mode;     // 显示模式
-          ^
-".\Application\src\main.c", line 72: Error:  #165: too few arguments in function call
-              display_sensor_data(&tx_data, disp_mode);
-                                                     ^
-.\Application\src\main.c: 0 warnings, 2 errors
-
-[2026-05-04 00:47:56]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:47:57]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Application\src\main.c", line 75: Error:  #140: too many arguments in function call
-          recv_ret = transmission_receive(&display_data);
-                                          ^
-".\Application\src\main.c", line 75: Error:  #513: a value of type "void" cannot be assigned to an entity of type "uint8_t"
-          recv_ret = transmission_receive(&display_data);
-                   ^
-".\Application\src\main.c", line 76: Error:  #20: identifier "TRANS_RECV_OK" is undefined
-          if (recv_ret == TRANS_RECV_OK) {
-                          ^
-".\Application\src\main.c", line 81: Error:  #20: identifier "TRANS_RECV_PARSE_ERROR" is undefined
-          } else if (recv_ret == TRANS_RECV_PARSE_ERROR) {
-                                 ^
-".\Application\src\main.c", line 86: Error:  #20: identifier "TRANS_RECV_NO_DATA" is undefined
-          if (recv_ret == TRANS_RECV_NO_DATA) {
-                          ^
-.\Application\src\main.c: 0 warnings, 5 errors
-
-[2026-05-04 00:49:52]	[info] incremental build: 2 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:49:52]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Application\src\main.c", line 75: Error:  #140: too many arguments in function call
-          recv_ret = transmission_receive(&display_data);
-                                          ^
-".\Application\src\main.c", line 75: Error:  #513: a value of type "void" cannot be assigned to an entity of type "uint8_t"
-          recv_ret = transmission_receive(&display_data);
-                   ^
-".\Application\src\main.c", line 76: Error:  #20: identifier "TRANS_RECV_OK" is undefined
-          if (recv_ret == TRANS_RECV_OK) {
-                          ^
-".\Application\src\main.c", line 81: Error:  #20: identifier "TRANS_RECV_PARSE_ERROR" is undefined
-          } else if (recv_ret == TRANS_RECV_PARSE_ERROR) {
-                                 ^
-".\Application\src\main.c", line 86: Error:  #20: identifier "TRANS_RECV_NO_DATA" is undefined
-          if (recv_ret == TRANS_RECV_NO_DATA) {
-                          ^
-.\Application\src\main.c: 0 warnings, 5 errors
-
-[2026-05-04 00:51:37]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:51:37]	compilation failed at : "d:\test\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
-command: 
-  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
-   at unify_builder.Program.Main(String[] args_)
----
-".\Application\src\main.c", line 75: Error:  #140: too many arguments in function call
-          recv_ret = transmission_receive(&display_data);
-                                          ^
-".\Application\src\main.c", line 75: Error:  #513: a value of type "void" cannot be assigned to an entity of type "uint8_t"
-          recv_ret = transmission_receive(&display_data);
-                   ^
-.\Application\src\main.c: 0 warnings, 2 errors
-
-[2026-05-04 00:53:11]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:53:13]	[done]
-	build successfully !
-
-[2026-05-04 00:53:35]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 00:53:36]	[done]
-	build successfully !
-
-[2026-05-04 00:53:39]	[done]
-	build successfully !
-
-[2026-05-04 00:56:20]	[done]
-	build successfully !
-
-[2026-05-04 13:00:43]	[done]
-	build successfully !
-
-[2026-05-04 13:09:18]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-
-[2026-05-04 13:09:19]	[done]
-	build successfully !
-
-[2026-05-04 13:10:40]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-
-[2026-05-04 13:10:41]	[done]
-	build successfully !
-
-[2026-05-04 13:13:20]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-
-[2026-05-04 13:13:21]	[done]
-	build successfully !
-
-[2026-05-04 13:17:54]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:17:55]	[done]
-	build successfully !
-
-[2026-05-04 13:18:41]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\acquisition.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\acquisition.h' has been changed.
-
-[2026-05-04 13:18:43]	[done]
-	build successfully !
-
-[2026-05-04 13:20:27]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:20:27]	[done]
-	build successfully !
-
-[2026-05-04 13:21:00]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:21:00]	[done]
-	build successfully !
-
-[2026-05-04 13:22:09]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:22:09]	[done]
-	build successfully !
-
-[2026-05-04 13:22:57]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:22:58]	[done]
-	build successfully !
-
-[2026-05-04 13:23:50]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:23:50]	[done]
-	build successfully !
-
-[2026-05-04 13:24:56]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:24:57]	[done]
-	build successfully !
-
-[2026-05-04 13:25:54]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-
-[2026-05-04 13:25:55]	[done]
-	build successfully !
-
-[2026-05-04 13:26:58]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:26:59]	[done]
-	build successfully !
-
-[2026-05-04 13:27:44]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:27:45]	[done]
-	build successfully !
-
-[2026-05-04 13:29:35]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:29:36]	[done]
-	build successfully !
-
-[2026-05-04 13:30:00]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:30:01]	[done]
-	build successfully !
-
-[2026-05-04 13:30:25]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:30:25]	[done]
-	build successfully !
-
-[2026-05-04 13:30:57]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:30:57]	[done]
-	build successfully !
-
-[2026-05-04 13:31:26]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:31:27]	[done]
-	build successfully !
-
-[2026-05-04 13:32:26]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:32:26]	[done]
-	build successfully !
-
-[2026-05-04 13:33:24]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:33:24]	[done]
-	build successfully !
-
-[2026-05-04 13:34:59]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:35:00]	[done]
-	build successfully !
-
-[2026-05-04 13:36:18]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:36:19]	[done]
-	build successfully !
-
-[2026-05-04 13:37:45]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:37:45]	[done]
-	build successfully !
-
-[2026-05-04 13:38:39]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:38:40]	[done]
-	build successfully !
-
-[2026-05-04 13:39:09]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:39:10]	[done]
-	build successfully !
-
-[2026-05-04 13:44:48]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-
-[2026-05-04 13:44:48]	[done]
-	build successfully !
-
-[2026-05-04 13:47:50]	[info] incremental build: 1 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-
-[2026-05-04 13:47:50]	[done]
-	build successfully !
-
-[2026-05-04 14:46:13]	[info] incremental build: 4 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\key\key.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Components\key\key.c': source file has been changed.
-
-[2026-05-04 14:46:14]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol oled_display_off (referred from display.o).
-Error: L6218E: Undefined symbol oled_display_on (referred from display.o).
-Error: L6218E: Undefined symbol oled_send_command (referred from display.o).
-Error: L6218E: Undefined symbol transmission_lora_init (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 4 error messages.
-
-
-[2026-05-04 15:05:49]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Components\oled\oled.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Driver\BSP\si2c\si2c.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-
-[2026-05-04 15:05:50]	link failed !, exit code: 1
-   at unify_builder.Program.Main(String[] args_)
----
-Error: L6218E: Undefined symbol oled_display_off (referred from display.o).
-Error: L6218E: Undefined symbol oled_display_on (referred from display.o).
-Error: L6218E: Undefined symbol oled_send_command (referred from display.o).
+Error: L6218E: Undefined symbol sht30_init (referred from acquisition.o).
+Error: L6218E: Undefined symbol sht30_measure (referred from acquisition.o).
+Error: L6218E: Undefined symbol nbiot_demo (referred from main.o).
 Not enough information to list image symbols.
 Finished: 1 information, 0 warning and 3 error messages.
 
 
-[2026-05-04 15:14:20]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Components\oled\oled.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Driver\BSP\si2c\si2c.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-
-[2026-05-04 15:14:22]	[done]
-	build successfully !
-
-[2026-05-04 15:15:12]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Components\oled\oled.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Driver\BSP\si2c\si2c.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-
-[2026-05-04 15:15:14]	[done]
-	build successfully !
-
-[2026-05-04 15:18:03]	[info] incremental build: 7 source files changed
-These source files will be recompiled
----
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Components\oled\oled.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Driver\BSP\si2c\si2c.c': dependence 'd:\test\-LoRa-NB-IoT-\Components\oled\oled.h' has been changed.
-
-[2026-05-04 15:18:05]	link failed !, exit code: 1
+[2026-05-10 05:15:29]	link failed !, exit code: 1
    at unify_builder.Program.Main(String[] args_)
 ---
-Error: L6218E: Undefined symbol oled_off (referred from display.o).
-Error: L6218E: Undefined symbol oled_on (referred from display.o).
+Error: L6218E: Undefined symbol nbiot_demo (referred from main.o).
 Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 2 error messages.
+Finished: 1 information, 0 warning and 1 error messages.
 
 
-[2026-05-04 15:18:20]	[info] incremental build: 1 source files changed
+[2026-05-10 05:16:03]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
 
-[2026-05-04 15:18:21]	[done]
+[2026-05-10 05:16:03]	[done]
 	build successfully !
 
-[2026-05-04 15:23:07]	[info] incremental build: 1 source files changed
+[2026-05-10 05:16:19]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
 
-[2026-05-04 15:23:07]	[done]
+[2026-05-10 05:16:20]	[done]
 	build successfully !
 
-[2026-05-04 15:27:00]	[info] incremental build: 3 source files changed
+[2026-05-10 05:16:26]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\test\-LoRa-NB-IoT-\Application\inc\display.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
 
-[2026-05-04 15:27:01]	[done]
+[2026-05-10 05:16:26]	[done]
 	build successfully !
 
-[2026-05-04 15:27:15]	[done]
-	build successfully !
-
-[2026-05-04 15:29:22]	[info] incremental build: 1 source files changed
+[2026-05-10 05:21:17]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
 
-[2026-05-04 15:29:23]	[done]
-	build successfully !
+[2026-05-10 05:21:18]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\transmission.c", line 61: Error:  #65: expected a ";"
+  {
+  ^
+".\Application\src\transmission.c", line 82: Warning:  #12-D: parsing restarts here after previous syntax error
+      oled_printf(&oled, "Attached");
+                                    ^
+".\Application\src\transmission.c", line 91: Error:  #20: identifier "ret" is undefined
+      ret = nbiot_mqtt_open(0, "82.157.129.239", 1883);
+      ^
+".\Application\src\transmission.c", line 93: Warning:  #223-D: function "display_error" declared implicitly
+          display_error("MQTT open fail");
+          ^
+".\Application\src\transmission.c", line 102: Warning:  #223-D: function "display_error" declared implicitly
+          display_error("MQTT conn fail");
+          ^
+".\Application\src\transmission.c", line 115: Warning:  #223-D: function "display_init" declared implicitly
+      display_init();
+      ^
+".\Application\src\transmission.c", line 118: Error:  #169: expected a declaration
+  }
+  ^
+".\Application\src\transmission.c", line 188: Warning:  #12-D: parsing restarts here after previous syntax error
+      char hex_payload[512];                 // 2*256+1 足够
+                           ^
+".\Application\src\transmission.c", line 189: Warning:  #77-D: this declaration has no storage class or type specifier
+      str_to_hex(json_buf, hex_payload);
+      ^
+".\Application\src\transmission.c", line 189: Warning:  #92-D: identifier-list parameters may only be used in a function definition
+      str_to_hex(json_buf, hex_payload);
+      ^
+".\Application\src\transmission.c", line 191: Error:  #59: function call is not allowed in a constant expression
+      uint8_t nb_ret = nbiot_mqtt_publish_hex(0, 2, 1, 0, "farm/sensor/collect", hex_payload);
+                       ^
+".\Application\src\transmission.c", line 191: Error:  #20: identifier "hex_payload" is undefined
+      uint8_t nb_ret = nbiot_mqtt_publish_hex(0, 2, 1, 0, "farm/sensor/collect", hex_payload);
+                                                                                 ^
+".\Application\src\transmission.c", line 192: Error:  #169: expected a declaration
+      if (nb_ret == NBIOT_EOK) {
+      ^
+".\Application\src\transmission.c", line 201: Warning:  #12-D: parsing restarts here after previous syntax error
+      if (ret_lora == 
+RANS_OK || ret_nbiot == 
+RANS_OK) return 
+RANS_OK;
+                                                                        ^
+".\Application\src\transmission.c", line 202: Error:  #169: expected a declaration
+      else if (ret_lora == TRANS_BUSY && ret_nbiot == TRANS_BUSY) return TRANS_BUSY;
+      ^
+".\Application\src\transmission.c", line 203: Error:  #169: expected a declaration
+      else return TRANS_ERROR;
+      ^
+".\Application\src\transmission.c", line 204: Error:  #169: expected a declaration
+  }
+  ^
+".\Application\src\transmission.c", line 247: Warning:  #12-D: parsing restarts here after previous syntax error
+      return 
+RANS_RECV_NO_DATA;
+                               ^
+".\Application\src\transmission.c", line 248: Error:  #169: expected a declaration
+  }
+  ^
+".\Application\src\transmission.c", line 257: Warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+.\Application\src\transmission.c: 10 warnings, 10 errors
 
-[2026-05-04 15:40:00]	[done]
-	build successfully !
-
-[2026-05-04 15:40:03]	[done]
-	build successfully !
-
-[2026-05-04 15:41:08]	[info] incremental build: 1 source files changed
+[2026-05-10 05:29:40]	[info] incremental build: 2 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
 
-[2026-05-04 15:41:08]	[done]
+[2026-05-10 05:29:41]	[done]
 	build successfully !
 
-[2026-05-04 15:44:24]	[done]
-	build successfully !
-
-[2026-05-04 15:45:09]	[info] incremental build: 1 source files changed
+[2026-05-10 05:33:31]	[info] incremental build: 1 source files changed
 These source files will be recompiled
 ---
-'d:\test\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
 
-[2026-05-04 15:45:09]	[done]
+[2026-05-10 05:33:32]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\transmission.c", line 107: Error:  #140: too many arguments in function call
+      oled_draw_string(&oled, "CSQ:%d,%d", csq.rssi, csq.ber);
+                                           ^
+.\Application\src\transmission.c: 0 warnings, 1 error
+
+[2026-05-10 05:33:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:33:56]	[done]
+	build successfully !
+
+[2026-05-10 05:34:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:34:56]	[done]
+	build successfully !
+
+[2026-05-10 05:35:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:35:25]	[done]
+	build successfully !
+
+[2026-05-10 05:36:21]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:36:21]	[done]
+	build successfully !
+
+[2026-05-10 05:36:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:36:36]	[done]
+	build successfully !
+
+[2026-05-10 05:36:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:36:56]	[done]
+	build successfully !
+
+[2026-05-10 05:37:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:37:34]	[done]
+	build successfully !
+
+[2026-05-10 05:38:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:38:26]	[done]
+	build successfully !
+
+[2026-05-10 05:39:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:39:43]	[done]
+	build successfully !
+
+[2026-05-10 05:43:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:43:32]	[done]
+	build successfully !
+
+[2026-05-10 05:43:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:43:55]	[done]
+	build successfully !
+
+[2026-05-10 05:44:14]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:44:14]	[done]
+	build successfully !
+
+[2026-05-10 05:45:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:45:05]	[done]
+	build successfully !
+
+[2026-05-10 05:45:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:45:45]	[done]
+	build successfully !
+
+[2026-05-10 05:46:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:46:31]	[done]
+	build successfully !
+
+[2026-05-10 05:48:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:48:18]	[done]
+	build successfully !
+
+[2026-05-10 05:49:02]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:49:03]	[done]
+	build successfully !
+
+[2026-05-10 05:49:24]	[done]
+	build successfully !
+
+[2026-05-10 05:50:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:50:13]	[done]
+	build successfully !
+
+[2026-05-10 05:50:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:50:47]	[done]
+	build successfully !
+
+[2026-05-10 05:56:01]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 05:56:03]	[done]
+	build successfully !
+
+[2026-05-10 05:56:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+
+[2026-05-10 05:56:17]	[done]
+	build successfully !
+
+[2026-05-10 05:57:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+
+[2026-05-10 05:57:39]	[done]
+	build successfully !
+
+[2026-05-10 05:58:21]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': source file has been changed.
+
+[2026-05-10 05:58:21]	[done]
+	build successfully !
+
+[2026-05-10 06:03:01]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:03:01]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\transmission.c", line 305: Error:  #20: identifier "g_nb_mqtt_connected" is undefined
+      status.nbiot_connected = g_nb_mqtt_connected;
+                               ^
+.\Application\src\transmission.c: 0 warnings, 1 error
+
+[2026-05-10 06:05:02]	[info] incremental build: 5 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:05:03]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\nbiot\nbiot.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\nbiot\nbiot.d .\Middleware\nbiot\nbiot.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Middleware\nbiot\nbiot.c", line 373: Error:  #29: expected an expression
+              if (strstr(...)) // 出错处理
+                         ^
+".\Middleware\nbiot\nbiot.c", line 373: Error:  #165: too few arguments in function call
+              if (strstr(...)) // 出错处理
+                            ^
+".\Middleware\nbiot\nbiot.c", line 376: Error:  #20: identifier "id" is undefined
+              if (p && sscanf(p, "+ECMTCONN: %d,%d", &id, &res) >= 2) {
+                                                      ^
+".\Middleware\nbiot\nbiot.c", line 376: Error:  #20: identifier "res" is undefined
+              if (p && sscanf(p, "+ECMTCONN: %d,%d", &id, &res) >= 2) {
+                                                           ^
+".\Middleware\nbiot\nbiot.c", line 367: Warning:  #177-D: variable "got_status"  was declared but never referenced
+      int got_status = 0;
+          ^
+".\Middleware\nbiot\nbiot.c", line 368: Warning:  #177-D: variable "result_val"  was declared but never referenced
+      int result_val = -1;
+          ^
+".\Middleware\nbiot\nbiot.c", line 572: Error:  #20: identifier "cmd" is undefined
+      uint8_t ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_AT_TIMEOUT);
+                                      ^
+.\Middleware\nbiot\nbiot.c: 2 warnings, 5 errors
+
+[2026-05-10 06:06:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:06:36]	[done]
+	build successfully !
+
+[2026-05-10 06:08:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:08:46]	[done]
+	build successfully !
+
+[2026-05-10 06:08:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:08:54]	[done]
+	build successfully !
+
+[2026-05-10 06:13:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:13:58]	[done]
+	build successfully !
+
+[2026-05-10 06:14:04]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:14:04]	[done]
+	build successfully !
+
+[2026-05-10 06:20:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:20:31]	[done]
+	build successfully !
+
+[2026-05-10 06:31:02]	[info] incremental build: 4 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\inc\transmission.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:31:03]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\transmission.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\transmission.d .\Application\src\transmission.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\transmission.c", line 236: Error:  #20: identifier "TRUNCATED" is undefined
+          case TRUNCATED:      return TRANS_TRUNCATED;   // 如有需�?
+               ^
+.\Application\src\transmission.c: 0 warnings, 1 error
+
+[2026-05-10 06:31:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:31:18]	[done]
+	build successfully !
+
+[2026-05-10 06:36:59]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:36:59]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol transmission_nbiot_send (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-05-10 06:37:24]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol transmission_nbiot_send (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-05-10 06:39:09]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:39:10]	[done]
+	build successfully !
+
+[2026-05-10 06:39:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:39:39]	[done]
+	build successfully !
+
+[2026-05-10 06:42:44]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:42:45]	[done]
+	build successfully !
+
+[2026-05-10 06:44:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:44:38]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\main.c", line 281: Error:  #101: "comm" has already been declared in the current scope
+      comm_status_t comm = get_comm_status();
+                    ^
+".\Application\src\main.c", line 262: Warning:  #177-D: variable "comm"  was declared but never referenced
+      comm_status_t comm = {0};
+                    ^
+.\Application\src\main.c: 1 warning, 1 error
+
+[2026-05-10 06:45:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:45:18]	[done]
+	build successfully !
+
+[2026-05-10 06:45:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:45:41]	[done]
+	build successfully !
+
+[2026-05-10 06:47:40]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:47:41]	[done]
+	build successfully !
+
+[2026-05-10 06:49:16]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:49:17]	[done]
+	build successfully !
+
+[2026-05-10 06:51:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:51:05]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\main.c", line 150: Warning:  #223-D: function "nbiot_demo" declared implicitly
+      nbiot_demo();
+      ^
+".\Application\src\main.c", line 156: Error:  #247: function "main"  has already been defined
+  int main(void)
+      ^
+".\Application\src\main.c", line 251: Error:  #247: function "main"  has already been defined
+  int main(void)
+      ^
+.\Application\src\main.c: 1 warning, 2 errors
+
+[2026-05-10 06:51:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:51:30]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\main.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\main.d .\Application\src\main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\main.c", line 251: Error:  #247: function "main"  has already been defined
+  int main(void)
+      ^
+.\Application\src\main.c: 0 warnings, 1 error
+
+[2026-05-10 06:51:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 06:51:38]	[done]
+	build successfully !
+
+[2026-05-10 06:53:42]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:53:43]	[done]
+	build successfully !
+
+[2026-05-10 06:55:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:55:27]	[done]
+	build successfully !
+
+[2026-05-10 06:59:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 06:59:11]	[done]
+	build successfully !
+
+[2026-05-10 06:59:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': source file has been changed.
+
+[2026-05-10 06:59:51]	[done]
+	build successfully !
+
+[2026-05-10 07:00:48]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 07:00:49]	[done]
+	build successfully !
+
+[2026-05-10 07:01:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': source file has been changed.
+
+[2026-05-10 07:01:38]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6218E: Undefined symbol nbiot_demo (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+
+
+[2026-05-10 07:01:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:01:47]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\nbiot_demo.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\nbiot_demo.d .\Application\src\nbiot_demo.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\nbiot_demo.c", line 84: Error:  #18: expected a ")"
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", "{"temp":88.5,\\\"air_humi\\\":79.0,\\\"soil_humi\\\":43.2,\\\"light\\\":2500.0,\\\"ph\\\":9.8,\\\"co2\\\":600,\\\"time\\\":3778332255}");
+                                                                     ^
+.\Application\src\nbiot_demo.c: 0 warnings, 1 error
+
+[2026-05-10 07:03:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:03:07]	[done]
+	build successfully !
+
+[2026-05-10 07:03:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:03:35]	[done]
+	build successfully !
+
+[2026-05-10 07:04:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:04:22]	[done]
+	build successfully !
+
+[2026-05-10 07:04:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:04:39]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\nbiot_demo.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\nbiot_demo.d .\Application\src\nbiot_demo.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\nbiot_demo.c", line 84: Error:  #8: missing closing quote
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", "{\"temp\":28.5,\"air_humi\":65.2,\"soil_humi\":40.1,\"light\":1000.0,\"ph\":6.9,\"co2\":412,\"time\":1778335760});
+                                                                  ^
+".\Application\src\nbiot_demo.c", line 85: Error:  #18: expected a ")"
+      if (ret != NBIOT_EOK) {
+      ^
+".\Application\src\nbiot_demo.c", line 89: Warning:  #12-D: parsing restarts here after previous syntax error
+      oled_show(&oled, 0, 48, 500, "Pub OK");
+                                            ^
+.\Application\src\nbiot_demo.c: 1 warning, 2 errors
+
+[2026-05-10 07:04:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:04:56]	[done]
+	build successfully !
+
+[2026-05-10 07:05:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:05:31]	[done]
+	build successfully !
+
+[2026-05-10 07:06:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:06:05]	[done]
+	build successfully !
+
+[2026-05-10 07:06:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:06:40]	[done]
+	build successfully !
+
+[2026-05-10 07:07:03]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:07:03]	[done]
+	build successfully !
+
+[2026-05-10 07:08:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:08:01]	[done]
+	build successfully !
+
+[2026-05-10 07:09:06]	[done]
+	build successfully !
+
+[2026-05-10 07:09:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:09:18]	[done]
+	build successfully !
+
+[2026-05-10 07:16:38]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:16:38]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Application\src\nbiot_demo.o --no_depend_system_headers --depend .\build\default\.obj\Application\src\nbiot_demo.d .\Application\src\nbiot_demo.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Application\src\nbiot_demo.c", line 84: Error:  #19: extra text after expected end of number
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", 7B2274656D70223A32322E352C226169725F68756D69223A35352E302C22736F696C5F68756D69223A33332E322C226C69676874223A3435302E302C227068223A362E382C22636F32223A3830302C2274696D65223A313737383333323235357D);
+                                                                   ^
+".\Application\src\nbiot_demo.c", line 84: Warning:  #167-D: argument of type "int" is incompatible with parameter of type "const char *"
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", 7B2274656D70223A32322E352C226169725F68756D69223A35352E302C22736F696C5F68756D69223A33332E322C226C69676874223A3435302E302C227068223A362E382C22636F32223A3830302C2274696D65223A313737383333323235357D);
+                                                                  ^
+".\Application\src\nbiot_demo.c", line 84: Warning:  #152-D: conversion of nonzero integer to pointer
+      ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", 7B2274656D70223A32322E352C226169725F68756D69223A35352E302C22736F696C5F68756D69223A33332E322C226C69676874223A3435302E302C227068223A362E382C22636F32223A3830302C2274696D65223A313737383333323235357D);
+                                                                  ^
+.\Application\src\nbiot_demo.c: 2 warnings, 1 error
+
+[2026-05-10 07:26:45]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 07:26:46]	[done]
+	build successfully !
+
+[2026-05-10 07:28:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:28:26]	[done]
+	build successfully !
+
+[2026-05-10 07:29:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:29:05]	[done]
+	build successfully !
+
+[2026-05-10 07:30:34]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:30:35]	[done]
+	build successfully !
+
+[2026-05-10 07:31:41]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+
+[2026-05-10 07:31:43]	[done]
+	build successfully !
+
+[2026-05-10 07:33:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 07:33:24]	[done]
+	build successfully !
+
+[2026-05-10 07:35:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:35:07]	[done]
+	build successfully !
+
+[2026-05-10 07:36:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:36:08]	[done]
+	build successfully !
+
+[2026-05-10 07:36:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:36:55]	[done]
+	build successfully !
+
+[2026-05-10 07:38:49]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:38:50]	[done]
+	build successfully !
+
+[2026-05-10 07:40:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:40:46]	[done]
+	build successfully !
+
+[2026-05-10 07:41:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:41:13]	[done]
+	build successfully !
+
+[2026-05-10 07:41:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:41:43]	[done]
+	build successfully !
+
+[2026-05-10 07:42:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:42:18]	[done]
+	build successfully !
+
+[2026-05-10 07:42:41]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:42:42]	[done]
+	build successfully !
+
+[2026-05-10 07:43:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:43:05]	[done]
+	build successfully !
+
+[2026-05-10 07:48:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:48:23]	[done]
+	build successfully !
+
+[2026-05-10 07:52:07]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 07:52:07]	compilation failed at : "d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c", exit code: 1
+command: 
+  "D:\Software\Keil_v5\C51_STM32\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -IApplication/inc -I.cmsis/include -IRTE/_default -IDriver/BSP/delay -IDriver/BSP/hi2c -IDriver/BSP/si2c -IDriver/BSP/spi -IDriver/BSP/sys -IDriver/BSP/uart -IDriver/std_periph_driver/inc -IComponents/bh1750 -IComponents/buzzer -IComponents/key -IComponents/oled -IComponents/sht30 -IMiddleware/lora -IMiddleware/nbiot -IComponents/led -IDriver/CMSIS -IComponents/sh393 -IComponents/jw01 -IComponents/ph4052 -IDriver/BSP/adc -D"STM32F10X_MD" --cpu Cortex-M3 --li --c99 -D__MICROLIB -O0 --split_sections --gnu --no-multibyte-chars -g -o .\build\default\.obj\Middleware\nbiot\nbiot.o --no_depend_system_headers --depend .\build\default\.obj\Middleware\nbiot\nbiot.d .\Middleware\nbiot\nbiot.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Middleware\nbiot\nbiot.c", line 494: Error:  #247: function "escape_json_for_at"  has already been defined
+  static int escape_json_for_at(char *dst, size_t dst_len, const char *src) {
+             ^
+.\Middleware\nbiot\nbiot.c: 0 warnings, 1 error
+
+[2026-05-10 07:52:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 07:52:19]	[done]
+	build successfully !
+
+[2026-05-10 07:53:16]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:53:17]	[done]
+	build successfully !
+
+[2026-05-10 07:54:43]	[done]
+	build successfully !
+
+[2026-05-10 07:55:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 07:55:37]	[done]
+	build successfully !
+
+[2026-05-10 08:00:45]	[info] incremental build: 6 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\acquisition.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\display.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\main.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\transmission.c': dependence 'd:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.h' has been changed.
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 08:00:47]	[done]
+	build successfully !
+
+[2026-05-10 08:06:42]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Middleware\nbiot\nbiot.c': source file has been changed.
+
+[2026-05-10 08:06:43]	[done]
+	build successfully !
+
+[2026-05-10 08:09:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\lora-nbiot-agri-platform\-LoRa-NB-IoT-\Application\src\nbiot_demo.c': source file has been changed.
+
+[2026-05-10 08:09:35]	[done]
 	build successfully !
 

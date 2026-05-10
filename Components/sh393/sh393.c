@@ -24,29 +24,25 @@ uint8_t sh393_init(void)
  *               ADC 参考电压 3.3V，12bit 精度。
  *               V_MIN 和 V_MAX 应根据实际传感器在干燥/湿润条件下的实测电压调整。
  */
-uint8_t sh393_get_humidity(float *percent)
+uint8_t sh393_measure(float *percent)
 {
     uint16_t adc_val;
-    float voltage;
-    const float V_MIN = 0.5f;   /* 干燥（0%湿度）时传感器输出电压，需实测校准 */
-    const float V_MAX = 3.0f;   /* 浸水（100%湿度）时传感器输出电压，需实测校准 */
-
+    
     if (percent == NULL)
         return SH393_ERROR;
-
-    /* 读取 ADC 原始值（带超时保护） */
+    
+   
     if (sh393_adc_read(&adc_val) != SH393_ADC_EOK)
-        return SH393_ERROR;
-
-    /* 转换为电压（假设参考电压 3.3V） */
-    voltage = (adc_val * 3.3f) / 4096.0f;
-
-    /* 线性映射为湿度百分比 */
-    *percent = ((voltage - V_MIN) / (V_MAX - V_MIN)) * 100.0f;
-
+            return SH393_ERROR;
+    
+    /* 核心公式：湿度(%) = 100 - (ADC平均值 / 40.96)
+       推导：ADC=4095 → 0%，ADC=0 → 100%
+       注意：40.96 = 4095 / 100，但直接用 40.96 更准确 */
+    *percent = 100.0f - (adc_val / 40.96f);
+    
     /* 边界裁剪 */
     if (*percent < 0.0f) *percent = 0.0f;
     if (*percent > 100.0f) *percent = 100.0f;
-
+    
     return SH393_EOK;
 }

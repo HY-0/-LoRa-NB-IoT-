@@ -9,18 +9,27 @@ uint8_t lora_startup(uint32_t baudrate)
     oled_clear(&oled);
     oled_set_pen(&oled, PEN_COLOR_WHITE, 1);         /* 设置白画笔 */
     oled_set_brush(&oled, PEN_COLOR_TRANSPARENT);    /* 透明画刷 */
-    oled_show(&oled, 0, 25,   0, "*******************");
-    oled_show(&oled, 0, 40,   0, "<<<<STM32-LoRa>>>>");
-    oled_show(&oled, 0, 55, 500, "*******************");
+    oled_set_cursor(&oled, 0, 25);
+    oled_draw_string(&oled, "*******************");
+    oled_set_cursor(&oled, 0, 40);
+    oled_draw_string(&oled, "<<<<   LoRa   >>>>");
+    oled_set_cursor(&oled, 0, 55);
+    oled_draw_string(&oled, "*******************");
+    oled_send_buffer(&oled);   // 立即显示
+    delay_ms(500);            // 保留必要延时
 
+    oled_clear(&oled);
 	/* 1. 硬件初始化 */
     ret = lora_init(baudrate);
     if (ret != LORA_EOK)
     {
         oled_clear(&oled);
-        oled_show(&oled, 30, 25, 500, "LoRa err!");
+        oled_set_cursor(&oled, 30, 25);
+        oled_draw_string(&oled, "LoRa err!");
+        oled_send_buffer(&oled);
+        led0_toggle();            // 错误指示
 
-        led0_toggle();
+        return ret;
     }
 
     /* 2. 进入配置模式 */
@@ -42,14 +51,18 @@ uint8_t lora_startup(uint32_t baudrate)
     if (ret != LORA_EOK)
     {
         oled_clear(&oled);
-        oled_show(&oled, 30, 25, 500, "LoRa err!");
-
+        oled_set_cursor(&oled, 30, 25);
+        oled_draw_string(&oled, "LoRa err!");
+        oled_send_buffer(&oled);
         return ret;
     }
     else
     {
         oled_clear(&oled);
-        oled_show(&oled, 30, 40, 500, "LoRa ok!");
+        oled_set_cursor(&oled, 30, 40);
+        oled_draw_string(&oled, "LoRa ok!");
+        oled_send_buffer(&oled);
+        delay_ms(500);           // 让用户看到成功信息
     }
     
     return LORA_EOK;
@@ -57,7 +70,95 @@ uint8_t lora_startup(uint32_t baudrate)
 
 uint8_t nbiot_startup(uint32_t baudrate)
 {
-    return 0;
+    uint8_t ret;
+    nbiot_csq_t csq;
+
+    /* 显示标题 */
+    oled_clear(&oled);
+    oled_set_pen(&oled, PEN_COLOR_WHITE, 1);         /* 设置白画笔 */
+    oled_set_brush(&oled, PEN_COLOR_TRANSPARENT);    /* 透明画刷 */
+    oled_set_cursor(&oled, 0, 25);
+    oled_draw_string(&oled, "*******************");
+    oled_set_cursor(&oled, 0, 40);
+    oled_draw_string(&oled, "<<<   NB-IoT   >>>");
+    oled_set_cursor(&oled, 0, 55);
+    oled_draw_string(&oled, "*******************");
+    oled_send_buffer(&oled);   // 立即显示
+    delay_ms(500);            // 保留必要延时
+
+    // 1. 模块硬件初始化 + AT 测试 + 关闭回显
+    ret = nbiot_init(baudrate);
+    if (ret != NBIOT_EOK) {
+        oled_clear(&oled);
+        oled_set_cursor(&oled, 30, 40);
+        oled_draw_string(&oled, "NB err!");
+        oled_send_buffer(&oled);
+        return ret;
+    }
+    oled_clear(&oled);                     // 清屏，准备显示进度
+    oled_set_cursor(&oled, 30, 40);
+    oled_draw_string(&oled, "NB OK!");
+    oled_send_buffer(&oled);               // 立即刷新
+
+    // 2. 附着网络 (等待网络注册)
+    ret = nbiot_attach_network();
+    if (ret != NBIOT_EOK) {
+        oled_clear(&oled);
+        oled_set_cursor(&oled, 30, 40);
+        oled_draw_string(&oled, "NB err!");
+        oled_send_buffer(&oled);
+        return ret;
+    }
+    delay_ms(3000);                        // 等待网络附着完成（必须）
+    oled_clear(&oled);
+    oled_set_cursor(&oled, 0, 12);
+    oled_draw_string(&oled, "Attached");
+    oled_send_buffer(&oled);
+
+    // 3. 查询信号质量
+    nbiot_get_csq(&csq);
+    oled_set_cursor(&oled, 0, 24);
+    oled_printf(&oled, "CSQ:%d,%d", csq.rssi, csq.ber);
+    oled_send_buffer(&oled);
+
+    // 4. 打开 MQTT 连接（socket）
+    ret = nbiot_mqtt_open(0, "82.157.129.239", 1883);
+    if (ret != NBIOT_EOK) {
+        oled_clear(&oled);
+        oled_set_cursor(&oled, 10, 20);
+        oled_draw_string(&oled, "MQTT open fail");
+        oled_send_buffer(&oled);
+        return ret;
+    }
+    oled_set_cursor(&oled, 0, 36);
+    oled_draw_string(&oled, "MQTT open OK");
+    oled_send_buffer(&oled);
+
+    // 5. MQTT 连接
+    ret = nbiot_mqtt_connect(0, "myClient123", "user1", "pass123");
+    if (ret != NBIOT_EOK) {
+        oled_clear(&oled);
+        oled_set_cursor(&oled, 10, 20);
+        oled_draw_string(&oled, "MQTT conn fail");
+        oled_send_buffer(&oled);
+        return ret;
+    }
+    oled_set_cursor(&oled, 0, 48);
+    oled_draw_string(&oled, "MQTT conn OK");
+    oled_send_buffer(&oled);
+
+    // 6. 订阅主题
+    nbiot_mqtt_subscribe(0, 1, "farm/sensor/collect", 1);
+    oled_set_cursor(&oled, 0, 60);
+    oled_draw_string(&oled, "Subscribed");
+    oled_send_buffer(&oled);
+
+    // 可选：等待 2 秒后清屏，准备显示传感器数据
+    delay_ms(2000);
+    oled_clear(&oled);
+    oled_send_buffer(&oled);
+
+    return NBIOT_EOK;
 }
 
 /* ---------- 对外接口实现 ---------- */
@@ -83,50 +184,89 @@ static uint16_t pack_json(const sensor_data_t *data, char *buf, uint16_t size)
 
     return snprintf(buf, size,
         "{\"temp\":%.1f,\"air_humi\":%.1f,\"soil_humi\":%.1f,"
-        "\"light\":%.1f,\"ph\":%.2f,\"co2\":%.0f,\"time\":%lu}",
-        data->temperature,
-        data->air_humidity,
-        data->soil_humidity,
-        data->light_intensity,
+        "\"light\":%.1f,\"ph\":%.1f,\"co2\":%hu,\"time\":%lu}",
+        data->air_temp,
+        data->air_humi,
+        data->soil_humi,
+        data->light,
         data->ph,
         data->co2,
         data->timestamp);
 }
 
+/* 将字符串转换为大写十六进制字符串，dst 必须足够大（2*len+1） */
+static void str_to_hex(const char *src, char *dst)
+{
+    while (*src) {
+        sprintf(dst, "%02X", (unsigned char)*src);
+        dst += 2;
+        src++;
+    }
+    *dst = '\0';
+}
+
 /* ========== 数据发送 ========== */
-uint8_t transmission_send(const sensor_data_t *data)
+uint8_t transmission_lora_send(const sensor_data_t *data)
 {   
-    char tx_buf[256];
+    char json_buf[256];
     uint16_t len;
-    uint8_t ret_lora, ret_nbiot;
+    uint8_t ret_lora;
 
     if (!data->data_valid) return TRANS_NO_DATA;
 
-    len = pack_json(data, tx_buf, sizeof(tx_buf));
-    
+    len = pack_json(data, json_buf, sizeof(json_buf));
     if (len == 0) return TRANS_ERROR;
 
-    /* LoRa 发送 */
-    if (lora_free() == LORA_EBUSY) 
-    {
+    /* ----- LoRa 发送 ----- */
+    if (lora_free() == LORA_EBUSY) {
         ret_lora = TRANS_BUSY;
-    } 
-    else 
-    {
-        uint8_t lora_ret = lora_uart_printf("%s\r\n", tx_buf);
-        switch (lora_ret) 
-        {
-            case LORA_PRINTF_OK:          ret_lora = TRANS_OK;          break;
+    } else {
+        uint8_t lora_ret = lora_uart_printf("%s\r\n", json_buf);
+        switch (lora_ret) {
+            case LORA_PRINTF_OK:          ret_lora = TRANS_OK;      break;
             case LORA_PRINTF_ERR_TRUNCATED: ret_lora = TRANS_TRUNCATED; break;
-            default:                      ret_lora = TRANS_ERROR;       break;
+            default:                      ret_lora = TRANS_ERROR;   break;
         }
     }
-    /* NB‑IoT 发送（预留） */
-    ret_nbiot = TRANS_ERROR;
 
-    if (ret_lora == TRANS_OK || ret_nbiot == TRANS_OK) return TRANS_OK;
-    else if (ret_lora == TRANS_BUSY && ret_nbiot == TRANS_BUSY) return TRANS_BUSY;
-    else return TRANS_ERROR;
+    /* 根据 LoRa 发送结果返回 */
+    switch (ret_lora) {
+        case TRANS_OK:       return TRANS_OK;
+        case TRANS_BUSY:     return TRANS_BUSY;
+        default:             return TRANS_ERROR;
+    }
+}
+
+uint8_t transmission_nbiot_send(const sensor_data_t *data)
+{   
+    char json_buf[256];
+    uint16_t len;
+    uint8_t ret_nbiot;
+
+    if (!data->data_valid) return TRANS_NO_DATA;
+
+    len = pack_json(data, json_buf, sizeof(json_buf));
+    if (len == 0) return TRANS_ERROR;
+
+    /* NB‑IoT 发送（十六进制负载） */
+    char hex_payload[512];
+    str_to_hex(json_buf, hex_payload);
+
+    uint8_t nb_ret = nbiot_mqtt_publish_hex(0, 2, 1, 0, "farm/sensor/collect", hex_payload);
+
+    /* 根据 NB-IoT 发送结果映射错误码 */
+    switch (nb_ret) {
+        case NBIOT_EOK:      ret_nbiot = TRANS_OK;    break;
+        case NBIOT_TIMEOUT:  ret_nbiot = TRANS_BUSY;  break;
+        default:             ret_nbiot = TRANS_ERROR; break;
+    }
+
+    /* 用 switch 返回最终结果 */
+    switch (ret_nbiot) {
+        case TRANS_OK:       return TRANS_OK;
+        case TRANS_BUSY:     return TRANS_BUSY;
+        default:             return TRANS_ERROR;
+    }
 }
 
 /* ========== 接收处理（主循环中调用） ========== */
@@ -136,24 +276,36 @@ uint8_t transmission_receive(sensor_data_t *out_data)
     sensor_data_t rx_data;
     int fields;
 
-    /* LoRa 接收 */
+    /* ----- LoRa 接收（原有代码） ----- */
     frame = lora_uart_rx_get_frame();
-    if (frame != NULL) 
-    {
+    if (frame != NULL) {
         memset(&rx_data, 0, sizeof(rx_data));
         fields = sscanf((char*)frame,
             "{\"temp\":%f,\"air_humi\":%f,\"soil_humi\":%f,"
-            "\"light\":%f,\"ph\":%f,\"co2\":%f,\"time\":%lu}",
-            &rx_data.temperature,
-            &rx_data.air_humidity,
-            &rx_data.soil_humidity,
-            &rx_data.light_intensity,
-            &rx_data.ph,
-            &rx_data.co2,
-            &rx_data.timestamp);
-        
-        if (fields == 5) 
-        {   
+            "\"light\":%f,\"ph\":%f,\"co2\":%hu,\"time\":%lu}",
+            &rx_data.air_temp, &rx_data.air_humi, &rx_data.soil_humi,
+            &rx_data.light, &rx_data.ph, &rx_data.co2, &rx_data.timestamp);
+        if (fields == 7) {
+            rx_data.data_valid = 1;
+            *out_data = rx_data;
+            lora_uart_rx_restart();
+            return TRANS_RECV_OK;
+        } else {
+            return TRANS_RECV_PARSE_ERROR;
+        }
+    }
+
+    /* ----- NB‑IoT MQTT 接收 ----- */
+    nbiot_mqtt_recv_t mqtt_msg;
+    if (nbiot_mqtt_recv(&mqtt_msg) == NBIOT_EOK) {
+        // 解析 MQTT payload 中的 JSON（前提是 payload 是字符串格式）
+        memset(&rx_data, 0, sizeof(rx_data));
+        fields = sscanf(mqtt_msg.payload,
+            "{\"temp\":%f,\"air_humi\":%f,\"soil_humi\":%f,"
+            "\"light\":%f,\"ph\":%f,\"co2\":%hu,\"time\":%lu}",
+            &rx_data.air_temp, &rx_data.air_humi, &rx_data.soil_humi,
+            &rx_data.light, &rx_data.ph, &rx_data.co2, &rx_data.timestamp);
+        if (fields == 7) {
             rx_data.data_valid = 1;
             *out_data = rx_data;
             return TRANS_RECV_OK;
@@ -164,10 +316,6 @@ uint8_t transmission_receive(sensor_data_t *out_data)
         }
     }
 
-    /* NB‑IoT 接收处理（预留） */
-    // 可在此处获取 MQTT 消息，但注意应返回统一 sensor_data_t
-    // 若需要单独的 NB‑IoT 消息处理，可另写函数
-
     return TRANS_RECV_NO_DATA;
 }
 
@@ -175,7 +323,24 @@ uint8_t transmission_receive(sensor_data_t *out_data)
 comm_status_t get_comm_status(void)
 {
     comm_status_t status;
-    status.lora_ready      = (lora_free() == LORA_EOK) ? 1 : 0;
-    status.nbiot_connected = 0;   /* 待实现：读取 NB-IoT 连接状态标志 */
+    static int8_t cached_rssi = -1;
+    static uint32_t last_csq_time = 0;
+    uint32_t now = get_ms();
+
+    status.lora_ready = (lora_free() == LORA_EOK) ? 1 : 0;
+    status.nbiot_connected = g_nb_mqtt_connected;
+    status.nbiot_rssi = cached_rssi;
+
+    // 每 10 秒查询一次 CSQ（不阻塞主循环）
+    if (now - last_csq_time >= 10000) {
+        nbiot_csq_t csq;
+        if (nbiot_get_csq(&csq) == NBIOT_EOK) {
+            cached_rssi = csq.rssi;      // 存储 CSQ 索引（0~31）
+        } else {
+            cached_rssi = -1;
+        }
+        last_csq_time = now;
+        status.nbiot_rssi = cached_rssi; // 立即更新本次返回值
+    }
     return status;
 }

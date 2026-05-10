@@ -53,16 +53,6 @@ uint8_t sht30_init(void);
 uint8_t sht30_soft_reset(void);
 
 /**
- * @brief   读取温湿度数据（浮点格式）
- * @param   temp_celsius   - 温度值指针（单位：摄氏度）
- * @param   humi_percent   - 湿度值指针（单位：百分比）
- * @retval  SHT30_EOK      - 读取成功
- *          SHT30_ECRC     - CRC校验失败
- *          SHT30_ETIMEOUT - 读取超时
- */
-uint8_t sht30_read_humiture(float *temp_celsius, float *humi_percent);
-
-/**
  * @brief   读取温湿度原始数据（16位格式）
  * @param   temp_raw - 温度原始值指针
  * @param   humi_raw - 湿度原始值指针
@@ -71,5 +61,16 @@ uint8_t sht30_read_humiture(float *temp_celsius, float *humi_percent);
  *          SHT30_ETIMEOUT - 读取超时
  */
 uint8_t sht30_read_humiture_raw(int16_t *temp_raw, uint16_t *humi_raw);
+
+
+/**
+ * @brief   读取温湿度数据（浮点格式）
+ * @param   temp_celsius   - 温度值指针（单位：摄氏度）
+ * @param   humi_percent   - 湿度值指针（单位：百分比）
+ * @retval  SHT30_EOK      - 读取成功
+ *          SHT30_ECRC     - CRC校验失败
+ *          SHT30_ETIMEOUT - 读取超时
+ */
+uint8_t sht30_measure(float *temp_celsius, float *humi_percent);
 
 #endif /* __SHT30_H */

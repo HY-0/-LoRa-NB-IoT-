@@ -28,7 +28,6 @@ void nbiot_uart_printf(char *fmt, ...)
     len = vsnprintf((char *)g_uart_tx_buf, NBIOT_UART_TX_BUF_SIZE, fmt, ap);
     va_end(ap);
 
-    len = strlen((const char *)g_uart_tx_buf);
     usart_send_bytes(g_uart_handle, g_uart_tx_buf, len); // 使用你的发送函数
 }
 
@@ -85,7 +84,7 @@ uint16_t nbiot_uart_rx_get_frame_len(void)
  * @param       无
  * @retval      无
  */
-static void nbiot_timer_msp_init(void)
+static void nbiot_timer_hw_init(void)
 {
     // 使能定时器时钟
     NBIOT_TIM_CLK_ENABLE();
@@ -107,7 +106,7 @@ static void nbiot_timer_msp_init(void)
 void nbiot_timer_init(void)
 {
     // 底层 MSP（时钟、中断）
-    nbiot_timer_msp_init();
+    nbiot_timer_hw_init();
 
     // 定时器时基配置
     TIM_TimeBaseInitTypeDef tim;
@@ -137,15 +136,16 @@ void nbiot_uart_init(uint32_t baudrate)
     NBIOT_UART_CLK_ENABLE();
     NBIOT_UART_TX_GPIO_CLK_ENABLE();
     NBIOT_UART_RX_GPIO_CLK_ENABLE();
+    NBIOT_UART_DEINIT();
 
     // TX 引脚：复用推挽输出
-    gpio.GPIO_Pin = NBIOT_UART_TX_GPIO_PIN;    // USART2_TXD(PA.2)
+    gpio.GPIO_Pin = NBIOT_UART_TX_GPIO_PIN;    // USART3_TXD(PA.2)
     gpio.GPIO_Mode = GPIO_Mode_AF_PP;          // 复用推挽输出
     gpio.GPIO_Speed = GPIO_Speed_50MHz;        // 设置引脚输出最大速率为50MHz
     GPIO_Init(NBIOT_UART_TX_GPIO_PORT, &gpio); // 调用库函数中的GPIO初始化函数，初始化USART1_TXD(PA.9)
 
     // RX 引脚：浮空输入
-    gpio.GPIO_Pin = NBIOT_UART_RX_GPIO_PIN;    // USART2_RXD(PA.3)
+    gpio.GPIO_Pin = NBIOT_UART_RX_GPIO_PIN;    // USART3_RXD(PA.3)
     gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;    // 浮空输入
     GPIO_Init(NBIOT_UART_RX_GPIO_PORT, &gpio); // 调用库函数中的GPIO初始化函数，初始化USART1_RXD(PA.10)
 
@@ -168,9 +168,21 @@ void nbiot_uart_init(uint32_t baudrate)
     nvic.NVIC_IRQChannelCmd                 = ENABLE;           // IRQ通道使能
     NVIC_Init(&nvic);                                           // 根据指定的参数初始化VIC寄存器
 
+    /* 定时器初始化必须在 USART 使能前完成，原因：
+     * - USART 使能后，一旦收到数据会立即进入中断服务程序；
+     * - 中断内会操作定时器（重置计数器并启动），若定时器未初始化将导致硬件错误。
+     * 将 nbiot_timer_init() 提前，可保证定时器各寄存器和中断均已配置完毕，
+     * 且定时器处于关闭状态，安全等待 UART 中断唤醒。
+     */
+    nbiot_timer_init();
+
     USART_Cmd(g_uart_handle, ENABLE);
 
-    nbiot_timer_init();
+    /* 使能 USART 后立即清除 TC 标志，防止：
+     * - 上电/复位后 TC 标志为 1，导致后续等待 TC 的发送函数直接跳过；
+     * - 引脚毛刺或初始化过程意外置起的 TC 标志干扰首次发送判断。
+     */
+    USART_ClearFlag(g_uart_handle, USART_FLAG_TC);
 }
 
 /**

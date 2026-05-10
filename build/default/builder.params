@@ -7,7 +7,7 @@
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
+    "rootDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
     "dumpPath": "build\\default",
     "outDir": "build\\default",
     "ram": 20480,
@@ -33,7 +33,10 @@
         "Middleware/nbiot",
         "Components/led",
         "Driver/CMSIS",
-        "Components/sh393"
+        "Components/sh393",
+        "Components/jw01",
+        "Components/ph4052",
+        "Driver/BSP/adc"
     ],
     "libDirs": [],
     "defines": [
@@ -49,9 +52,13 @@
         "Components/bh1750/bh1750.c",
         "Components/bh1750/bh1750_i2c.c",
         "Components/buzzer/buzzer.c",
+        "Components/jw01/jw01.c",
+        "Components/jw01/jw01_usart.c",
         "Components/key/key.c",
         "Components/led/led.c",
         "Components/oled/oled.c",
+        "Components/ph4052/ph4052.c",
+        "Components/ph4052/ph4052_adc.c",
         "Components/sh393/sh393.c",
         "Components/sh393/sh393_adc.c",
         "Components/sht30/sht30.c",
@@ -127,22 +134,22 @@
             "ro-base": "0x08000000",
             "rw-base": "0x20000000",
             "link-scatter": [
-                "d:/lora-nbiot-agri-platform/lora-nbiot-agri-platform/build/default/Lora.sct"
+                "d:/lora-nbiot-agri-platform/-LoRa-NB-IoT-/build/default/Lora.sct"
             ]
         }
     },
     "env": {
         "KEIL_OUTPUT_DIR": "Objects",
         "KEIL_OUTPUT_NAME": "template",
-        "workspaceFolder": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
-        "workspaceFolderBasename": "lora-nbiot-agri-platform",
-        "OutDir": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform\\build\\default",
+        "workspaceFolder": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
+        "workspaceFolderBasename": "-LoRa-NB-IoT-",
+        "OutDir": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default",
         "OutDirRoot": "build",
         "OutDirBase": "build\\default",
         "ProjectName": "Lora",
         "ConfigName": "default",
-        "ProjectRoot": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform",
-        "ExecutableName": "d:\\lora-nbiot-agri-platform\\lora-nbiot-agri-platform\\build\\default\\Lora",
+        "ProjectRoot": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-",
+        "ExecutableName": "d:\\lora-nbiot-agri-platform\\-LoRa-NB-IoT-\\build\\default\\Lora",
         "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.2.0",
         "ChipName": "STM32F103C8",
         "SYS_Platform": "win32",

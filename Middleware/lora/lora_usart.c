@@ -172,6 +172,7 @@ void lora_uart_init(uint32_t baudrate)
     LORA_UART_CLK_ENABLE();
     LORA_UART_TX_GPIO_CLK_ENABLE();
     LORA_UART_RX_GPIO_CLK_ENABLE();
+    LORA_UART_DEINIT();
 
     /* TX 引脚：复用推挽输出 */
     gpio.GPIO_Pin   = LORA_UART_TX_GPIO_PIN;

@@ -1,5 +1,8 @@
 #include "nbiot.h"
 
+/* NB-IoT MQTT 连接状态标志 (1=已连接, 0=未连接) */
+volatile uint8_t g_nb_mqtt_connected = 0;
+
 /**
  * @brief       NB-IoT模块硬件初始化 (激活PWR, RESET功能)
  * @param       无
@@ -27,6 +30,31 @@ static void nbiot_hw_init(void)
     
     NBIOT_PWR(1);           /* 模块供电正常 */
     NBIOT_RESET(1);         /* 复位释放 */
+}
+
+/**
+ * @brief 转义 JSON 字符串中的双引号，用于 AT 命令的 payload 参数
+ * @param src  原始 JSON 字符串（例如 {"temp":22.5}）
+ * @param dst  输出缓冲区，必须足够大（最长约为 2*len(src)+1）
+ */
+// 返回转义后字符串的长度（不包括结尾'\0'），如果缓冲区不足则返回 -1
+static int escape_json_for_at(char *dst, size_t dst_len, const char *src) {
+    int n = 0;
+    while (*src) {
+        if (n + 2 >= dst_len) return -1;  // 留至少2字节给下一个字符和'\0'
+        if (*src == '\\') {
+            dst[n++] = '\\';
+            dst[n++] = '\\';
+        } else if (*src == '"') {
+            dst[n++] = '\\';
+            dst[n++] = '"';
+        } else {
+            dst[n++] = *src;
+        }
+        src++;
+    }
+    dst[n] = '\0';
+    return n;
 }
 
 /**
@@ -180,6 +208,8 @@ uint8_t nbiot_sw_reset(void)
     return NBIOT_EOK;
 }
 
+#include "led.h"
+
 /**
  * @brief       查询NB-IoT信号质量
  * @param       csq: 指向信号质量结构体的指针
@@ -189,7 +219,7 @@ uint8_t nbiot_sw_reset(void)
  */
 uint8_t nbiot_get_csq(nbiot_csq_t *csq)
 {
-    uint8_t *ret;
+    uint8_t *frame;
     int rssi, ber;
     
     if (csq == NULL) return NBIOT_EINVAL;
@@ -198,30 +228,37 @@ uint8_t nbiot_get_csq(nbiot_csq_t *csq)
     nbiot_uart_printf("AT+CSQ\r\n");
     
     uint32_t timeout = NBIOT_AT_TIMEOUT;
+    int got_csq = 0;
+    
     while (timeout--)
     {
-        ret = nbiot_uart_rx_get_frame();
-        if (ret != NULL)
+        frame = nbiot_uart_rx_get_frame();
+        if (frame != NULL)
         {
-            /* 尝试解析 +CSQ: rssi,ber */
-            if (sscanf((const char *)ret, "+CSQ: %d,%d", &rssi, &ber) == 2)
+            // 查找 "+CSQ:" 子串并解析数值
+            char *p = strstr((const char *)frame, "+CSQ:");
+            if (p != NULL && sscanf(p, "+CSQ: %d,%d", &rssi, &ber) == 2)
             {
                 csq->rssi = rssi;
                 csq->ber  = ber;
-                nbiot_uart_rx_restart();
-                continue;       /* 继续等待 OK */
+                got_csq = 1;
             }
             
-            if (strstr((const char *)ret, "OK") != NULL)
+            // 检查是否有 "OK"
+            if (strstr((const char *)frame, "OK") != NULL)
             {
-                return NBIOT_EOK;
+                return got_csq ? NBIOT_EOK : NBIOT_ERROR;
             }
+            
+            // 当前帧中没有 OK，清空缓冲并继续等待后续帧
             nbiot_uart_rx_restart();
         }
         delay_ms(1);
     }
     return NBIOT_TIMEOUT;
 }
+
+#include "usart.h"
 
 /**
  * @brief       查询NB-IoT网络注册状态
@@ -232,31 +269,25 @@ uint8_t nbiot_get_csq(nbiot_csq_t *csq)
  */
 uint8_t nbiot_get_creg(nbiot_creg_stat_t *stat)
 {
-    uint8_t *ret;
+    uint8_t *frame;
     int n, reg;
-    
     if (stat == NULL) return NBIOT_EINVAL;
-    
+
     nbiot_uart_rx_restart();
     nbiot_uart_printf("AT+CREG?\r\n");
-    
+
     uint32_t timeout = NBIOT_AT_TIMEOUT;
-    while (timeout--)
-    {
-        ret = nbiot_uart_rx_get_frame();
-        if (ret != NULL)
-        {
-            /* 尝试解析 +CREG: n,reg */
-            if (sscanf((const char *)ret, "+CREG: %d,%d", &n, &reg) == 2)
-            {
+    int got_creg = 0;
+    while (timeout--) {
+        frame = nbiot_uart_rx_get_frame();
+        if (frame != NULL) {
+            char *p = strstr((const char *)frame, "+CREG:");
+            if (p != NULL && sscanf(p, "+CREG: %d,%d", &n, &reg) == 2) {
                 *stat = (nbiot_creg_stat_t)reg;
-                nbiot_uart_rx_restart();
-                continue;
+                got_creg = 1;
             }
-            
-            if (strstr((const char *)ret, "OK") != NULL)
-            {
-                return NBIOT_EOK;
+            if (strstr((const char *)frame, "OK") != NULL) {
+                return got_creg ? NBIOT_EOK : NBIOT_ERROR;
             }
             nbiot_uart_rx_restart();
         }
@@ -287,34 +318,37 @@ uint8_t nbiot_attach_network(void)
  */
 uint8_t nbiot_mqtt_open(uint8_t socket_id, const char *host, uint16_t port)
 {
-    uint8_t ret;
     uint8_t *frame;
     char cmd[80] = {0};
-    
     sprintf(cmd, "AT+ECMTOPEN=%d,\"%s\",%d", socket_id, host, port);
-    ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_LONG_TIMEOUT);
-    if (ret != NBIOT_EOK)
-    {
-        return NBIOT_ERROR;
-    }
-    
-    /* 等待操作结果 +ECMTOPEN: <id>,<result> */
-    uint32_t timeout = NBIOT_AT_TIMEOUT;
-    while (timeout--)
-    {
+
+    nbiot_uart_rx_restart();
+    nbiot_uart_printf("%s\r\n", cmd);
+
+    uint32_t timeout = NBIOT_LONG_TIMEOUT;
+    int got_status = 0;
+    int result_val = -1;
+
+    while (timeout--) {
         frame = nbiot_uart_rx_get_frame();
-        if (frame != NULL)
-        {
-            if (strstr((const char *)frame, "+ECMTOPEN:") != NULL)
-            {
-                if (strstr((const char *)frame, ",0") != NULL)
-                {
-                    return NBIOT_EOK;
+        if (frame) {
+            if (strstr((const char *)frame, "ERROR"))
+                return NBIOT_ERROR;
+
+            char *p = strstr((const char *)frame, "+ECMTOPEN:");
+            if (p) {
+                int id, res;
+                if (sscanf(p, "+ECMTOPEN: %d,%d", &id, &res) >= 2) {
+                    got_status = 1;
+                    result_val = res;
                 }
+            }
+
+            if (strstr((const char *)frame, "OK")) {
+                if (got_status)
+                    return (result_val == 0) ? NBIOT_EOK : NBIOT_ERROR;
                 else
-                {
-                    return NBIOT_ERROR;
-                }
+                    return NBIOT_EOK;   // 只收到 OK，认为成功
             }
             nbiot_uart_rx_restart();
         }
@@ -333,43 +367,62 @@ uint8_t nbiot_mqtt_open(uint8_t socket_id, const char *host, uint16_t port)
  *              NBIOT_ERROR : 失败
  *              NBIOT_TIMEOUT: 超时
  */
+/**
+ * @brief       MQTT连接
+ * @param       socket_id: socket标识
+ *              clientid : 客户端ID
+ *              username : 用户名
+ *              password : 密码
+ * @retval      NBIOT_EOK   : 成功
+ *              NBIOT_ERROR : 失败
+ *              NBIOT_TIMEOUT: 超时
+ */
 uint8_t nbiot_mqtt_connect(uint8_t socket_id, const char *clientid,
                            const char *username, const char *password)
 {
-    uint8_t ret;
     uint8_t *frame;
     char cmd[150] = {0};
-    
+    int id, res;     // 必须定义，否则报错
+
     sprintf(cmd, "AT+ECMTCONN=%d,\"%s\",\"%s\",\"%s\"",
             socket_id, clientid, username, password);
-    ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_LONG_TIMEOUT);
-    if (ret != NBIOT_EOK)
-    {
-        return NBIOT_ERROR;
-    }
-    
-    /* 等待操作结果 +ECMTCONN: <id>,<result> */
-    uint32_t timeout = NBIOT_AT_TIMEOUT;
-    while (timeout--)
-    {
+
+    nbiot_uart_rx_restart();
+    nbiot_uart_printf("%s\r\n", cmd);
+
+    uint32_t timeout = NBIOT_LONG_TIMEOUT;
+    while (timeout--) {
         frame = nbiot_uart_rx_get_frame();
-        if (frame != NULL)
-        {
-            if (strstr((const char *)frame, "+ECMTCONN:") != NULL)
-            {
-                if (strstr((const char *)frame, ",0,0") != NULL)
-                {
-                    return NBIOT_EOK;
-                }
-                else
-                {
-                    return NBIOT_ERROR;
+        if (frame != NULL) {
+            if (strstr((const char *)frame, "ERROR") != NULL) {
+                g_nb_mqtt_connected = 0;
+                return NBIOT_ERROR;
+            }
+
+            char *p = strstr((const char *)frame, "+ECMTCONN:");
+            if (p != NULL) {
+                if (sscanf(p, "+ECMTCONN: %d,%d", &id, &res) >= 2) {
+                    if (res == 0) {
+                        g_nb_mqtt_connected = 1;
+                        return NBIOT_EOK;
+                    } else {
+                        g_nb_mqtt_connected = 0;
+                        return NBIOT_ERROR;
+                    }
                 }
             }
+
+            if (strstr((const char *)frame, "OK") != NULL) {
+                // 有些模块只返回OK，也认为连接成功
+                g_nb_mqtt_connected = 1;
+                return NBIOT_EOK;
+            }
+
             nbiot_uart_rx_restart();
         }
         delay_ms(1);
     }
+    g_nb_mqtt_connected = 0;
     return NBIOT_TIMEOUT;
 }
 
@@ -386,34 +439,37 @@ uint8_t nbiot_mqtt_connect(uint8_t socket_id, const char *clientid,
 uint8_t nbiot_mqtt_subscribe(uint8_t socket_id, uint16_t msgid,
                              const char *topic, uint8_t qos)
 {
-    uint8_t ret;
     uint8_t *frame;
     char cmd[128] = {0};
-    
     sprintf(cmd, "AT+ECMTSUB=%d,%d,\"%s\",%d", socket_id, msgid, topic, qos);
-    ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_AT_TIMEOUT);
-    if (ret != NBIOT_EOK)
-    {
-        return NBIOT_ERROR;
-    }
-    
-    /* 等待结果 +ECMTSUB: <id>,<result> */
+
+    nbiot_uart_rx_restart();
+    nbiot_uart_printf("%s\r\n", cmd);
+
     uint32_t timeout = NBIOT_AT_TIMEOUT;
-    while (timeout--)
-    {
+    int got_status = 0;
+    int result_val = -1;
+
+    while (timeout--) {
         frame = nbiot_uart_rx_get_frame();
-        if (frame != NULL)
-        {
-            if (strstr((const char *)frame, "+ECMTSUB:") != NULL)
-            {
-                if (strstr((const char *)frame, ",0,0") != NULL)
-                {
-                    return NBIOT_EOK;
+        if (frame) {
+            if (strstr((const char *)frame, "ERROR"))
+                return NBIOT_ERROR;
+
+            char *p = strstr((const char *)frame, "+ECMTSUB:");
+            if (p) {
+                int id, mid, res;
+                if (sscanf(p, "+ECMTSUB: %d,%d,%d", &id, &mid, &res) >= 3) {
+                    got_status = 1;
+                    result_val = res;
                 }
+            }
+
+            if (strstr((const char *)frame, "OK")) {
+                if (got_status)
+                    return (result_val == 0) ? NBIOT_EOK : NBIOT_ERROR;
                 else
-                {
-                    return NBIOT_ERROR;
-                }
+                    return NBIOT_EOK;
             }
             nbiot_uart_rx_restart();
         }
@@ -438,35 +494,110 @@ uint8_t nbiot_mqtt_publish(uint8_t socket_id, uint16_t msgid,
                            uint8_t qos, uint8_t retain,
                            const char *topic, const char *payload)
 {
-    uint8_t ret;
     uint8_t *frame;
-    char cmd[512] = {0};
-    
-    sprintf(cmd, "AT+ECMTPUB=%d,%d,%d,%d,\"%s\",\"%s\"",
-            socket_id, msgid, qos, retain, topic, payload);
-    ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_AT_TIMEOUT);
-    if (ret != NBIOT_EOK)
-    {
-        return NBIOT_ERROR;
+    char escaped_payload[256];   // 转义后的 payload，根据实际最大长度调整
+    char cmd[700] = {0};        // 扩大缓冲区，避免命令被截断
+
+    // 1. 对 payload 进行转义
+    if (escape_json_for_at(escaped_payload, sizeof(escaped_payload), payload) < 0) {
+        return NBIOT_ERROR;      // 转义缓冲区不足
     }
-    
-    /* 等待结果 +ECMTPUB: <id>,<result> */
+
+    // 2. 拼接 AT 命令（topic 也需要转义的话可照此处理）
+    int ret = snprintf(cmd, sizeof(cmd), "AT+ECMTPUB=%d,%d,%d,%d,\"%s\",\"%s\"",
+                       socket_id, msgid, qos, retain, topic, escaped_payload);
+    if (ret < 0 || (size_t)ret >= sizeof(cmd)) {
+        return NBIOT_ERROR;      // 命令过长
+    }
+
+    // usart_printf(USART2, "cmd:%s\r\n", cmd);
+
+    // 3. 发送命令（后面逻辑保持不变）
+    nbiot_uart_rx_restart();
+    nbiot_uart_printf("%s\r\n", cmd);
+
     uint32_t timeout = NBIOT_AT_TIMEOUT;
-    while (timeout--)
-    {
+    int got_status = 0;
+    int result_val = -1;
+
+    while (timeout--) {
         frame = nbiot_uart_rx_get_frame();
-        if (frame != NULL)
-        {
-            if (strstr((const char *)frame, "+ECMTPUB:") != NULL)
-            {
-                if (strstr((const char *)frame, ",0,0") != NULL)
-                {
-                    return NBIOT_EOK;
+        if (frame) {
+            usart_printf(USART2, "frame:%s\r\n", frame);
+
+            if (strstr((const char *)frame, "ERROR"))
+                return NBIOT_ERROR;
+
+            char *p = strstr((const char *)frame, "+ECMTPUB:");
+            if (p) {
+                int id, mid, res;
+                if (sscanf(p, "+ECMTPUB: %d,%d,%d", &id, &mid, &res) >= 3) {
+                    got_status = 1;
+                    result_val = res;
                 }
+            }
+
+            if (strstr((const char *)frame, "OK")) {
+                if (got_status)
+                    return (result_val == 0) ? NBIOT_EOK : NBIOT_ERROR;
                 else
-                {
-                    return NBIOT_ERROR;
+                    return NBIOT_EOK;
+            }
+            nbiot_uart_rx_restart();
+        }
+        delay_ms(1);
+    }
+    return NBIOT_TIMEOUT;
+}
+
+/**
+ * @brief MQTT发布消息（十六进制负载模式，用于含特殊字符的数据，如JSON）
+ * @param socket_id socket标识
+ * @param msgid 报文ID
+ * @param qos 服务质量
+ * @param retain 保留标志
+ * @param topic 主题
+ * @param payload_hex 十六进制负载字符串（不加双引号）
+ * @return NBIOT_EOK/NBIOT_ERROR/NBIOT_TIMEOUT
+ */
+uint8_t nbiot_mqtt_publish_hex(uint8_t socket_id, uint16_t msgid,
+                               uint8_t qos, uint8_t retain,
+                               const char *topic, const char *payload_hex)
+{
+    uint8_t *frame;
+    char cmd[600] = {0};
+    // 注意：payload_hex 不加双引号
+    sprintf(cmd, "AT+ECMTPUB=%d,%d,%d,%d,\"%s\",%s",
+            socket_id, msgid, qos, retain, topic, payload_hex);
+
+    nbiot_uart_rx_restart();
+    nbiot_uart_printf("%s\r\n", cmd);
+
+    uint32_t timeout = NBIOT_AT_TIMEOUT;
+    int got_status = 0;
+    int result_val = -1;
+
+    while (timeout--) {
+        frame = nbiot_uart_rx_get_frame();
+        if (frame != NULL) {
+
+            if (strstr((const char *)frame, "ERROR"))
+                return NBIOT_ERROR;
+
+            char *p = strstr((const char *)frame, "+ECMTPUB:");
+            if (p) {
+                int id, mid, res;
+                if (sscanf(p, "+ECMTPUB: %d,%d,%d", &id, &mid, &res) >= 3) {
+                    got_status = 1;
+                    result_val = res;
                 }
+            }
+
+            if (strstr((const char *)frame, "OK")) {
+                if (got_status)
+                    return (result_val == 0) ? NBIOT_EOK : NBIOT_ERROR;
+                else
+                    return NBIOT_EOK;
             }
             nbiot_uart_rx_restart();
         }
@@ -483,9 +614,13 @@ uint8_t nbiot_mqtt_publish(uint8_t socket_id, uint16_t msgid,
  */
 uint8_t nbiot_mqtt_close(uint8_t socket_id)
 {
-    char cmd[16] = {0};
+    char cmd[20] = {0};          // 必须定义
     sprintf(cmd, "AT+ECMTCLOSE=%d", socket_id);
-    return nbiot_send_at_cmd(cmd, "OK", NBIOT_AT_TIMEOUT);
+    uint8_t ret = nbiot_send_at_cmd(cmd, "OK", NBIOT_AT_TIMEOUT);
+    if (ret == NBIOT_EOK) {
+        g_nb_mqtt_connected = 0;
+    }
+    return ret;
 }
 
 /**

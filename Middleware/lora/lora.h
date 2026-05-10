@@ -18,7 +18,7 @@
 
 #define LORA_MD0_GPIO_PORT           GPIOB
 #define LORA_MD0_GPIO_PIN            GPIO_Pin_15
-#define LORA_MD0_GPIO_CLK_ENABLE()   do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); }while(0)
+#define LORA_MD0_GPIO_CLK_ENABLE()   do{ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); }while(0)
 
 /* IO操作 */
 #define LORA_AUX()                   GPIO_ReadInputDataBit(LORA_AUX_GPIO_PORT, LORA_AUX_GPIO_PIN)

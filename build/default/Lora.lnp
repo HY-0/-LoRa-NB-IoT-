@@ -1,4 +1,4 @@
---cpu Cortex-M3 --library_type=microlib --scatter d:/test/-LoRa-NB-IoT-/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--cpu Cortex-M3 --library_type=microlib --scatter d:/lora-nbiot-agri-platform/-LoRa-NB-IoT-/build/default/Lora.sct --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
 --list .\build\default\Lora.map
 .\build\default\.obj\Application\src\acquisition.o
 .\build\default\.obj\Application\src\display.o
@@ -9,9 +9,13 @@
 .\build\default\.obj\Components\bh1750\bh1750.o
 .\build\default\.obj\Components\bh1750\bh1750_i2c.o
 .\build\default\.obj\Components\buzzer\buzzer.o
+.\build\default\.obj\Components\jw01\jw01.o
+.\build\default\.obj\Components\jw01\jw01_usart.o
 .\build\default\.obj\Components\key\key.o
 .\build\default\.obj\Components\led\led.o
 .\build\default\.obj\Components\oled\oled.o
+.\build\default\.obj\Components\ph4052\ph4052.o
+.\build\default\.obj\Components\ph4052\ph4052_adc.o
 .\build\default\.obj\Components\sh393\sh393.o
 .\build\default\.obj\Components\sh393\sh393_adc.o
 .\build\default\.obj\Components\sht30\sht30.o
