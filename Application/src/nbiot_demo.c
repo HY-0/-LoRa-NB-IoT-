@@ -82,8 +82,10 @@ void nbiot_demo(void)
     /* ---------- 7. 发布测试消息 ---------- */
     oled_show(&oled, 0, 32, 500, "Publish...");
 
-    ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect",
-                         "{\"temp\":28.5,\"air_humi\":65.2,\"soil_humi\":40.1,\"light\":1000.0,\"ph\":6.9,\"co2\":412}");
+    ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", 
+            "{\"temp\":28.5,\"air_humi\":65.2,\"soil_humi\":40.1,\"light\":1000.0,\"time\":3978484480}");
+    ret = nbiot_mqtt_publish(0, 2, 1, 0, "farm/sensor/collect", 
+            "{\"soil_humi\":66.1,\"light\":6000.0,\"ph\":6.9,\"co2\":412,\"time\":3978484480}");
     if (ret != NBIOT_EOK) {
         oled_show(&oled, 0, 48, 2000, "Pub fail %d", ret);
         while (1);

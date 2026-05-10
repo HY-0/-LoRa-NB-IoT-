@@ -32,7 +32,7 @@
 
 /* ===================== 串口缓冲宏定义 ===================== */
 #define NBIOT_UART_RX_BUF_SIZE            512    /* 串口接收缓冲大小 */
-#define NBIOT_UART_TX_BUF_SIZE            128
+#define NBIOT_UART_TX_BUF_SIZE            512
 
 /* ===================== 函数声明 ===================== */
 /* 串口初始化 */

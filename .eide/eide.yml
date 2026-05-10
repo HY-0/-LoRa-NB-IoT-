@@ -41,11 +41,11 @@ targets:
         - Middleware/lora
         - Middleware/nbiot
         - Components/led
-        - Driver/CMSIS
         - Components/sh393
         - Components/jw01
         - Components/ph4052
         - Driver/BSP/adc
+        - Driver/CMSIS
       libList: []
     excludeList:
       - <virtual_root>/my_lib/atk_mw1278d_usart.c
@@ -60,12 +60,12 @@ targets:
       - <virtual_root>/lib/si2c.c
       - <virtual_root>/lib/sys.c
       - <virtual_root>/lib/usart.c
-      - Driver/CMSIS/startup
       - <virtual_root>/std_periph_driver
       - <virtual_root>/startup
       - Application/src/data_acquisition_transmission.c
       - Application/demo
       - Driver/BSP/led
+      - Driver/CMSIS/startup
     settings:
       debugger: cortex-debug
     toolchain: AC5

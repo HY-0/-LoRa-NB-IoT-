@@ -495,24 +495,13 @@ uint8_t nbiot_mqtt_publish(uint8_t socket_id, uint16_t msgid,
                            const char *topic, const char *payload)
 {
     uint8_t *frame;
-    char escaped_payload[256];   // 转义后的 payload，根据实际最大长度调整
-    char cmd[700] = {0};        // 扩大缓冲区，避免命令被截断
+    char cmd[512] = {0};
+    sprintf(cmd, "AT+ECMTPUB=%d,%d,%d,%d,\"%s\",\"%s\"",
+            socket_id, msgid, qos, retain, topic, payload);
+    
+    usart_printf(USART2, "cmd:%s\r\n", cmd);
 
-    // 1. 对 payload 进行转义
-    if (escape_json_for_at(escaped_payload, sizeof(escaped_payload), payload) < 0) {
-        return NBIOT_ERROR;      // 转义缓冲区不足
-    }
-
-    // 2. 拼接 AT 命令（topic 也需要转义的话可照此处理）
-    int ret = snprintf(cmd, sizeof(cmd), "AT+ECMTPUB=%d,%d,%d,%d,\"%s\",\"%s\"",
-                       socket_id, msgid, qos, retain, topic, escaped_payload);
-    if (ret < 0 || (size_t)ret >= sizeof(cmd)) {
-        return NBIOT_ERROR;      // 命令过长
-    }
-
-    // usart_printf(USART2, "cmd:%s\r\n", cmd);
-
-    // 3. 发送命令（后面逻辑保持不变）
+    int len = strlen(cmd);
     nbiot_uart_rx_restart();
     nbiot_uart_printf("%s\r\n", cmd);
 

@@ -113,7 +113,7 @@ void nbiot_timer_init(void)
     TIM_TimeBaseStructInit(&tim);
     tim.TIM_Prescaler       = NBIOT_TIM_PRESCALER - 1; // 如 7200-1
     tim.TIM_CounterMode     = TIM_CounterMode_Up;
-    tim.TIM_Period          = 100 - 1; // 自动重载值，产生 10ms 中断（10kHz * 100）
+    tim.TIM_Period          = 500 - 1; // 自动重载值，产生 10ms 中断（10kHz * 100）
     tim.TIM_ClockDivision   = TIM_CKD_DIV1;
     TIM_TimeBaseInit(g_tim_handle, &tim);
 
