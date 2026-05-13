@@ -691,11 +691,21 @@ uint8_t nbiot_get_timestamp(uint32_t *timestamp)
                 }
             }
 
+            if (strstr((const char *)frame, "ERROR") != NULL) {
+                return NBIOT_ERROR;
+            }
+
             if (strstr((const char *)frame, "OK") != NULL) {
                 if (got_time) {
+                    // 校验时间合法性，防止数组越界或溢出
+                    if (month < 1 || month > 12 || day < 1 || day > 31 ||
+                        hour > 23 || minute > 59 || second > 59) {
+                        return NBIOT_ERROR;
+                    }
+
                     // --- 将年月日时分秒转换为 Unix 时间戳 (UTC) ---
                     uint32_t days = 0;
-                    int y = 2000 + year; // AT返回的是两位数年份，如 26 代表 2026
+                    int y = (year < 100) ? (2000 + year) : year; // 兼容两位数或四位数年份
                     
                     // 1. 计算自1970年以来的整年天数
                     for (int i = 1970; i < y; i++) {
