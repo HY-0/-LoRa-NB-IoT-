@@ -726,9 +726,9 @@ uint8_t nbiot_get_timestamp(uint32_t *timestamp)
 
                     // 5. 扣除时区偏差（NB-IoT时区单位通常是 15分钟(900秒) 的倍数）
                     // 例如 +32 代表 UTC+8 (32 * 15分钟 = 480分钟 = 8小时)
-                    int tz_offset_sec = tz * 15 * 60;
-                    if (sign == '+') epoch -= tz_offset_sec; // 减去东区偏移回到UTC
-                    else if (sign == '-') epoch += tz_offset_sec; // 加上西区偏移回到UTC
+                    // int tz_offset_sec = tz * 15 * 60;
+                    // if (sign == '+') epoch -= tz_offset_sec; // 减去东区偏移回到UTC
+                    // else if (sign == '-') epoch += tz_offset_sec; // 加上西区偏移回到UTC
 
                     *timestamp = epoch;
                     return NBIOT_EOK;
