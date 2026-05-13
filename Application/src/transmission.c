@@ -259,7 +259,7 @@ uint8_t transmission_nbiot_send(const sensor_data_t *data)
     }
 
     // 3. 使用转义后的字符串发送 (不使用 hex 函数)
-    uint8_t nb_ret = nbiot_mqtt_publish(0, s_mqtt_msgid, 1, 0, "farm/sensor/collect", safe_payload);
+    uint8_t nb_ret = nbiot_mqtt_publish(0, s_mqtt_msgid, 1, 0, "farm/sensor", safe_payload);
 
     // 4. 发送完毕后更新 msgid，限定在 1 ~ 65535 范围内
     s_mqtt_msgid++;
@@ -287,7 +287,6 @@ uint8_t transmission_receive(sensor_data_t *out_data)
     /* ----- LoRa 接收（原有代码） ----- */
     frame = lora_uart_rx_get_frame();
     if (frame != NULL) {
-        usart_printf(USART2, "lora rx: %s", frame);
         memset(&rx_data, 0, sizeof(rx_data));
         fields = sscanf((char*)frame,
             "{\"temp\":%f,\"air_humi\":%f,\"soil_humi\":%f,"
@@ -302,6 +301,8 @@ uint8_t transmission_receive(sensor_data_t *out_data)
         } 
         else 
         {
+
+            lora_uart_rx_restart();
             return TRANS_RECV_PARSE_ERROR;
         }
     }

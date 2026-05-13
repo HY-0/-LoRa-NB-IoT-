@@ -16,7 +16,7 @@
 #include "transmission.h"
 
 /* ──────── 设备选择（编译前修改此处） ──────── */
-// #define DEVICE_SENDER      // 发送端启用此行，注释下一行？
+// #define DEVICE_SENDER      // 发送端启用此行，注释下一行
 #define DEVICE_RECEIVER   // 接收端启用此行，注释上一行
 
 /****************************************************************
@@ -35,140 +35,6 @@ static void system_common_init(void)
     buzzer_init();
     key_init();
 }
-
-#include "nbiot_demo.h"
-
-// void USART3_Init(uint32_t baudrate)
-// {
-//     GPIO_InitTypeDef  GPIO_InitStructure;
-//     USART_InitTypeDef USART_InitStructure;
-//     NVIC_InitTypeDef  NVIC_InitStructure;
-
-//     /* ── 1. 开启时钟 ── */
-//     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);   // GPIOB 时钟
-//     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);  // USART3 时钟（APB1）
-//     // 注意：USART3 使用 PB10/PB11 是默认复用功能，无需打开 AFIO 时钟
-
-//     /* ── 2. 配置 TX 引脚 (PB10) ── */
-//     GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10;
-//     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;        // 复用推挽输出
-//     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-//     GPIO_Init(GPIOB, &GPIO_InitStructure);
-
-//     /* ── 3. 配置 RX 引脚 (PB11) ── */
-//     GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_11;
-//     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_IN_FLOATING;  // 浮空输入
-//     GPIO_Init(GPIOB, &GPIO_InitStructure);
-
-//     /* ── 4. 配置 USART3 基本参数 ── */
-//     USART_InitStructure.USART_BaudRate            = baudrate;
-//     USART_InitStructure.USART_WordLength          = USART_WordLength_8b;
-//     USART_InitStructure.USART_StopBits            = USART_StopBits_1;
-//     USART_InitStructure.USART_Parity              = USART_Parity_No;
-//     USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-//     USART_InitStructure.USART_Mode                = USART_Mode_Rx | USART_Mode_Tx;
-//     USART_Init(USART3, &USART_InitStructure);
-
-//     /* ── 5. 使能接收中断（可选，用于后台接收） ── */
-//     USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);   // 接收缓冲区非空中断
-
-//     /* ── 6. 配置 NVIC 中断优先级 ── */
-//     NVIC_InitStructure.NVIC_IRQChannel                   = USART3_IRQn;
-//     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority  = 1;   // 可根据系统调整
-//     NVIC_InitStructure.NVIC_IRQChannelSubPriority         = 0;
-//     NVIC_InitStructure.NVIC_IRQChannelCmd                 = ENABLE;
-//     NVIC_Init(&NVIC_InitStructure);
-
-//     /* ── 7. 使能 USART3 ── */
-//     USART_Cmd(USART3, ENABLE);
-
-//     /* ── 8. 可选：清除上电杂散标志（防止第一次发送误判） ── */
-//     USART_ClearFlag(USART3, USART_FLAG_TC);   // 清除发送完成标志
-//     // 若需要，也可以读一次 DR 清除 ORE
-//     (void)USART_ReceiveData(USART3);
-// }
-
-void USART2_Init(uint32_t baudrate)
-{
-        GPIO_InitTypeDef  GPIO_InitStructure;
-    USART_InitTypeDef USART_InitStructure;
-    NVIC_InitTypeDef  NVIC_InitStructure;
-
-    /* ── 1. 开启时钟 ── */
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);   // GPIOB 时钟
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);  // USART3 时钟（APB1）
-    // 注意：USART3 使用 PB10/PB11 是默认复用功能，无需打开 AFIO 时钟
-
-    /* ── 2. 配置 TX 引脚 (PB10) ── */
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_2;
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;        // 复用推挽输出
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    /* ── 3. 配置 RX 引脚 (PB11) ── */
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_3;
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_IN_FLOATING;  // 浮空输入
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    /* ── 4. 配置 USART3 基本参数 ── */
-    USART_InitStructure.USART_BaudRate            = baudrate;
-    USART_InitStructure.USART_WordLength          = USART_WordLength_8b;
-    USART_InitStructure.USART_StopBits            = USART_StopBits_1;
-    USART_InitStructure.USART_Parity              = USART_Parity_No;
-    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-    USART_InitStructure.USART_Mode                = USART_Mode_Rx | USART_Mode_Tx;
-    USART_Init(USART2, &USART_InitStructure);
-
-    /* ── 5. 使能接收中断（可选，用于后台接收） ── */
-    USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);   // 接收缓冲区非空中断
-
-    /* ── 6. 配置 NVIC 中断优先级 ── */
-    NVIC_InitStructure.NVIC_IRQChannel                   = USART3_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority  = 1;   // 可根据系统调整
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority         = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd                 = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-
-    /* ── 7. 使能 USART3 ── */
-    USART_Cmd(USART2, ENABLE);
-
-    /* ── 8. 可选：清除上电杂散标志（防止第一次发送误判） ── */
-    USART_ClearFlag(USART2, USART_FLAG_TC);   // 清除发送完成标志
-    // 若需要，也可以读一次 DR 清除 ORE
-    (void)USART_ReceiveData(USART2);
-}
-
-// int main(void)
-// {
-//     system_common_init();
-//     // USART3_Init(115200);
-//     USART2_Init(115200);
-
-//     usart_printf(USART2, "uart2 hello\r\n");
-//     // usart_printf(USART3, "uart3 hello\r\n");
-
-//     nbiot_demo();
-
-// }
-// float ph;
-// float percent;
-
-// int main(void)
-// {
-//     system_common_init();
-
-//     ph4052_init();
-//     sh393_init();
-
-//     while(1)
-//     {
-//         ph4052_measure(&ph);
-//         sh393_measure(&percent);
-//         oled_clear(&oled);
-//         oled_show(&oled, 10, 10, 0, "ph: %.1f", ph);
-//         oled_show(&oled, 20, 30, 500, "soilhumi: %.1f", percent);
-//     }
-// }
 
 /****************************************************************
  * 发送端 main 函数
@@ -241,7 +107,7 @@ int main(void)
         }
 
         /* 4. 更新 OLED UI 显示 */
-        comm_status = get_comm_status();
+        // comm_status = get_comm_status();
         display_sensor_data(&local_data, &comm_status, key_val);
 
         /* 休眠等待硬件中断唤醒，极大降低传感器节点功耗 */
@@ -257,10 +123,7 @@ int main(void)
 #ifdef DEVICE_RECEIVER
 int main(void)
 {
-    USART2_Init(115200);
     system_common_init();
-
-    // nbiot_demo();
 
     /* ─── 初始化通信模块 ─── */
     transmission_lora_init();      /* 恢复：接收端必须初始化 LoRa 才能监听节点数据 */
@@ -310,7 +173,7 @@ int main(void)
         else 
         {
             /* 4. 无新数据时，仅刷新 UI 的通信信号状态和按键响应 */
-            display_sensor_data(NULL, &comm_status, key_val);
+            display_sensor_data(&display_data, &comm_status, key_val);
         }
 
         /* 休眠等待中断，降低系统整体功耗 */

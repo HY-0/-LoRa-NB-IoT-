@@ -66,6 +66,10 @@ targets:
       - Application/demo
       - Driver/BSP/led
       - Driver/CMSIS/startup
+      - Application/src/bh1750_demo.c
+      - Application/src/nbiot_demo.c
+      - Application/src/sht30_demo.c
+      - Application/src/lora_demo.c
     settings:
       debugger: cortex-debug
     toolchain: AC5
